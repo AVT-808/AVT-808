@@ -40,14 +40,19 @@ public class MyComponent extends JComponent {
         btnStop.setBounds(1190, 32, 70, 30);
         btnStop.setEnabled(false);
 
+        jCheckBox.setBounds(1190, 64, 70, 30);
+        add(jCheckBox);
+
         buttonGroup.add(jRadioButtonEnabled);
         buttonGroup.add(jRadioButtonDisabled);
+        jRadioButtonEnabled.setSelected(true);
+        jRadioButtonEnabled.setBounds(1190, 98, 70, 30);
+        jRadioButtonDisabled.setBounds(1190, 130, 70, 30);
+        add(jRadioButtonEnabled);
+        add(jRadioButtonDisabled);
 
         jMenuBar.add(jMenuStart);
         jMenuBar.add(jMenuStop);
-
-        jCheckBox.setBounds(1190, 64, 70, 30);
-        add(jCheckBox);
 
 
 
