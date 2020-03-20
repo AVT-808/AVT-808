@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Test:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2887f609-60c0-45ea-9e51-90b828c7fd71" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Test_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +37,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -110,6 +108,7 @@
       <workItem from="1584076689466" duration="6909000" />
       <workItem from="1584614894086" duration="18514000" />
       <workItem from="1584686252523" duration="11441000" />
+      <workItem from="1584707249723" duration="1181000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1584617992613</created>
@@ -170,6 +169,10 @@
     </state>
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584694979687" />
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584086913633" />
+    <state x="711" y="369" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584707306400">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="711" y="369" key="#com.intellij.ide.util.TreeClassChooserDialog/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584707306400" />
     <state x="585" y="110" key="CommitChangelistDialog2" timestamp="1584617991122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -218,14 +221,15 @@
     </state>
     <state width="1876" height="165" key="GridCell.Tab.1.right/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584641628431" />
     <state width="1877" height="223" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584088022810" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1583471579349">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1584707720483">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="461" y="162" key="SettingsEditor/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584707720483" />
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583471579349" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584686643735">
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584707252644">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584686643735" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584707252644" />
     <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584076689495" />
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584617874905">
       <screen x="0" y="0" width="1920" height="1040" />
