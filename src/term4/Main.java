@@ -15,7 +15,6 @@ public class Main {
         Habitat habitat = new Habitat();
         System.out.println( habitat.hasFocus());
 
-
         Timer timer = new Timer(1000, e -> habitat.update());
 
         habitat.update();
