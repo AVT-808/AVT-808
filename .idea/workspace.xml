@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2887f609-60c0-45ea-9e51-90b828c7fd71" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/CapitalHouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/CapitalHouse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/MyComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/MyComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/WoodenHouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/WoodenHouse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/term4/CapitalHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/term4/CapitalHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/term4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/term4/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/term4/MyComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/term4/MyComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/term4/WoodenHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/term4/WoodenHouse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +98,7 @@
       <workItem from="1583562365804" duration="3757000" />
       <workItem from="1584076689466" duration="6909000" />
       <workItem from="1584614894086" duration="18514000" />
-      <workItem from="1584686252523" duration="7842000" />
+      <workItem from="1584686252523" duration="8450000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1584617992613</created>
