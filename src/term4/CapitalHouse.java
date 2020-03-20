@@ -22,4 +22,5 @@ public class CapitalHouse extends House {
     public static double getProbability() { return probability; }
 
     public static void setProbability(double probability) { CapitalHouse.probability = probability; }
+
 }
