@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2887f609-60c0-45ea-9e51-90b828c7fd71" name="Default Changelist" comment="" />
+    <list default="true" id="2887f609-60c0-45ea-9e51-90b828c7fd71" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/term4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/term4/Main.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +109,7 @@
       <workItem from="1583562365804" duration="3757000" />
       <workItem from="1584076689466" duration="6909000" />
       <workItem from="1584614894086" duration="18514000" />
-      <workItem from="1584686252523" duration="10080000" />
+      <workItem from="1584686252523" duration="11441000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1584617992613</created>
@@ -165,25 +178,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583466556031" />
-    <state width="1876" height="141" key="GridCell.Tab.0.bottom" timestamp="1584695109342">
+    <state width="1876" height="141" key="GridCell.Tab.0.bottom" timestamp="1584700827619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="141" key="GridCell.Tab.0.bottom/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584695109342" />
+    <state width="1876" height="141" key="GridCell.Tab.0.bottom/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584700827619" />
     <state width="1877" height="223" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584088022810" />
-    <state width="1876" height="141" key="GridCell.Tab.0.center" timestamp="1584695109342">
+    <state width="1876" height="141" key="GridCell.Tab.0.center" timestamp="1584700827619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="141" key="GridCell.Tab.0.center/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584695109342" />
+    <state width="1876" height="141" key="GridCell.Tab.0.center/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584700827619" />
     <state width="1877" height="223" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584088022809" />
-    <state width="1876" height="141" key="GridCell.Tab.0.left" timestamp="1584695109342">
+    <state width="1876" height="141" key="GridCell.Tab.0.left" timestamp="1584700827619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="141" key="GridCell.Tab.0.left/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584695109342" />
+    <state width="1876" height="141" key="GridCell.Tab.0.left/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584700827619" />
     <state width="1877" height="223" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584088022809" />
-    <state width="1876" height="141" key="GridCell.Tab.0.right" timestamp="1584695109342">
+    <state width="1876" height="141" key="GridCell.Tab.0.right" timestamp="1584700827619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="141" key="GridCell.Tab.0.right/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584695109342" />
+    <state width="1876" height="141" key="GridCell.Tab.0.right/-1280.67.1280.984/-3200.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584700827619" />
     <state width="1877" height="223" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584088022810" />
     <state width="1876" height="165" key="GridCell.Tab.1.bottom" timestamp="1584641628431">
       <screen x="0" y="0" width="1920" height="1040" />
