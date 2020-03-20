@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class WoodenHouse extends House {
 
-    public static final int PERIOD = 3;
-    public static final double PROBABILITY = Math.random();
+    private static int period = 3;
+    private static  double probability = Math.random();
     private static int count;
 
     WoodenHouse(){
@@ -14,4 +14,12 @@ public class WoodenHouse extends House {
     }
 
     public static int getCount() { return count; }
+
+    public static int getPeriod() { return period; }
+
+    public static void setPeriod(int period) { WoodenHouse.period = period; }
+
+    public static double getProbability() { return probability; }
+
+    public static void setProbability(double probability) { WoodenHouse.probability = probability; }
 }
