@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OneLabora:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OneLabora_jar</output-path>
+    <root id="archive" name="OneLabora.jar">
+      <element id="module-output" name="OneLabora" />
+    </root>
+  </artifact>
+</component>
