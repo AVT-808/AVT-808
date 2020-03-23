@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="tehprog1:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f8197710-8a9d-4513-9edc-1bd02696277a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YQPfvUwnoIYsH6QZWWckDx7swH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tehprog.App" />
+      <module name="tehprog1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8197710-8a9d-4513-9edc-1bd02696277a" name="Default Changelist" comment="" />
+      <created>1582871951871</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582871951871</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="408" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584816536933">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="408" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584816536933" />
+    <state x="274" y="118" width="378" height="565" key="#com.intellij.ide.util.MemberChooser" timestamp="1584872621499">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="274" y="118" width="378" height="565" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1584872621499" />
+    <state x="676" y="174" width="529" height="417" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584816534864">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="676" y="174" width="529" height="417" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584816534864" />
+    <state x="733" y="212" width="428" height="474" key="FileChooserDialogImpl" timestamp="1584882256942">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="733" y="212" width="428" height="474" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1584882256942" />
+    <state width="901" height="269" key="GridCell.Tab.0.bottom" timestamp="1584979147688">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="901" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584979147688" />
+    <state width="901" height="269" key="GridCell.Tab.0.center" timestamp="1584979147688">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="901" height="269" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584979147688" />
+    <state width="901" height="269" key="GridCell.Tab.0.left" timestamp="1584979147688">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="901" height="269" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584979147688" />
+    <state width="901" height="269" key="GridCell.Tab.0.right" timestamp="1584979147688">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="901" height="269" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584979147688" />
+    <state x="898" y="-23" width="986" height="720" key="SettingsEditor" timestamp="1584882065383">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="898" y="-23" width="986" height="720" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584882065383" />
+    <state x="622" y="245" key="run.anything.popup" timestamp="1583474480921">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="622" y="245" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1583474480921" />
+    <state x="623" y="226" width="672" height="678" key="search.everywhere.popup" timestamp="1584872462123">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="226" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1584872462123" />
+  </component>
+</project>
