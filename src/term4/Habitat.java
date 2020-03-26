@@ -1,7 +1,6 @@
 package term4;
 
 import javax.swing.*;
-import java.awt.*;
 
 
 public class Habitat extends JComponent {
@@ -22,6 +21,8 @@ public class Habitat extends JComponent {
 
         jFrame.setJMenuBar(myComponent.getjMenuBar());
 
+        jFrame.setResizable(false);
+
         jFrame.setVisible(true);
     }
 
@@ -38,7 +39,6 @@ public class Habitat extends JComponent {
         System.out.println("Update");
 
         jFrame.requestFocus();
-//        jFrame.add(myComponent);
 
         jFrame.repaint();
 

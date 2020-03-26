@@ -13,6 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         Habitat habitat = new Habitat();
+
         System.out.println( habitat.hasFocus());
 
         Timer timer = new Timer(1000, e -> habitat.update());
@@ -44,6 +45,22 @@ public class Main {
                                 "Для деревянного дома значение периода выставлено по умолчанию (3 сек.)");
                     }
 
+                    try{
+                        CapitalHouse.setLifetime(Integer.parseInt(habitat.getMyComponent().getjTextFieldCapitalLifetime().getText()));
+                    }
+                    catch (RuntimeException re){
+                        JOptionPane.showMessageDialog(habitat.getMyComponent(),
+                                "Для капитального дома значение времени жизни выставлено по умолчанию (10 сек.)");
+                    }
+
+                    try {
+                        WoodenHouse.setLifetime(Integer.parseInt(habitat.getMyComponent().getjTextFieldWoodenLifetime().getText()));
+                    }
+                    catch (RuntimeException re){
+                        JOptionPane.showMessageDialog(habitat.getMyComponent(),
+                                "Для деревянного дома значение времени жизни выставлено по умолчанию (9 сек.)");
+                    }
+
                     habitat.getMyComponent().getjTextFieldCapitalPeriod().setEnabled(false);
                     habitat.getMyComponent().getjTextFieldWoodenPeriod().setEnabled(false);
 
@@ -52,6 +69,9 @@ public class Main {
 
                     habitat.getMyComponent().getjComboBoxWoodenProbability().setEnabled(false);
                     habitat.getMyComponent().getjComboBoxCapitalProbability().setEnabled(false);
+
+                    habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(false);
+                    habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(false);
                 }
             }
         });
@@ -62,30 +82,39 @@ public class Main {
                 if(e.getKeyChar() == 'e' || e.getKeyChar() == 'E'){
                     System.out.println("Pressed E");
 
-                    habitat.getMyComponent().getBtnStart().setEnabled(true);
-                    habitat.getMyComponent().getBtnStop().setEnabled(false);
-
                     if(habitat.getMyComponent().getjCheckBox().isSelected()){
                        isPaused = true;
                         switch (JOptionPane.showConfirmDialog(habitat.getMyComponent(),
                                 "Time: " + MyComponent.getTime() +
                                         "\nWooden House: " + WoodenHouse.getCount() +
                                         "\nCapital House: " + CapitalHouse.getCount() +
-                                        "\nTotal: " + MyComponent.getCount(),
+                                        "\nTotal: " + MyComponent.getTotal(),
                                 "Information",
-                                JOptionPane.OK_CANCEL_OPTION))
-                        {
-                            case JOptionPane.OK_OPTION:
+                                JOptionPane.OK_CANCEL_OPTION)) {
+                            case JOptionPane.OK_OPTION -> {
                                 timer.stop();
                                 isStopped = true;
                                 isPaused = false;
+
+                                habitat.getMyComponent().getjTextFieldCapitalPeriod().setEnabled(true);
+                                habitat.getMyComponent().getjTextFieldWoodenPeriod().setEnabled(true);
+
+                                habitat.getMyComponent().getBtnStart().setEnabled(true);
+                                habitat.getMyComponent().getBtnStop().setEnabled(false);
+
+                                habitat.getMyComponent().getjComboBoxWoodenProbability().setEnabled(true);
+                                habitat.getMyComponent().getjComboBoxCapitalProbability().setEnabled(true);
+
+                                habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(true);
+                                habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(true);
+
                                 habitat.update();
                                 System.out.println("OK");
-                                break;
-                            case JOptionPane.CANCEL_OPTION:
+                            }
+                            case JOptionPane.CANCEL_OPTION -> {
                                 System.out.println("Cancel");
                                 isPaused = false;
-                                break;
+                            }
                         }
 
                     }
@@ -152,6 +181,23 @@ public class Main {
                                 "Для деревянного дома значение периода выставлено по умолчанию (3 сек.)");
                     }
 
+                try{
+                    CapitalHouse.setLifetime(Integer.parseInt(habitat.getMyComponent().getjTextFieldCapitalLifetime().getText()));
+                }
+                catch (RuntimeException re){
+                    JOptionPane.showMessageDialog(habitat.getMyComponent(),
+                            "Для капитального дома значение времени жизни выставлено по умолчанию (10 сек.)");
+                }
+
+                try {
+                    WoodenHouse.setLifetime(Integer.parseInt(habitat.getMyComponent().getjTextFieldWoodenLifetime().getText()));
+                }
+                catch (RuntimeException re){
+                    JOptionPane.showMessageDialog(habitat.getMyComponent(),
+                            "Для деревянного дома значение времени жизни выставлено по умолчанию (9 сек.)");
+                }
+
+
                 habitat.getMyComponent().getjTextFieldCapitalPeriod().setEnabled(false);
                 habitat.getMyComponent().getjTextFieldWoodenPeriod().setEnabled(false);
 
@@ -160,6 +206,9 @@ public class Main {
 
                 habitat.getMyComponent().getjComboBoxWoodenProbability().setEnabled(false);
                 habitat.getMyComponent().getjComboBoxCapitalProbability().setEnabled(false);
+
+                habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(false);
+                habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(false);
             }
         });
 
@@ -167,30 +216,39 @@ public class Main {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                habitat.getMyComponent().getBtnStart().setEnabled(true);
-                habitat.getMyComponent().getBtnStop().setEnabled(false);
-
                 if(habitat.getMyComponent().getjCheckBox().isSelected()){
                     isPaused = true;
                     switch (JOptionPane.showConfirmDialog(habitat.getMyComponent(),
                             "Time: " + MyComponent.getTime() +
                                     "\nWooden House: " + WoodenHouse.getCount() +
                                     "\nCapital House: " + CapitalHouse.getCount() +
-                                    "\nTotal: " + MyComponent.getCount(),
+                                    "\nTotal: " + MyComponent.getTotal(),
                             "Information",
-                            JOptionPane.OK_CANCEL_OPTION))
-                    {
-                        case JOptionPane.OK_OPTION:
+                            JOptionPane.OK_CANCEL_OPTION)) {
+                        case JOptionPane.OK_OPTION -> {
                             timer.stop();
                             isStopped = true;
                             isPaused = false;
+
+                            habitat.getMyComponent().getjTextFieldCapitalPeriod().setEnabled(true);
+                            habitat.getMyComponent().getjTextFieldWoodenPeriod().setEnabled(true);
+
+                            habitat.getMyComponent().getBtnStart().setEnabled(true);
+                            habitat.getMyComponent().getBtnStop().setEnabled(false);
+
+                            habitat.getMyComponent().getjComboBoxWoodenProbability().setEnabled(true);
+                            habitat.getMyComponent().getjComboBoxCapitalProbability().setEnabled(true);
+
+                            habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(true);
+                            habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(true);
+
                             habitat.update();
                             System.out.println("OK");
-                            break;
-                        case JOptionPane.CANCEL_OPTION:
+                        }
+                        case JOptionPane.CANCEL_OPTION -> {
                             System.out.println("Cancel");
                             isPaused = false;
-                            break;
+                        }
                     }
 
                 }
@@ -284,6 +342,22 @@ public class Main {
                             "Для деревянного дома значение периода выставлено по умолчанию (3 сек.)");
                 }
 
+                try{
+                    CapitalHouse.setLifetime(Integer.parseInt(habitat.getMyComponent().getjTextFieldCapitalLifetime().getText()));
+                }
+                catch (RuntimeException re){
+                    JOptionPane.showMessageDialog(habitat.getMyComponent(),
+                            "Для капитального дома значение времени жизни выставлено по умолчанию (10 сек.)");
+                }
+
+                try {
+                    WoodenHouse.setLifetime(Integer.parseInt(habitat.getMyComponent().getjTextFieldWoodenLifetime().getText()));
+                }
+                catch (RuntimeException re){
+                    JOptionPane.showMessageDialog(habitat.getMyComponent(),
+                            "Для деревянного дома значение времени жизни выставлено по умолчанию (9 сек.)");
+                }
+
                 habitat.getMyComponent().getjTextFieldCapitalPeriod().setEnabled(false);
                 habitat.getMyComponent().getjTextFieldWoodenPeriod().setEnabled(false);
 
@@ -292,14 +366,15 @@ public class Main {
 
                 habitat.getMyComponent().getjComboBoxWoodenProbability().setEnabled(false);
                 habitat.getMyComponent().getjComboBoxCapitalProbability().setEnabled(false);
+
+                habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(false);
+                habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(false);
             }
         });
 
         habitat.getMyComponent().getjMenuStop().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                habitat.getMyComponent().getBtnStart().setEnabled(true);
-                habitat.getMyComponent().getBtnStop().setEnabled(false);
 
                 if(habitat.getMyComponent().getjCheckBox().isSelected()){
                     isPaused = true;
@@ -307,21 +382,33 @@ public class Main {
                             "Time: " + MyComponent.getTime() +
                                     "\nWooden House: " + WoodenHouse.getCount() +
                                     "\nCapital House: " + CapitalHouse.getCount() +
-                                    "\nTotal: " + MyComponent.getCount(),
+                                    "\nTotal: " + MyComponent.getTotal(),
                             "Information",
-                            JOptionPane.OK_CANCEL_OPTION))
-                    {
-                        case JOptionPane.OK_OPTION:
+                            JOptionPane.OK_CANCEL_OPTION)) {
+                        case JOptionPane.OK_OPTION -> {
                             timer.stop();
                             isStopped = true;
                             isPaused = false;
+
+                            habitat.getMyComponent().getjTextFieldCapitalPeriod().setEnabled(true);
+                            habitat.getMyComponent().getjTextFieldWoodenPeriod().setEnabled(true);
+
+                            habitat.getMyComponent().getBtnStart().setEnabled(true);
+                            habitat.getMyComponent().getBtnStop().setEnabled(false);
+
+                            habitat.getMyComponent().getjComboBoxWoodenProbability().setEnabled(true);
+                            habitat.getMyComponent().getjComboBoxCapitalProbability().setEnabled(true);
+
+                            habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(true);
+                            habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(true);
+
                             habitat.update();
                             System.out.println("OK");
-                            break;
-                        case JOptionPane.CANCEL_OPTION:
+                        }
+                        case JOptionPane.CANCEL_OPTION -> {
                             System.out.println("Cancel");
                             isPaused = false;
-                            break;
+                        }
                     }
 
                 }
@@ -331,6 +418,43 @@ public class Main {
                     isStopped = true;
                     habitat.update();
                 }
+            }
+        });
+
+        habitat.getMyComponent().getjTextFieldWoodenLifetime().addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                habitat.getMyComponent().getjTextFieldWoodenLifetime().setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(habitat.getMyComponent().getjTextFieldWoodenLifetime().getText().isEmpty()){
+                    habitat.getMyComponent().getjTextFieldWoodenLifetime().setText("Wooden Lifetime");
+                }
+            }
+        });
+
+        habitat.getMyComponent().getjTextFieldCapitalLifetime().addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                habitat.getMyComponent().getjTextFieldCapitalLifetime().setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(habitat.getMyComponent().getjTextFieldCapitalLifetime().getText().isEmpty()){
+                    habitat.getMyComponent().getjTextFieldCapitalLifetime().setText("Capital Lifetime");
+                }
+            }
+        });
+
+        habitat.getMyComponent().getBtnShow().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Singleton singleton = Singleton.getSingleton();
+                InformationDialog informationDialog = new InformationDialog(habitat.getJFrame());
+                informationDialog.showDialog(singleton.getHouseVector());
             }
         });
 

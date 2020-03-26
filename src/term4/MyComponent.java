@@ -3,20 +3,20 @@ package term4;
 
 import javax.swing.*;
 import java.awt.*;
-import java.text.Format;
 
 
 public class MyComponent extends JComponent {
 
     private static int count = 0;
-    private int[] x, y;
-    private AbstractFactory abstractFactory;
-    private House[] house;
+    private static int total = 0;
+
+    Singleton singleton = Singleton.getSingleton();
 
     private boolean isFirst = true;
     private static long time = -1;
     private JButton btnStart = new JButton("Start");
     private JButton btnStop = new JButton("Stop");
+    private JButton btnShow = new JButton("Current");
 
     private ButtonGroup buttonGroup = new ButtonGroup();
     private JRadioButton jRadioButtonEnabled = new JRadioButton("Enabled");
@@ -26,11 +26,14 @@ public class MyComponent extends JComponent {
 
     private JTextField jTextFieldWoodenPeriod = new JTextField("Wooden Period");
     private JTextField jTextFieldCapitalPeriod = new JTextField("Capital Period");
+    private JTextField jTextFieldCapitalLifetime = new JTextField("Capital Lifetime");
+    private JTextField jTextFieldWoodenLifetime = new JTextField("Wooden Lifetime");
+
 
     private Double[] selectionStep = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
 
-    private JComboBox<Double> jComboBoxWoodenProbability = new JComboBox<Double>(selectionStep);
-    private JComboBox<Double> jComboBoxCapitalProbability = new JComboBox<Double>(selectionStep);
+    private JComboBox<Double> jComboBoxWoodenProbability = new JComboBox<>(selectionStep);
+    private JComboBox<Double> jComboBoxCapitalProbability = new JComboBox<>(selectionStep);
 
     private JMenuBar jMenuBar = new JMenuBar();
     private JMenu jMenuStart = new JMenu("Start");
@@ -44,9 +47,6 @@ public class MyComponent extends JComponent {
 
 
     MyComponent(){
-        house = new House[1000];
-        x = new int[1000];
-        y = new int[1000];
         add(btnStart);
         add(btnStop);
         btnStart.setBounds(1180, 0, 80, 30);
@@ -66,13 +66,22 @@ public class MyComponent extends JComponent {
 
         jTextFieldWoodenPeriod.setBounds(1180, 162, 80, 23);
         add(jTextFieldWoodenPeriod);
-        jTextFieldCapitalPeriod.setBounds(1180,212, 80,23);
-        add(jTextFieldCapitalPeriod);
-
-        jComboBoxWoodenProbability.setBounds(1180, 187, 80, 23);
+        jTextFieldWoodenLifetime.setBounds(1180,187, 80,23);
+        add(jTextFieldWoodenLifetime);
+        jComboBoxWoodenProbability.setBounds(1180, 212, 80, 23);
         add(jComboBoxWoodenProbability);
-        jComboBoxCapitalProbability.setBounds(1180, 237, 80, 23);
+
+
+        jTextFieldCapitalPeriod.setBounds(1180, 237, 80, 23);
+        add(jTextFieldCapitalPeriod);
+        jTextFieldCapitalLifetime.setBounds(1180, 262, 80, 23);
+        add(jTextFieldCapitalLifetime);
+        jComboBoxCapitalProbability.setBounds(1180, 287, 80, 23);
         add(jComboBoxCapitalProbability);
+
+        btnShow.setBounds(1180, 319, 80, 30);
+        add(btnShow);
+
 
         jMenuBar.add(jMenuStart);
         jMenuBar.add(jMenuStop);
@@ -83,8 +92,6 @@ public class MyComponent extends JComponent {
         jMenuTimer.add(jMenuItemTimerOff);
         jMenuBar.add(jMenuTimer);
 
-
-
     }
 
     @Override
@@ -92,8 +99,6 @@ public class MyComponent extends JComponent {
         Graphics2D graphics2D = (Graphics2D)g;
 
         graphics2D.drawLine(1178, 0, 1178, 720);
-
-        //time++;
 
 
         if(isFirst){
@@ -109,7 +114,7 @@ public class MyComponent extends JComponent {
 
         if(Main.isPaused()){
             for(int i = 0; i < count; i++) {
-                house[i].getImg().paintIcon(this, g, x[i], y[i]);
+                singleton.getHouse(i).getImg().paintIcon(this, g, singleton.getX(i), singleton.getY(i));
             }
 
             if(Main.isTimeVisible()){
@@ -135,11 +140,10 @@ public class MyComponent extends JComponent {
 
             g.setFont(new Font("Calibri", Font.ITALIC, 20));
             g.setColor(Color.RED);
-            g.drawString("Total: " + MyComponent.getCount(), 560, 380);
+            g.drawString("Total: " + MyComponent.getTotal(), 560, 380);
 
 
-            for(int i = 0; i < house.length; i++)
-                house[i] = null;
+            singleton.clearArea();
 
 
             return;
@@ -149,20 +153,18 @@ public class MyComponent extends JComponent {
 
         if(Math.random() >= WoodenHouse.getProbability() && time % WoodenHouse.getPeriod() == 0) {
             System.out.println("Wooden");
-            x[count] = (int) (Math.random() * 1155);
-            y[count] = (int) (Math.random() * 700);
-            abstractFactory = ConcreteFactory.concreteFactory(TypeOfHouse.WOODEN);
-            house[count] = abstractFactory.createHouse();
+            singleton.setHouse(TypeOfHouse.WOODEN);
+            singleton.setPosition(count, (int) (Math.random() * 1155), (int) (Math.random() * 700));
             count++;
+            total++;
         }
 
         if(Math.random() >= CapitalHouse.getProbability() && time % CapitalHouse.getPeriod() == 0){
             System.out.println("Capital");
-            x[count] = (int) (Math.random() * 1155);
-            y[count] = (int) (Math.random() * 700);
-            abstractFactory = ConcreteFactory.concreteFactory(TypeOfHouse.CAPITAL);
-            house[count] = abstractFactory.createHouse();
+            singleton.setHouse(TypeOfHouse.CAPITAL);
+            singleton.setPosition(count, (int) (Math.random() * 1155), (int) (Math.random() * 700));
             count++;
+            total++;
         }
 
         if(Main.isTimeVisible()){
@@ -170,9 +172,22 @@ public class MyComponent extends JComponent {
         }
 
 
-
         for(int i = 0; i < count; i++) {
-            house[i].getImg().paintIcon(this, g, x[i], y[i]);
+            if(singleton.getHouse(i) instanceof CapitalHouse ){
+                if(time > singleton.getTimeOfBirth(i) + CapitalHouse.getLifetime()){
+                    singleton.destroyHouse(i);
+                    count--;
+                }
+            }
+            else if(singleton.getHouse(i) instanceof WoodenHouse ){
+                if(time > singleton.getTimeOfBirth(i) + WoodenHouse.getLifetime()){
+                    singleton.destroyHouse(i);
+                    count--;
+                }
+            }
+            if(i != count) {
+                singleton.getHouse(i).getImg().paintIcon(this, g, singleton.getX(i), singleton.getY(i));
+            }
         }
     }
 
@@ -211,4 +226,12 @@ public class MyComponent extends JComponent {
     public JMenu getjMenuStart() { return jMenuStart; }
 
     public JMenu getjMenuStop() { return jMenuStop; }
+
+    public JTextField getjTextFieldCapitalLifetime() { return jTextFieldCapitalLifetime; }
+
+    public JTextField getjTextFieldWoodenLifetime() { return jTextFieldWoodenLifetime; }
+
+    public JButton getBtnShow() { return btnShow; }
+
+    public static int getTotal() { return total; }
 }
