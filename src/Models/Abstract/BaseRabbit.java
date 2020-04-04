@@ -1,10 +1,7 @@
 package Models.Abstract;
-
-import Behaviour.IBehaviour;
-
 import java.awt.*;
 
-public abstract class BaseRabbit implements IBehaviour {
+public abstract class BaseRabbit {
     private Point coordinates;
     protected Image rabbitImage;
 

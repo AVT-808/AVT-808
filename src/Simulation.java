@@ -1,10 +1,11 @@
 import Habitat.Habitat;
 import Habitat.HabitatTask;
+
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Timer;
 
-class Simulation implements KeyListener {
+class Simulation extends KeyAdapter {
     private Timer timer;
     private HabitatTask habitatTask;
     private final Habitat habitat;
@@ -17,10 +18,6 @@ class Simulation implements KeyListener {
         habitat.addKeyListener(this);
         isStarted = false;
         isShown = true;
-    }
-
-    @Override
-    public void keyTyped(KeyEvent keyEvent) {
     }
 
     @Override
@@ -43,11 +40,6 @@ class Simulation implements KeyListener {
             isShown = !isShown;
             habitat.timerVisibility(isShown);
         }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent keyEvent) {
-
     }
 
     public static void main(String[] args) {

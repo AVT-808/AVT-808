@@ -10,6 +10,5 @@ public class NormalRabbit extends BaseRabbit {
     public NormalRabbit(Point coordinates) throws IOException {
         super(coordinates);
         this.rabbitImage = ImageIO.read(getClass().getResource("/Rabbit.png"));
-
     }
 }

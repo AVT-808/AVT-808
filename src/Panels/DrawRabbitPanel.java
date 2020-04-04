@@ -1,16 +1,16 @@
-package DrawPanel;
+package Panels;
 
 import Models.Abstract.BaseRabbit;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class DrawRabbit extends JPanel {
+public class DrawRabbitPanel extends JPanel {
 
     private final List<BaseRabbit> rabbits;
 
 
-    public DrawRabbit(List<BaseRabbit> rabbits){
+    public DrawRabbitPanel(List<BaseRabbit> rabbits){
         this.rabbits = rabbits;
     }
 
