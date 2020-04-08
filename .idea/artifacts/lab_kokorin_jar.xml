@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="lab_kokorin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/lab_kokorin_jar</output-path>
+    <root id="archive" name="lab_kokorin.jar">
+      <element id="module-output" name="lab_kokorin" />
+    </root>
+  </artifact>
+</component>
