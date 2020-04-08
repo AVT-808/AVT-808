@@ -3,9 +3,9 @@ package Habitat;
 import java.util.TimerTask;
 
 public class HabitatTask extends TimerTask {
-    private final Habitat habitat;
+    private final HabitatFrame habitat;
 
-    public HabitatTask(Habitat habitat){
+    public HabitatTask(HabitatFrame habitat){
         this.habitat = habitat;
     }
 

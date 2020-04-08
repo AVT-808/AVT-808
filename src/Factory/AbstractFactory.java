@@ -11,4 +11,6 @@ public interface AbstractFactory {
     BaseRabbit birth(Integer time, Point coordinates) throws IOException;//Родить объект BaseRabbit, содержащий в себе ссылку на наследника
 
     void destroy();//уничтожить скписок объектов
+
+    void setSimulationProperties(Integer normalRabbitBirthTime, Integer whiteRabbitBirthTime, Float normalRabbitBirthProbability, Float rabbitsPercent);
 }
