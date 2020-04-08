@@ -21,8 +21,8 @@ public class HabitatFrame extends JFrame {
     private final Singleton rabbits;
     private Integer time;
     private final DrawRabbitPanel drawRabbit;
-    private MenuPanel menuPanel;
-    private InformationPanel informationPanel;
+    private final MenuPanel menuPanel;
+    private final InformationPanel informationPanel;
     private Integer whiteRabbitsAmount;
     private Boolean isInformationPanelAllowed;
 

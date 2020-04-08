@@ -2,17 +2,15 @@ package Panels.Components;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuComponent extends JMenuBar{
-    private final JMenu simulationMenu;
-    private final JMenu viewMenu;
-    private final JMenu informationMenu;
-
-    private final JMenuItem simulationStartability;
-    private final JMenuItem timerVisibility;
-    private final JMenuItem informationViewability;
+    private final JMenu simulationMenu;//пункт меню бара
+    private final JMenu viewMenu;//пункт меню бара
+    private final JMenu informationMenu;//пункт меню бара
+    private final JMenuItem simulationStartability;//item меню
+    private final JMenuItem timerVisibility;//item меню
+    private final JMenuItem informationViewability;//item меню
 
 
     public MenuComponent(ActionListener actionListener){
@@ -37,18 +35,6 @@ public class MenuComponent extends JMenuBar{
         add(simulationMenu);
         add(viewMenu);
         add(informationMenu);
-    }
-
-    public JMenu getSimulationMenu() {
-        return simulationMenu;
-    }
-
-    public JMenu getViewMenu() {
-        return viewMenu;
-    }
-
-    public JMenu getInformationMenu() {
-        return informationMenu;
     }
 
     public JMenuItem getSimulationStartability() {

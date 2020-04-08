@@ -5,49 +5,32 @@ import java.awt.*;
 
 public class InformationDialog extends JDialog {
 
-    private JLabel timerResult;
-    private JLabel normalRabbitsResult;
-    private JLabel whiteRabbitsResult;
+    private final JTextArea results;
 
     public InformationDialog(JFrame frame, String title, Integer time, Integer normalRabbitsAmount, Integer whiteRabbitsAmount) {
         super(frame, title, false);
+        setLayout(new BorderLayout());
+        results = new JTextArea();
+        String timerResult = "Время симуляции: " + time + "\n";
 
-        this.timerResult = new JLabel("Время симуляции: " + time);
-        this.timerResult.setFont(new Font("Courier New", Font.ITALIC,16));
-        this.timerResult.setForeground(Color.RED);
+        String normalRabbitsResult = "Количество обычных кроликов: " + normalRabbitsAmount + "\n";
 
-        this.normalRabbitsResult = new JLabel("Количество обычных кроликов: " + normalRabbitsAmount);
-        this.normalRabbitsResult.setFont(new Font("Calibri", Font.ITALIC,15));
-        this.normalRabbitsResult.setForeground(Color.GREEN);
-
-        this.whiteRabbitsResult = new JLabel("Количество кроликов альбиносов: " + whiteRabbitsAmount);
-        this.whiteRabbitsResult.setFont(new Font("Times New Roman", Font.ITALIC,14));
-        this.whiteRabbitsResult.setForeground(Color.BLUE);
-
+        String whiteRabbitsResult = "Количество кроликов альбиносов: " + whiteRabbitsAmount + "\n";
+        results.append(timerResult);
+        results.append(normalRabbitsResult);
+        results.append(whiteRabbitsResult);
+        results.setEditable(false);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setSize(300, 300);
-        setLayout(new GridLayout(3,1));
-
-        this.timerResult.setHorizontalAlignment(SwingConstants.CENTER);
-        add(this.timerResult);
-
-
-        this.normalRabbitsResult.setHorizontalAlignment(SwingConstants.CENTER);
-        add(this.normalRabbitsResult);
-
-
-        this.whiteRabbitsResult.setHorizontalAlignment(SwingConstants.CENTER);
-        add(this.whiteRabbitsResult);
+        setSize(new Dimension(300,300));
+        add(results);
 
         this.setModal(true);
 
     }
 
     public void viewInformation(){
-        this.timerResult.setVisible(true);
-        this.normalRabbitsResult.setVisible(true);
-        this.whiteRabbitsResult.setVisible(true);
+        results.setVisible(true);
         setVisible(true);
     }
 }

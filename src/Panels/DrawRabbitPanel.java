@@ -4,7 +4,6 @@ import Habitat.RabbitList.Singleton;
 import Models.Abstract.BaseRabbit;
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class DrawRabbitPanel extends JPanel {
 

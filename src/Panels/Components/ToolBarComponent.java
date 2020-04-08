@@ -1,27 +1,21 @@
 package Panels.Components;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class ToolBarComponent extends JToolBar {
-    private final JButton startSimulation;
-    private final JButton stopSimulation;
-    private final JCheckBox isInformationPanelAllowed;
-    private final ButtonGroup timerPanelVisability;
-    private final JRadioButton timerAllowed;
-    private final JRadioButton timerNotAllowed;
-    private final JTextField normalRabbitBirthTime;
-    private final JTextField whiteRabbitBirthTime;
-    private final JComboBox normalRabbitBirthProbability;
-    private final JComboBox rabbitsPercent;
-    private Float[] probabilityArray = {0.1f,0.2f,0.3f,0.4f,0.5f,0.6f,0.7f,0.8f,0.9f,1f};
-    private Float[] rabbitsPercentArray = {0.1f,0.2f,0.3f,0.4f,0.5f,0.6f,0.7f,0.8f,0.9f,1f};
+    private final JButton startSimulation;//начать симуляцию
+    private final JButton stopSimulation;//закончить симуляцию
+    private final JCheckBox isInformationPanelAllowed;//чекбокс показа диалогового окна
+    private final ButtonGroup timerPanelVisability;//группа кнопок
+    private final JRadioButton timerAllowed;//показ таймера
+    private final JRadioButton timerNotAllowed;//убрать таймр
+    private final JTextField normalRabbitBirthTime;//поле для получения времени рождения
+    private final JTextField whiteRabbitBirthTime;//поле для получения времени рождения
+    private final JComboBox normalRabbitBirthProbability;//вероятность рождения
+    private final JComboBox rabbitsPercent;// процент от общего числа кроликов
 
 
     public ToolBarComponent(ActionListener actionListener) {
@@ -66,7 +60,9 @@ public class ToolBarComponent extends JToolBar {
         normalRabbitBirthTime = new JTextField();
         whiteRabbitBirthTime = new JTextField();
 
+        Float[] probabilityArray = {0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f};
         normalRabbitBirthProbability = new JComboBox(probabilityArray);
+        Float[] rabbitsPercentArray = {0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f};
         rabbitsPercent = new JComboBox(rabbitsPercentArray);
 
 
@@ -103,10 +99,6 @@ public class ToolBarComponent extends JToolBar {
 
     public JCheckBox getIsInformationPanelAllowed() {
         return isInformationPanelAllowed;
-    }
-
-    public ButtonGroup getTimerPanelVisibility() {
-        return timerPanelVisability;
     }
 
     public JRadioButton getTimerAllowed() {

@@ -13,15 +13,8 @@ public abstract class BaseRabbit {
         return rabbitImage;
     }
 
-    public void setRabbitImage(Image rabbitImage) {
-        this.rabbitImage = rabbitImage;
-    }
-
     public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Point coordinates) {
-        this.coordinates = coordinates;
-    }
 }
