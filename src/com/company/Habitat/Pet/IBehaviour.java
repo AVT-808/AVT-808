@@ -6,4 +6,5 @@ public interface IBehaviour {
     int getID();
     void setX(int x);
     void setY(int y);
+    void move();
 }

@@ -28,8 +28,6 @@ public class infDialog extends JDialog {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
 
-        //add(new MyComponent(thisWindow,time));
-
 
         okButton.addActionListener(e -> {
             owner.dispose();
@@ -50,36 +48,5 @@ public class infDialog extends JDialog {
 
     }
 
-//    static class MyComponent extends JComponent{
-//        private Habitat window;
-//        private int myTimer;
-//
-//        MyComponent(Habitat thatWindow, int time){
-//            window = thatWindow;
-//            myTimer = time;
-//        }
-//        @Override
-//        protected void paintComponent(Graphics g) {
-//            super.paintComponent(g);
-//            g.setColor(Color.BLACK);
-//            Font myFont=new Font("Arial",Font.BOLD,20);
-//            g.setFont(myFont);
-//            g.drawString("Время работы: " + myTimer,100,100);
-//            g.setColor(Color.GREEN);
-//            myFont=new Font("Times new Roman",Font.ITALIC,20);
-//            g.setFont(myFont);
-//            g.drawString("Количество кошек: "+window.cats ,100,140);
-//            g.setColor(Color.ORANGE);
-//            myFont=new Font("Calibri",Font.PLAIN,20);
-//            g.setFont(myFont);
-//            g.drawString("Количество собак: "+window.dogs ,100,180);
-//            g.setColor(Color.RED);
-//            myFont=new Font("Georgia",Font.BOLD + Font.ITALIC,20);
-//            g.setFont(myFont);
-//            int quantityPet = window.dogs + window.cats;
-//            g.drawString("Всего питомцев: "+quantityPet ,100,220);
-//
-//        }
-//    }
 
 }

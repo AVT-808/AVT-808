@@ -1,11 +1,12 @@
 package com.company;
 
 
+import com.company.BaseAI.AI.CatAI;
+import com.company.BaseAI.AI.DogAI;
 import com.company.Habitat.Habitat;
 import com.company.Habitat.Pet.Creatures.Cat;
 import com.company.Habitat.Pet.Creatures.Dog;
 import com.company.Single.Singleton;
-import javafx.scene.layout.Border;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +34,13 @@ public class GUI extends JPanel {
     boolean beginning = true;
 
     JFrame jFrame;
+    CatAI catAI = new CatAI();
+    DogAI dogAI = new DogAI();
 
+    public JButton buttonCatAI = new JButton("Cat AI");
+    ActionListener actionListenerForCatAI = new catAIActionListener();
+    public JButton buttonDogAI = new JButton("Dog Ai");
+    ActionListener actionListenerForDogAI = new dogAIActionListener();
     public JButton run = new JButton("Run");
     public JButton pause = new JButton("Pause");
     public JButton history = new JButton("History");
@@ -45,6 +52,8 @@ public class GUI extends JPanel {
     public JLabel selectDogsTimeSpawn = new JLabel("Spawn dog:");
     public JLabel selectCatsSpawn = new JLabel("Chance cat:");
     public JLabel selectDogsSpawn = new JLabel("Chance dog:");
+    public JLabel selectCatsAI = new JLabel("Cats AI:");
+    public JLabel selectDogsAI = new JLabel("Dogs AI:");
     ButtonGroup group = new ButtonGroup();
 
     public JCheckBox screenResolution = new JCheckBox("Show info when press \"Stop\" ");
@@ -67,9 +76,16 @@ public class GUI extends JPanel {
     public JComboBox dogsComboBox = new JComboBox();
     ActionListener dogsComboBoxActionListener = new dogsComboBoxActionListener();
 
+    public JComboBox priorityCatAI = new JComboBox();
+    ActionListener priorityAIActionListenerForCats = new priorityCatAIActionListener();
+
+    public JComboBox priorityDogAI = new JComboBox();
+    ActionListener priorityAIActionListenerForDogs = new priorityDogAIActionListener();
+
     public GUI(Habitat window, JFrame jFrame){
         this.window = window;
         this.jFrame = jFrame;
+
 
         lifeCats.addActionListener(actionListenerLifeCats);
         lifeDogs.addActionListener(actionListenerLifeDogs);
@@ -79,6 +95,8 @@ public class GUI extends JPanel {
         spawnDogs.setToolTipText("Select time spawn for dog");
         catsComboBox.setToolTipText("Select chance spawn for cat");
         dogsComboBox.setToolTipText("Select chance spawn for dog");
+        priorityCatAI.setToolTipText("Select cats priority AI");
+        priorityDogAI.setToolTipText("Select cats priority AI");
 
         catsComboBox.addItem("0%");
         catsComboBox.addItem("10%");
@@ -110,6 +128,34 @@ public class GUI extends JPanel {
         dogsComboBox.setBackground(Color.white);
         dogsComboBox.setPreferredSize(new Dimension(130,30));
 
+        priorityCatAI.addItem("1");
+        priorityCatAI.addItem("2");
+        priorityCatAI.addItem("3");
+        priorityCatAI.addItem("4");
+        priorityCatAI.addItem("5");
+        priorityCatAI.addItem("6");
+        priorityCatAI.addItem("7");
+        priorityCatAI.addItem("8");
+        priorityCatAI.addItem("9");
+        priorityCatAI.addItem("10");
+        priorityCatAI.setSelectedIndex(4);
+        priorityCatAI.setBackground(Color.white);
+        priorityCatAI.setPreferredSize(new Dimension(130,30));
+
+        priorityDogAI.addItem("1");
+        priorityDogAI.addItem("2");
+        priorityDogAI.addItem("3");
+        priorityDogAI.addItem("4");
+        priorityDogAI.addItem("5");
+        priorityDogAI.addItem("6");
+        priorityDogAI.addItem("7");
+        priorityDogAI.addItem("8");
+        priorityDogAI.addItem("9");
+        priorityDogAI.addItem("10");
+        priorityDogAI.setSelectedIndex(4);
+        priorityDogAI.setBackground(Color.white);
+        priorityDogAI.setPreferredSize(new Dimension(130,30));
+
         spawnCats.setText(String.valueOf(window.getN1()));
         spawnCats.addActionListener(actionListenerForCats);
         spawnDogs.setText(String.valueOf(window.getN2()));
@@ -117,9 +163,17 @@ public class GUI extends JPanel {
         catsComboBox.addActionListener(catsComboBoxActionListener);
         dogsComboBox.addActionListener(dogsComboBoxActionListener);
         history.addActionListener(actionListenerForHistory);
+        buttonCatAI.addActionListener(actionListenerForCatAI);
+        buttonDogAI.addActionListener(actionListenerForDogAI);
+        priorityCatAI.addActionListener(priorityAIActionListenerForCats);
+        priorityDogAI.addActionListener(priorityAIActionListenerForDogs);
 
+        add(buttonCatAI);
+        add(buttonDogAI);
         add(catsComboBox);
         add(dogsComboBox);
+        add(priorityCatAI);
+        add(priorityDogAI);
         group.add(showTime);
         group.add(hideTime);
         showTime.setBackground(Color.white);
@@ -134,6 +188,8 @@ public class GUI extends JPanel {
         add(selectCatsSpawn);
         add(selectDogsTimeSpawn);
         add(selectDogsSpawn);
+        add(selectCatsAI);
+        add(selectDogsAI);
         add(history);
         add(lifeCats);
         add(lifeDogs);
@@ -158,6 +214,8 @@ public class GUI extends JPanel {
          if(beginning){
             selectLifeOfCats.setVisible(false);
             selectLifeOfDogs.setVisible(false);
+            buttonCatAI.setVisible(false);
+            buttonDogAI.setVisible(false);
             lifeCats.setVisible(false);
             lifeDogs.setVisible(false);
             history.setVisible(false);
@@ -165,8 +223,12 @@ public class GUI extends JPanel {
             selectDogsTimeSpawn.setVisible(false);
             selectCatsSpawn.setVisible(false);
             selectDogsSpawn.setVisible(false);
+            selectCatsAI.setVisible(false);
+            selectDogsAI.setVisible(false);
             catsComboBox.setVisible(false);
             dogsComboBox.setVisible(false);
+            priorityCatAI.setVisible(false);
+            priorityDogAI.setVisible(false);
             spawnCats.setVisible(false);
             spawnDogs.setVisible(false);
             selectTime.setVisible(false);
@@ -188,12 +250,16 @@ public class GUI extends JPanel {
         selectDogsTimeSpawn.setBounds(670,30,200,30);
         selectCatsSpawn.setBounds(990,0,130,30);
         selectDogsSpawn.setBounds(990,30,140,30);
+        selectCatsAI.setBounds(1015,60,50,30);
+        selectDogsAI.setBounds(1015,90,50,30);
         lifeCats.setBounds(880,0,100,30);
         lifeDogs.setBounds(880,30,100,30);
         selectLifeOfCats.setBounds(830,0,100,30);
         selectLifeOfDogs.setBounds(830,30,100,30);
         catsComboBox.setBounds(1060,0,150,30);
         dogsComboBox.setBounds(1060,30,150,30);
+        priorityCatAI.setBounds(1060,60,150,30);
+        priorityDogAI.setBounds(1060,90,150,30);
 
         spawnCats.setBounds(740,0,60,30);
         spawnDogs.setBounds(740,30,60,30);
@@ -204,10 +270,12 @@ public class GUI extends JPanel {
         run.setBounds(0,0,80,30);
         pause.setBounds(0,30,80,30);
         screenResolution.setLocation(200,0);
+        buttonCatAI.setBounds(300,30,70,15);
+        buttonDogAI.setBounds(300,45,70,15);
 
         if(lineVisible) {
             g.setColor(Color.white);
-            g.fillRect(0, 0, 10000, 60);
+            g.fillRect(0, 0, 10000, 120);
         }
         if(timeVisible) {
             g.setColor(Color.BLACK);
@@ -278,6 +346,8 @@ public class GUI extends JPanel {
                     case VK_B:
                         if(!useKeys)break;
                         if(!isPressedOnB) {
+                            buttonCatAI.setVisible(true);
+                            buttonDogAI.setVisible(true);
                             selectLifeOfCats.setVisible(true);
                             selectLifeOfDogs.setVisible(true);
                             lifeCats.setVisible(true);
@@ -299,10 +369,16 @@ public class GUI extends JPanel {
                             selectDogsTimeSpawn.setVisible(true);
                             selectCatsSpawn.setVisible(true);
                             selectDogsSpawn.setVisible(true);
+                            selectCatsAI.setVisible(true);
+                            selectDogsAI.setVisible(true);
                             catsComboBox.setVisible(true);
                             catsComboBox.setEnabled(false);
                             dogsComboBox.setVisible(true);
                             dogsComboBox.setEnabled(false);
+                            priorityCatAI.setVisible(true);
+                            priorityCatAI.setEnabled(false);
+                            priorityDogAI.setVisible(true);
+                            priorityDogAI.setEnabled(false);
                             selectTime.setVisible(true);
                             showTime.setVisible(true);
                             hideTime.setVisible(true);
@@ -329,7 +405,6 @@ public class GUI extends JPanel {
                                 showTime.setSelected(false);
                                 hideTime.setSelected(true);
                             }
-
                             repaint();
                         }
                         break;
@@ -357,13 +432,17 @@ public class GUI extends JPanel {
                         selectDogsTimeSpawn.setVisible(false);
                         selectCatsSpawn.setVisible(false);
                         selectDogsSpawn.setVisible(false);
+                        selectCatsAI.setVisible(false);
+                        selectDogsAI.setVisible(false);
                         spawnCats.setVisible(false);
                         spawnDogs.setVisible(false);
                         catsComboBox.setVisible(false);
                         dogsComboBox.setVisible(false);
+                        priorityCatAI.setVisible(false);
+                        priorityDogAI.setVisible(false);
+                        buttonCatAI.setVisible(false);
+                        buttonDogAI.setVisible(false);
                         window.allClear();
-
-
 
                         repaint();
                         break;
@@ -418,6 +497,12 @@ public class GUI extends JPanel {
 
         run.addActionListener(e -> {
             if(!isPressedOn) {
+                if (catAI.isFlag()) {
+                    catAI.startAI();
+                }
+                if (dogAI.isFlag()) {
+                    dogAI.startAI();
+                }
                 timerTask.StartWork();
                 run.setEnabled(false);
                 pause.setEnabled(true);
@@ -428,12 +513,20 @@ public class GUI extends JPanel {
                 isPressedOn = true;
                 catsComboBox.setEnabled(false);
                 dogsComboBox.setEnabled(false);
+                priorityCatAI.setEnabled(false);
+                priorityDogAI.setEnabled(false);
                 lifeCats.setEnabled(false);
                 lifeDogs.setEnabled(false);
                 repaint();
             }
         });isPressedOn = false;
         pause.addActionListener(e -> {
+            if (!catAI.isFlag()) {
+                catAI.stopAI();
+            }
+            if (!dogAI.isFlag()) {
+                dogAI.stopAI();
+            }
             timerTask.WaitWork();
             run.setEnabled(true);
             pause.setEnabled(false);
@@ -441,6 +534,8 @@ public class GUI extends JPanel {
             pause.setBackground(Color.RED);
             catsComboBox.setEnabled(true);
             dogsComboBox.setEnabled(true);
+            priorityCatAI.setEnabled(true);
+            priorityDogAI.setEnabled(true);
             spawnCats.setEnabled(true);
             spawnDogs.setEnabled(true);
             lifeCats.setEnabled(true);
@@ -626,8 +721,27 @@ public class GUI extends JPanel {
             infFrame.setVisible(true);
         }
     }
+    private class catAIActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (catAI.isFlag()) {
+                catAI.startAI();
+            } else {
+                catAI.stopAI();
+            }
 
-
+        }
+    }
+    private class dogAIActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (dogAI.isFlag()) {
+                dogAI.startAI();
+            } else {
+                dogAI.stopAI();
+            }
+        }
+    }
     public class MyTimerTask {
         public Timer timer = new Timer(true);
 
@@ -656,5 +770,87 @@ public class GUI extends JPanel {
             timer.cancel();
             timer = new Timer();
         }
+    }
+    private class priorityCatAIActionListener implements ActionListener {
+        int num;
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            num = priorityCatAI.getSelectedIndex();
+            switch (num) {
+                case 0:
+                    catAI.setPriority(1);
+                    break;
+                case 1:
+                    catAI.setPriority(2);
+                    break;
+                case 2:
+                    catAI.setPriority(3);
+                    break;
+                case 3:
+                    catAI.setPriority(4);
+                    break;
+                case 4:
+                    catAI.setPriority(5);
+                    break;
+                case 5:
+                    catAI.setPriority(6);
+                    break;
+                case 6:
+                    catAI.setPriority(7);
+                    break;
+                case 7:
+                    catAI.setPriority(8);
+                    break;
+                case 8:
+                    catAI.setPriority(9);
+                    break;
+                case 9:
+                    catAI.setPriority(10);
+                    break;
+            }
+            requestFocusInWindow();
+        }
+
+    }
+    private class priorityDogAIActionListener implements ActionListener {
+        int num;
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            num = priorityDogAI.getSelectedIndex();
+            switch (num) {
+                case 0:
+                    dogAI.setPriority(1);
+                    break;
+                case 1:
+                    dogAI.setPriority(2);
+                    break;
+                case 2:
+                    dogAI.setPriority(3);
+                    break;
+                case 3:
+                    dogAI.setPriority(4);
+                    break;
+                case 4:
+                    catAI.setPriority(5);
+                    break;
+                case 5:
+                    dogAI.setPriority(6);
+                    break;
+                case 6:
+                    dogAI.setPriority(7);
+                    break;
+                case 7:
+                    dogAI.setPriority(8);
+                    break;
+                case 8:
+                    dogAI.setPriority(9);
+                    break;
+                case 9:
+                    dogAI.setPriority(10);
+                    break;
+            }
+            requestFocusInWindow();
+        }
+
     }
 }

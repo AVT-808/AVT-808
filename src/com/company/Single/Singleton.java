@@ -1,5 +1,6 @@
 package com.company.Single;
 
+import com.company.Habitat.Habitat;
 import com.company.Habitat.Pet.Pet;
 
 import java.util.ArrayList;
@@ -8,12 +9,20 @@ import java.util.TreeSet;
 
 public class Singleton implements mySingle {
     private static final Singleton singleton = new Singleton();
-    ArrayList<Pet> array = new ArrayList<>();
+    Habitat window;
+    public ArrayList<Pet> array = new ArrayList<>();
     TreeSet<Integer> petsID = new TreeSet<>();
     HashMap<Integer,Integer> petsLife = new HashMap<>();
 
     private Singleton(){
 
+    }
+    public void setHabitat(Habitat habitat){
+        window = habitat;
+    }
+
+    public Habitat getWindow() {
+        return window;
     }
 
     public void SetID(int id){
