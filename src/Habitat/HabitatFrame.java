@@ -5,7 +5,6 @@ import Panels.DrawRabbitPanel;
 import Factory.AbstractFactory;
 import Factory.ConcreteFactory;
 import Models.Abstract.BaseRabbit;
-import Models.WhiteRabbit;
 import Panels.InformationDialog;
 import Panels.InformationPanel;
 import Panels.MenuPanel;
@@ -23,7 +22,6 @@ public class HabitatFrame extends JFrame {
     private final DrawRabbitPanel drawRabbit;
     private final MenuPanel menuPanel;
     private final InformationPanel informationPanel;
-    private Integer whiteRabbitsAmount;
     private Boolean isInformationPanelAllowed;
 
     public HabitatFrame(String title, ActionListener actionListener) {
@@ -53,12 +51,11 @@ public class HabitatFrame extends JFrame {
         add(informationPanel);
         add(drawRabbit);
 
-        whiteRabbitsAmount=0;
     }
 
     public void stop(){//остановить отрисовку среды
         if(isInformationPanelAllowed) {
-            InformationDialog informationDialog = new InformationDialog(this,"Информация",time,factory.getAmountOfBirth() - whiteRabbitsAmount,whiteRabbitsAmount);
+            InformationDialog informationDialog = new InformationDialog(this,"Информация",time, factory.getAmountOfNormalRabbits(), factory.getAmountOfWhiteRabbits());
             informationDialog.viewInformation();
         }
         factory.destroy();
@@ -90,8 +87,6 @@ public class HabitatFrame extends JFrame {
             BaseRabbit rabbit = factory.birth(time, coordinates);
             informationPanel.setRabbitsAmount(factory.getAmountOfBirth());
             if(rabbit != null) {
-                if (rabbit.getClass() == WhiteRabbit.class)
-                    whiteRabbitsAmount++;
                 rabbits.addRabbit(rabbit);
                 drawRabbit.repaint();
             }

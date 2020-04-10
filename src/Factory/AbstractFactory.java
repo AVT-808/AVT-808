@@ -13,4 +13,8 @@ public interface AbstractFactory {
     void destroy();//уничтожить скписок объектов
 
     void setSimulationProperties(Integer normalRabbitBirthTime, Integer whiteRabbitBirthTime, Float normalRabbitBirthProbability, Float rabbitsPercent);
+
+    Integer getAmountOfNormalRabbits();
+    Integer getAmountOfWhiteRabbits();
+
 }

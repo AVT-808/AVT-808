@@ -77,7 +77,6 @@ class Simulation extends KeyAdapter implements ActionListener{
         }
 
         habitat.requestFocus();
-
     }
 
     private void startSimulation(){

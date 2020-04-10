@@ -7,7 +7,7 @@ import java.util.List;
 
 public final class Singleton {
     private static Singleton instance;
-    public final List<BaseRabbit> rabbits;
+    private final List<BaseRabbit> rabbits;
 
     private Singleton() {
         rabbits = new ArrayList<>();
@@ -24,6 +24,10 @@ public final class Singleton {
 
     public static List<BaseRabbit> getRabbits(){
         return instance.rabbits;
+    }
+
+    public static Integer getRabbitsAmount(){
+        return instance.rabbits.size();
     }
 
     public static Singleton getInstance(){
