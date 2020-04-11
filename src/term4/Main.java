@@ -1,7 +1,6 @@
 package term4;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 
@@ -13,6 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
         Habitat habitat = new Habitat();
+
+        CapitalHouseAI capitalHouseAI = new CapitalHouseAI();
+        WoodenHouseAI woodenHouseAI = new WoodenHouseAI();
 
         System.out.println( habitat.hasFocus());
 
@@ -72,6 +74,9 @@ public class Main {
 
                     habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(false);
                     habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(false);
+
+                    habitat.getMyComponent().getjComboBoxWoodenPriority().setEnabled(false);
+                    habitat.getMyComponent().getjComboBoxCapitalPriority().setEnabled(false);
                 }
             }
         });
@@ -107,6 +112,9 @@ public class Main {
 
                                 habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(true);
                                 habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(true);
+
+                                habitat.getMyComponent().getjComboBoxWoodenPriority().setEnabled(true);
+                                habitat.getMyComponent().getjComboBoxCapitalPriority().setEnabled(true);
 
                                 habitat.update();
                                 System.out.println("OK");
@@ -209,6 +217,10 @@ public class Main {
 
                 habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(false);
                 habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(false);
+
+                habitat.getMyComponent().getjComboBoxWoodenPriority().setEnabled(false);
+                habitat.getMyComponent().getjComboBoxCapitalPriority().setEnabled(false);
+
             }
         });
 
@@ -241,6 +253,9 @@ public class Main {
 
                             habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(true);
                             habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(true);
+
+                            habitat.getMyComponent().getjComboBoxWoodenPriority().setEnabled(true);
+                            habitat.getMyComponent().getjComboBoxCapitalPriority().setEnabled(true);
 
                             habitat.update();
                             System.out.println("OK");
@@ -457,6 +472,30 @@ public class Main {
                 informationDialog.showDialog(singleton.getHouseVector());
             }
         });
+
+        habitat.getMyComponent().getjCheckBoxWoodenHouseAI().addActionListener(e -> {
+            if(habitat.getMyComponent().getjCheckBoxWoodenHouseAI().isSelected()){
+                woodenHouseAI.startAI();
+            }
+            else {
+                woodenHouseAI.stopAI();
+            }
+        });
+
+        habitat.getMyComponent().getjCheckBoxCapitalHouseAI().addActionListener(e -> {
+            if(habitat.getMyComponent().getjCheckBoxCapitalHouseAI().isSelected()){
+                capitalHouseAI.startAI();
+            }
+            else {
+                capitalHouseAI.stopAI();
+            }
+        });
+
+        habitat.getMyComponent().getjComboBoxWoodenPriority().addActionListener(e ->
+                woodenHouseAI.setTheadPriority((int)habitat.getMyComponent().getjComboBoxWoodenPriority().getSelectedItem()));
+
+        habitat.getMyComponent().getjComboBoxCapitalPriority().addActionListener(e ->
+                capitalHouseAI.setTheadPriority((int)habitat.getMyComponent().getjComboBoxCapitalPriority().getSelectedItem()));
 
     }
 

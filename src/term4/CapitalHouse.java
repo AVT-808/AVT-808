@@ -14,7 +14,27 @@ public class CapitalHouse extends House {
         count++;
         id = Math.random();
         typeOfHouse = TypeOfHouse.CAPITAL;
+        speed = (int) (Math.random() * ((Math.random() * 10) % 4) * 10);
     }
+
+    @Override
+    public void move() {
+        if(inArea()){
+            return;
+        }
+        if(getX() >= 70 && getY() >= 70){
+            setPosition(getX() - speed, getY() - speed);
+        }
+        else if (getX() >= 70){
+            setX(getX() - speed);
+        }
+        else if(getY() >= 70){
+            setY(getY() - speed);
+        }
+    }
+
+    @Override
+    public boolean inArea() { return getX() < 1178 / 2 && getY() < 720 / 2; }
 
     public static int getCount() { return count; }
 

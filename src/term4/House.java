@@ -9,6 +9,8 @@ public abstract class House implements IBehaviour {
     private int y;
     protected double id;
     TypeOfHouse typeOfHouse;
+    protected int speed;
+
 
     public ImageIcon getImg() { return img; }
 

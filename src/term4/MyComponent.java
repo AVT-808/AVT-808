@@ -45,6 +45,14 @@ public class MyComponent extends JComponent {
     private JMenuItem jMenuItemTimerOn = new JMenuItem("On");
     private JMenuItem jMenuItemTimerOff = new JMenuItem("Off");
 
+    private JCheckBox jCheckBoxWoodenHouseAI = new JCheckBox("WoodenAI", true);
+    private JCheckBox jCheckBoxCapitalHouseAI = new JCheckBox("CapitalAI", true);
+
+    private Integer[] selectionPriorityStep = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    private JComboBox<Integer> jComboBoxWoodenPriority = new JComboBox<>(selectionPriorityStep);
+    private JComboBox<Integer> jComboBoxCapitalPriority = new JComboBox<>(selectionPriorityStep);
+
 
     MyComponent(){
         add(btnStart);
@@ -81,6 +89,18 @@ public class MyComponent extends JComponent {
 
         btnShow.setBounds(1180, 319, 80, 30);
         add(btnShow);
+
+        jCheckBoxWoodenHouseAI.setBounds(1179, 349, 85, 23);
+        add(jCheckBoxWoodenHouseAI);
+        jComboBoxWoodenPriority.setBounds(1179, 374, 80, 23);
+        jComboBoxWoodenPriority.setSelectedIndex(4);
+        add(jComboBoxWoodenPriority);
+
+        jCheckBoxCapitalHouseAI.setBounds(1179, 399, 80, 23);
+        add(jCheckBoxCapitalHouseAI);
+        jComboBoxCapitalPriority.setBounds(1179, 424, 80, 23);
+        jComboBoxCapitalPriority.setSelectedIndex(4);
+        add(jComboBoxCapitalPriority);
 
 
         jMenuBar.add(jMenuStart);
@@ -186,6 +206,8 @@ public class MyComponent extends JComponent {
                 }
             }
             if(i != count) {
+                //singleton.getHouse(i).move();
+                //System.out.println("Sing: " + singleton.getX(i) + ", " + singleton.getY(i));
                 singleton.getHouse(i).getImg().paintIcon(this, g, singleton.getX(i), singleton.getY(i));
             }
         }
@@ -234,4 +256,12 @@ public class MyComponent extends JComponent {
     public JButton getBtnShow() { return btnShow; }
 
     public static int getTotal() { return total; }
+
+    public JCheckBox getjCheckBoxWoodenHouseAI() { return jCheckBoxWoodenHouseAI; }
+
+    public JCheckBox getjCheckBoxCapitalHouseAI() { return jCheckBoxCapitalHouseAI; }
+
+    public JComboBox<Integer> getjComboBoxWoodenPriority() { return jComboBoxWoodenPriority; }
+
+    public JComboBox<Integer> getjComboBoxCapitalPriority() { return jComboBoxCapitalPriority; }
 }

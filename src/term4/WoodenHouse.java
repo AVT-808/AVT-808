@@ -9,12 +9,35 @@ public class WoodenHouse extends House {
     private static int count;
     private static int lifetime = 9;
 
+
     WoodenHouse(){
         img = new ImageIcon("WoodenHouse.png");
         count++;
         id = Math.random();
         typeOfHouse = TypeOfHouse.WOODEN;
+        speed = (int) (Math.random() * ((Math.random() * 10) % 4) * 10);
     }
+
+    @Override
+    public void move() {
+        if(inArea()){
+            return;
+        }
+        if(getX() <= 1100 && getY() <= 600){
+            setPosition(getX() + speed, getY() + speed);
+        }
+
+        else if (getX() <= 1100){
+            setX(getX() + speed);
+        }
+        else if(getY() <= 620){
+            setY(getY() + speed);
+        }
+
+    }
+
+    @Override
+    public boolean inArea() { return getX() > 1178 / 2 && getY() > 720 / 2; }
 
     public static int getCount() { return count; }
 
@@ -29,4 +52,6 @@ public class WoodenHouse extends House {
     public static int getLifetime() { return lifetime; }
 
     public static void setLifetime(int lifetime) { WoodenHouse.lifetime = --lifetime; }
+
+
 }

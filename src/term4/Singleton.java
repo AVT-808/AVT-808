@@ -10,6 +10,14 @@ public class Singleton {
     private HashSet<Double> id;
     private TreeMap<Double, Long> timesOfBirth;
 
+
+    protected boolean isTopEdge = false;
+    protected boolean isRightEdge = false;
+    protected boolean isBottomEdge = false;
+    protected boolean isLeftEdge = false;
+
+    int speed = 100;
+
     private Singleton() {
         houseVector = new Vector<>();
         id = new HashSet<>();
