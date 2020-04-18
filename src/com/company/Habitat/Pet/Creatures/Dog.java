@@ -15,7 +15,7 @@ public class Dog  extends Pet {
     private int targetY;
     @Override
     public void move() {
-        for(int i = 0; i< Singleton.getInstance().array.size(); i++){
+        for(int i = 0; i< Singleton.getInstance().sizeArray(); i++){
             if(Singleton.getInstance().Get(i) instanceof Cat){
                 stay = Singleton.getInstance().Get(i).getX() + getY() +Singleton.getInstance().Get(i).getY() + getY();
                 if(stay < go ){

@@ -10,7 +10,7 @@ import java.util.TreeSet;
 public class Singleton implements mySingle {
     private static final Singleton singleton = new Singleton();
     Habitat window;
-    public ArrayList<Pet> array = new ArrayList<>();
+    ArrayList<Pet> array = new ArrayList<>();
     TreeSet<Integer> petsID = new TreeSet<>();
     HashMap<Integer,Integer> petsLife = new HashMap<>();
 
@@ -23,6 +23,9 @@ public class Singleton implements mySingle {
 
     public Habitat getWindow() {
         return window;
+    }
+    public int sizeArray(){
+        return Singleton.getInstance().array.size();
     }
 
     public void SetID(int id){

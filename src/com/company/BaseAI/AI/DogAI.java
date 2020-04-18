@@ -16,11 +16,11 @@ public class DogAI extends BaseAI {
         while (true) {
             try {
                 synchronized (this) {
-                    while (flag) {
+                    if (flag) {
                         wait();
                     }
                 }
-                for (int i = 0; i < Singleton.getInstance().array.size(); i++) {
+                for (int i = 0; i < Singleton.getInstance().sizeArray(); i++) {
                     if (Singleton.getInstance().Get(i) instanceof Dog) {
                         Singleton.getInstance().Get(i).move();
                     }

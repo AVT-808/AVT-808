@@ -96,7 +96,7 @@ public class GUI extends JPanel {
         catsComboBox.setToolTipText("Select chance spawn for cat");
         dogsComboBox.setToolTipText("Select chance spawn for dog");
         priorityCatAI.setToolTipText("Select cats priority AI");
-        priorityDogAI.setToolTipText("Select cats priority AI");
+        priorityDogAI.setToolTipText("Select dogs priority AI");
 
         catsComboBox.addItem("0%");
         catsComboBox.addItem("10%");
@@ -776,38 +776,7 @@ public class GUI extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             num = priorityCatAI.getSelectedIndex();
-            switch (num) {
-                case 0:
-                    catAI.setPriority(1);
-                    break;
-                case 1:
-                    catAI.setPriority(2);
-                    break;
-                case 2:
-                    catAI.setPriority(3);
-                    break;
-                case 3:
-                    catAI.setPriority(4);
-                    break;
-                case 4:
-                    catAI.setPriority(5);
-                    break;
-                case 5:
-                    catAI.setPriority(6);
-                    break;
-                case 6:
-                    catAI.setPriority(7);
-                    break;
-                case 7:
-                    catAI.setPriority(8);
-                    break;
-                case 8:
-                    catAI.setPriority(9);
-                    break;
-                case 9:
-                    catAI.setPriority(10);
-                    break;
-            }
+            catAI.setPriority(num++);
             requestFocusInWindow();
         }
 
@@ -817,38 +786,7 @@ public class GUI extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             num = priorityDogAI.getSelectedIndex();
-            switch (num) {
-                case 0:
-                    dogAI.setPriority(1);
-                    break;
-                case 1:
-                    dogAI.setPriority(2);
-                    break;
-                case 2:
-                    dogAI.setPriority(3);
-                    break;
-                case 3:
-                    dogAI.setPriority(4);
-                    break;
-                case 4:
-                    catAI.setPriority(5);
-                    break;
-                case 5:
-                    dogAI.setPriority(6);
-                    break;
-                case 6:
-                    dogAI.setPriority(7);
-                    break;
-                case 7:
-                    dogAI.setPriority(8);
-                    break;
-                case 8:
-                    dogAI.setPriority(9);
-                    break;
-                case 9:
-                    dogAI.setPriority(10);
-                    break;
-            }
+            dogAI.setPriority(num++);
             requestFocusInWindow();
         }
 
