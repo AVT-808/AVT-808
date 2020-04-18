@@ -1,8 +1,9 @@
 package term4;
 
 import javax.swing.*;
+import java.io.Serializable;
 
-public abstract class House implements IBehaviour {
+public abstract class House implements IBehaviour, Serializable {
     ImageIcon img;
     private long timeOfBirth;
     private int x;

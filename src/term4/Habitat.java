@@ -31,9 +31,7 @@ public class Habitat extends JComponent {
     public int getWidth() { return WIDTH; }
     public int getHeight() { return HEIGHT; }
 
-    public MyComponent getMyComponent() {
-        return myComponent;
-    }
+    public MyComponent getMyComponent() { return myComponent; }
 
     public void update(){
         System.out.println("Update");

@@ -11,13 +11,6 @@ public class Singleton {
     private TreeMap<Double, Long> timesOfBirth;
 
 
-    protected boolean isTopEdge = false;
-    protected boolean isRightEdge = false;
-    protected boolean isBottomEdge = false;
-    protected boolean isLeftEdge = false;
-
-    int speed = 100;
-
     private Singleton() {
         houseVector = new Vector<>();
         id = new HashSet<>();
@@ -64,4 +57,6 @@ public class Singleton {
     public Vector<House> getHouseVector() { return houseVector; }
 
     public TreeMap<Double, Long> getTimesOfBirth() { return timesOfBirth; }
+
+    public void setHouseVector(Vector<House> houseVector) { this.houseVector = houseVector; }
 }

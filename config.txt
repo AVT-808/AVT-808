@@ -1,0 +1,13 @@
+Information: true
+Timer: true
+Wooden House Period: 3
+Wooden House Lifetime: 10
+Wooden House Probability: 0.04244523729531813
+Capital House Period: 4
+Capital House Lifetime: 11
+Capital House Probability: 0.2
+Wooden House AI: true
+Wooden House AI threads priority: 5
+Capital House AI: true
+Capital House AI threads priority: 5
+EOF: true

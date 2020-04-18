@@ -10,13 +10,19 @@ public class Main {
     private static boolean isPaused = false;
     private static boolean isStarted = false;
 
+    public static Habitat habitat = new Habitat();
+
     public static void main(String[] args) {
-        Habitat habitat = new Habitat();
+
+        Config config = new Config();
+        config.loadConfig();
 
         CapitalHouseAI capitalHouseAI = new CapitalHouseAI();
         WoodenHouseAI woodenHouseAI = new WoodenHouseAI();
 
-        System.out.println( habitat.hasFocus());
+        Console console = new Console(habitat.getJFrame());
+
+        Serializer serializer = new Serializer();
 
         Timer timer = new Timer(1000, e -> habitat.update());
 
@@ -204,7 +210,6 @@ public class Main {
                     JOptionPane.showMessageDialog(habitat.getMyComponent(),
                             "Для деревянного дома значение времени жизни выставлено по умолчанию (9 сек.)");
                 }
-
 
                 habitat.getMyComponent().getjTextFieldCapitalPeriod().setEnabled(false);
                 habitat.getMyComponent().getjTextFieldWoodenPeriod().setEnabled(false);
@@ -497,6 +502,35 @@ public class Main {
         habitat.getMyComponent().getjComboBoxCapitalPriority().addActionListener(e ->
                 capitalHouseAI.setTheadPriority((int)habitat.getMyComponent().getjComboBoxCapitalPriority().getSelectedItem()));
 
+        habitat.getMyComponent().getjButtonConsole().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                console.showConsole();
+            }
+        });
+
+        habitat.getJFrame().addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                config.saveConfig();
+                System.out.println("save");
+            }
+        });
+
+        habitat.getMyComponent().getjButtonSave().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                serializer.serialization();
+            }
+        });
+
+        habitat.getMyComponent().getjButtonLoad().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                serializer.deserialization();
+            }
+        });
+
     }
 
 
@@ -507,4 +541,6 @@ public class Main {
     public static boolean isPaused() { return isPaused; }
 
     public static boolean isStarted() { return isStarted; }
+
+    public static void setIsTimeVisible(boolean isTimeVisible) { Main.isTimeVisible = isTimeVisible; }
 }

@@ -53,6 +53,10 @@ public class MyComponent extends JComponent {
     private JComboBox<Integer> jComboBoxWoodenPriority = new JComboBox<>(selectionPriorityStep);
     private JComboBox<Integer> jComboBoxCapitalPriority = new JComboBox<>(selectionPriorityStep);
 
+    private JButton jButtonConsole = new JButton("Console");
+    private JButton jButtonSave = new JButton("Save");
+    private JButton jButtonLoad = new JButton("Load");
+
 
     MyComponent(){
         add(btnStart);
@@ -101,6 +105,14 @@ public class MyComponent extends JComponent {
         jComboBoxCapitalPriority.setBounds(1179, 424, 80, 23);
         jComboBoxCapitalPriority.setSelectedIndex(4);
         add(jComboBoxCapitalPriority);
+
+        jButtonConsole.setBounds(1180,456 ,80,30);
+        add(jButtonConsole);
+
+        jButtonSave.setBounds(1180,488 ,80,30);
+        add(jButtonSave);
+        jButtonLoad.setBounds(1180,520 ,80,30);
+        add(jButtonLoad);
 
 
         jMenuBar.add(jMenuStart);
@@ -206,8 +218,6 @@ public class MyComponent extends JComponent {
                 }
             }
             if(i != count) {
-                //singleton.getHouse(i).move();
-                //System.out.println("Sing: " + singleton.getX(i) + ", " + singleton.getY(i));
                 singleton.getHouse(i).getImg().paintIcon(this, g, singleton.getX(i), singleton.getY(i));
             }
         }
@@ -264,4 +274,13 @@ public class MyComponent extends JComponent {
     public JComboBox<Integer> getjComboBoxWoodenPriority() { return jComboBoxWoodenPriority; }
 
     public JComboBox<Integer> getjComboBoxCapitalPriority() { return jComboBoxCapitalPriority; }
+
+    public JButton getjButtonConsole() { return jButtonConsole; }
+
+    public JButton getjButtonSave() { return jButtonSave; }
+
+    public JButton getjButtonLoad() { return jButtonLoad; }
+
+    public static void setCount(int count) { MyComponent.count = count; }
+
 }
