@@ -1,0 +1,8 @@
+Spawn cats: 3
+Spawn dogs: 2
+Spawn chance cats: 70
+Spawn chance dogs: 80
+Life time cats: 30
+Life time dogs: 20
+Priority cats AI: 5
+Priority dogs AI: 5

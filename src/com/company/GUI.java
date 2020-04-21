@@ -17,9 +17,10 @@ import java.util.TimerTask;
 import static java.awt.event.KeyEvent.*;
 
 public class GUI extends JPanel {
+    private DataFile myFile;
     public MyTimerTask timerTask = new MyTimerTask();
 
-    private int myTimer = 0;
+    public int myTimer = 0;
     Habitat window;
     boolean endApp = false;
     boolean timeVisible = true;
@@ -37,6 +38,8 @@ public class GUI extends JPanel {
     CatAI catAI = new CatAI();
     DogAI dogAI = new DogAI();
 
+    public JButton buttonConsole = new JButton("Console");
+    ActionListener actionListenerForConsole = new consoleActionListener();
     public JButton buttonCatAI = new JButton("Cat AI");
     ActionListener actionListenerForCatAI = new catAIActionListener();
     public JButton buttonDogAI = new JButton("Dog Ai");
@@ -82,9 +85,11 @@ public class GUI extends JPanel {
     public JComboBox priorityDogAI = new JComboBox();
     ActionListener priorityAIActionListenerForDogs = new priorityDogAIActionListener();
 
-    public GUI(Habitat window, JFrame jFrame){
+    public GUI(Habitat window, JFrame jFrame, DataFile dataFile){
         this.window = window;
         this.jFrame = jFrame;
+        myFile = dataFile;
+        myFile.RunApplication(window,catAI,dogAI);
 
 
         lifeCats.addActionListener(actionListenerLifeCats);
@@ -109,7 +114,7 @@ public class GUI extends JPanel {
         catsComboBox.addItem("80%");
         catsComboBox.addItem("90%");
         catsComboBox.addItem("100%");
-        catsComboBox.setSelectedIndex(7);
+        catsComboBox.setSelectedIndex(window.getP1()/10);
         catsComboBox.setBackground(Color.white);
         catsComboBox.setPreferredSize(new Dimension(130,30));
 
@@ -124,7 +129,7 @@ public class GUI extends JPanel {
         dogsComboBox.addItem("80%");
         dogsComboBox.addItem("90%");
         dogsComboBox.addItem("100%");
-        dogsComboBox.setSelectedIndex(4);
+        dogsComboBox.setSelectedIndex(window.getP2()/10);
         dogsComboBox.setBackground(Color.white);
         dogsComboBox.setPreferredSize(new Dimension(130,30));
 
@@ -138,7 +143,7 @@ public class GUI extends JPanel {
         priorityCatAI.addItem("8");
         priorityCatAI.addItem("9");
         priorityCatAI.addItem("10");
-        priorityCatAI.setSelectedIndex(4);
+        priorityCatAI.setSelectedIndex(catAI.getPriority()-1);
         priorityCatAI.setBackground(Color.white);
         priorityCatAI.setPreferredSize(new Dimension(130,30));
 
@@ -152,7 +157,7 @@ public class GUI extends JPanel {
         priorityDogAI.addItem("8");
         priorityDogAI.addItem("9");
         priorityDogAI.addItem("10");
-        priorityDogAI.setSelectedIndex(4);
+        priorityDogAI.setSelectedIndex(dogAI.getPriority()-1);
         priorityDogAI.setBackground(Color.white);
         priorityDogAI.setPreferredSize(new Dimension(130,30));
 
@@ -165,9 +170,11 @@ public class GUI extends JPanel {
         history.addActionListener(actionListenerForHistory);
         buttonCatAI.addActionListener(actionListenerForCatAI);
         buttonDogAI.addActionListener(actionListenerForDogAI);
+        buttonConsole.addActionListener(actionListenerForConsole);
         priorityCatAI.addActionListener(priorityAIActionListenerForCats);
         priorityDogAI.addActionListener(priorityAIActionListenerForDogs);
 
+        add(buttonConsole);
         add(buttonCatAI);
         add(buttonDogAI);
         add(catsComboBox);
@@ -214,6 +221,7 @@ public class GUI extends JPanel {
          if(beginning){
             selectLifeOfCats.setVisible(false);
             selectLifeOfDogs.setVisible(false);
+            buttonConsole.setVisible(false);
             buttonCatAI.setVisible(false);
             buttonDogAI.setVisible(false);
             lifeCats.setVisible(false);
@@ -270,6 +278,7 @@ public class GUI extends JPanel {
         run.setBounds(0,0,80,30);
         pause.setBounds(0,30,80,30);
         screenResolution.setLocation(200,0);
+        buttonConsole.setBounds(200,60,100,30);
         buttonCatAI.setBounds(300,30,70,15);
         buttonDogAI.setBounds(300,45,70,15);
 
@@ -346,6 +355,7 @@ public class GUI extends JPanel {
                     case VK_B:
                         if(!useKeys)break;
                         if(!isPressedOnB) {
+                            buttonConsole.setVisible(true);
                             buttonCatAI.setVisible(true);
                             buttonDogAI.setVisible(true);
                             selectLifeOfCats.setVisible(true);
@@ -388,6 +398,7 @@ public class GUI extends JPanel {
                             lineVisible = true;
                             timeVisible = true;
                             beginning = false;
+
 
                             repaint();
                         }
@@ -442,7 +453,10 @@ public class GUI extends JPanel {
                         priorityDogAI.setVisible(false);
                         buttonCatAI.setVisible(false);
                         buttonDogAI.setVisible(false);
+                        buttonConsole.setVisible(false);
                         window.allClear();
+
+                        myFile.ExitApplication(window, catAI.getPriority(),dogAI.getPriority());
 
                         repaint();
                         break;
@@ -552,47 +566,20 @@ public class GUI extends JPanel {
 
 
     }
+    private class consoleActionListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Console myConsole = new Console(jFrame, window, catsComboBox, dogsComboBox);
+            myConsole.showConsole();
+        }
+    }
     private class catsComboBoxActionListener implements ActionListener {
         int num;
         @Override
         public void actionPerformed(ActionEvent e) {
             num = catsComboBox.getSelectedIndex();
-            switch (num) {
-                case 0:
-                    window.setP1(0);
-                    break;
-                case 1:
-                    window.setP1(10);
-                    break;
-                case 2:
-                    window.setP1(20);
-                    break;
-                case 3:
-                    window.setP1(30);
-                    break;
-                case 4:
-                    window.setP1(40);
-                    break;
-                case 5:
-                    window.setP1(50);
-                    break;
-                case 6:
-                    window.setP1(60);
-                    break;
-                case 7:
-                    window.setP1(70);
-                    break;
-                case 8:
-                    window.setP1(80);
-                    break;
-                case 9:
-                    window.setP1(90);
-                    break;
-                case 10:
-                    window.setP1(100);
-                    break;
-
-            }
+            window.setP1(num*10);
             requestFocusInWindow();
         }
     }
@@ -601,42 +588,7 @@ public class GUI extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             num = dogsComboBox.getSelectedIndex();
-            switch (num) {
-                case 0:
-                    window.setP2(0);
-                    break;
-                case 1:
-                    window.setP2(10);
-                    break;
-                case 2:
-                    window.setP2(20);
-                    break;
-                case 3:
-                    window.setP2(30);
-                    break;
-                case 4:
-                    window.setP2(40);
-                    break;
-                case 5:
-                    window.setP2(50);
-                    break;
-                case 6:
-                    window.setP2(60);
-                    break;
-                case 7:
-                    window.setP2(70);
-                    break;
-                case 8:
-                    window.setP2(80);
-                    break;
-                case 9:
-                    window.setP2(90);
-                    break;
-                case 10:
-                    window.setP2(100);
-                    break;
-
-            }
+            window.setP2(num*10);
             requestFocusInWindow();
         }
     }
@@ -775,8 +727,8 @@ public class GUI extends JPanel {
         int num;
         @Override
         public void actionPerformed(ActionEvent e) {
-            num = priorityCatAI.getSelectedIndex();
-            catAI.setPriority(num++);
+            num = priorityCatAI.getSelectedIndex() + 1;
+            catAI.setPriority(num);
             requestFocusInWindow();
         }
 
@@ -785,8 +737,8 @@ public class GUI extends JPanel {
         int num;
         @Override
         public void actionPerformed(ActionEvent e) {
-            num = priorityDogAI.getSelectedIndex();
-            dogAI.setPriority(num++);
+            num = priorityDogAI.getSelectedIndex() + 1;
+            dogAI.setPriority(num);
             requestFocusInWindow();
         }
 

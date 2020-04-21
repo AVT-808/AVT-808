@@ -1,18 +1,27 @@
 package com.company;
 
+import com.company.Habitat.Habitat;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyMenuBar extends MenuBar {
-    MyMenuBar(GUI myGUI){
+    MyMenuBar(GUI myGUI, DataFile dataFile, Habitat window){
         MenuBar newMenu = new MenuBar();
         Menu menu = new Menu("Menu");
         add(menu);
         MenuItem runTimer = new MenuItem("Run");
         MenuItem stopTimer = new MenuItem("Stop");
         MenuItem endApp = new MenuItem("Shut down");
+        MenuItem console = new MenuItem("Console");
+        MenuItem save = new MenuItem("Save");
+        MenuItem download = new MenuItem("Download");
+        menu.add(console);
+        menu.add(save);
+        menu.add(download);
+        menu.add(new MenuItem("-"));
         menu.add(runTimer);
         menu.add(stopTimer);
         menu.add(new MenuItem("-"));
@@ -96,7 +105,9 @@ public class MyMenuBar extends MenuBar {
         settings.add(lifeTime);
 
 
-
+        console.addActionListener(e -> myGUI.buttonConsole.doClick());
+        save.addActionListener(e -> dataFile.SavePets(window));
+        download.addActionListener(e -> dataFile.DownloadPets(myGUI, window));
         runTimer.addActionListener(e -> myGUI.run.doClick());
         stopTimer.addActionListener(e -> myGUI.pause.doClick());
         hideOrShowTime.addActionListener(e -> {

@@ -13,9 +13,10 @@ public class MyJFrame extends JFrame  {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setResizable(false);
 
-        GUI myGUI = new GUI(window,jFrame);
+        DataFile dataFile = new DataFile();
+        GUI myGUI = new GUI(window,jFrame,dataFile);
         jFrame.add(myGUI);
-        MyMenuBar myMenuBar = new MyMenuBar(myGUI);
+        MyMenuBar myMenuBar = new MyMenuBar(myGUI,dataFile,window);
         jFrame.setMenuBar(myMenuBar);
 
 

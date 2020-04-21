@@ -36,6 +36,7 @@ public class Habitat {
 
     public void update(int time) {
 
+        if(N1!=0)
         if ((new Random().nextInt(100) < P1) && (time % N1 == 0)) {
 
             petsID = (new Random().nextInt(65550));
@@ -52,6 +53,7 @@ public class Habitat {
             allSpawn++;
             cats++;
         }
+        if(N2!=0)
         if ((new Random().nextInt(100) < P2) && (time % N2 == 0)) {
             petsID = (new Random().nextInt(65550));
             Dog myDog = new Dog(petsID,time);
@@ -99,6 +101,13 @@ public class Habitat {
         quantityPet = 0;
     }
 
+    public int getP1() {
+        return P1;
+    }
+
+    public int getP2() {
+        return P2;
+    }
 
     public void setP1(int p1) {
         P1 = p1;
