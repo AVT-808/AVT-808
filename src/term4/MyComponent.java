@@ -56,6 +56,7 @@ public class MyComponent extends JComponent {
     private JButton jButtonConsole = new JButton("Console");
     private JButton jButtonSave = new JButton("Save");
     private JButton jButtonLoad = new JButton("Load");
+    private JButton jButtonLoadUserHouses = new JButton("Server");
 
 
     MyComponent(){
@@ -113,6 +114,8 @@ public class MyComponent extends JComponent {
         add(jButtonSave);
         jButtonLoad.setBounds(1180,520 ,80,30);
         add(jButtonLoad);
+        jButtonLoadUserHouses.setBounds(1180,552 ,80,30);
+        add(jButtonLoadUserHouses);
 
 
         jMenuBar.add(jMenuStart);
@@ -131,6 +134,16 @@ public class MyComponent extends JComponent {
         Graphics2D graphics2D = (Graphics2D)g;
 
         graphics2D.drawLine(1178, 0, 1178, 720);
+
+        if(Main.isStarted()){
+            int y = 30;
+            graphics2D.drawString("Users:", 5, y);
+            y+=15;
+            for(int i = 0; i < Client.getUsers().size(); i++){
+                graphics2D.drawString(Client.getUsers().get(i), 5, y);
+                y+=15;
+            }
+        }
 
 
         if(isFirst){
@@ -283,4 +296,5 @@ public class MyComponent extends JComponent {
 
     public static void setCount(int count) { MyComponent.count = count; }
 
+    public JButton getjButtonLoadUserHouses() { return jButtonLoadUserHouses; }
 }

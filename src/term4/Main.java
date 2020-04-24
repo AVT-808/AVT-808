@@ -17,6 +17,8 @@ public class Main {
         Config config = new Config();
         config.loadConfig();
 
+        Client client = new Client();
+
         CapitalHouseAI capitalHouseAI = new CapitalHouseAI();
         WoodenHouseAI woodenHouseAI = new WoodenHouseAI();
 
@@ -121,6 +123,8 @@ public class Main {
 
                                 habitat.getMyComponent().getjComboBoxWoodenPriority().setEnabled(true);
                                 habitat.getMyComponent().getjComboBoxCapitalPriority().setEnabled(true);
+
+                                Client.disconnect();
 
                                 habitat.update();
                                 System.out.println("OK");
@@ -261,6 +265,8 @@ public class Main {
 
                             habitat.getMyComponent().getjComboBoxWoodenPriority().setEnabled(true);
                             habitat.getMyComponent().getjComboBoxCapitalPriority().setEnabled(true);
+
+                            Client.disconnect();
 
                             habitat.update();
                             System.out.println("OK");
@@ -422,6 +428,8 @@ public class Main {
                             habitat.getMyComponent().getjTextFieldWoodenLifetime().setEnabled(true);
                             habitat.getMyComponent().getjTextFieldCapitalLifetime().setEnabled(true);
 
+                            Client.disconnect();
+
                             habitat.update();
                             System.out.println("OK");
                         }
@@ -513,6 +521,7 @@ public class Main {
             @Override
             public void windowClosing(WindowEvent e) {
                 config.saveConfig();
+                Client.disconnect();
                 System.out.println("save");
             }
         });
@@ -528,6 +537,13 @@ public class Main {
             @Override
             public void mouseClicked(MouseEvent e) {
                 serializer.deserialization();
+            }
+        });
+
+        habitat.myComponent.getjButtonLoadUserHouses().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Client.getHouses();
             }
         });
 
