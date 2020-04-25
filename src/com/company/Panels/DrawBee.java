@@ -1,5 +1,6 @@
 package com.company.Panels;
 
+import com.company.Habitat.BeesArray.Singleton;
 import com.company.Models.Abstract.BaseBee;
 
 import javax.swing.*;
@@ -7,20 +8,20 @@ import java.awt.*;
 
 
 public class DrawBee extends JPanel {
-    private BaseBee [] bees;
+    private final Singleton bees;
 
-
-    public DrawBee(BaseBee[] bees){
-        this.bees = bees;
+    public DrawBee() {
+        bees = Singleton.getInstance();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (bees[0] == null)
+        if(bees.getBees().isEmpty())
             return;
-        for (int i=0; bees [i] != null; i++)
-            if (i < 500)
-            g.drawImage(bees[i].getBeeImage(),bees[i].getX(),bees[i].getY(),70,70,null);
+        for (BaseBee bee : bees.getBees()) {
+            setBackground(Color.PINK);
+            g.drawImage(bee.getBeeImage(),bee.getX(),bee.getY(),40,40,null);
         }
     }
+}

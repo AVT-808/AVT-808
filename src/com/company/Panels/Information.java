@@ -2,49 +2,78 @@ package com.company.Panels;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Information extends JDialog {
-    private JLabel timerResult;
-    private JLabel WorkerResult;
-    private JLabel DroneResult;
 
-    public Information(JFrame frame, String title, Integer time, Integer WorkerResult, Integer DroneResult){
-        super(frame, title, false);
+    private final JTextArea textArea;
+    private final JButton ok;
+    private final JButton cancel;
+    Boolean b = true;
 
-        this.timerResult = new JLabel("Время симуляции: " + time);
-        this.timerResult.setFont(new Font("Courier New", Font.PLAIN,16));
-        this.timerResult.setForeground(Color.BLUE);
+    public Information(JFrame frame, String title, int time, int allWorkersBirth, int allDronesBirth) {
+        super(frame, "Информация", false);
 
-        this.WorkerResult = new JLabel("Количество рабочиз пчел: " + WorkerResult);
-        this.WorkerResult.setFont(new Font("Arial", Font.PLAIN,15));
-        this.WorkerResult.setForeground(Color.ORANGE);
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
-        this.DroneResult = new JLabel("Количество трутней: " + DroneResult);
-        this.DroneResult.setFont(new Font("Times New Roman", Font.PLAIN,14));
-        this.DroneResult.setForeground(Color.GREEN);
+        textArea = new JTextArea();//создаем текстовое окно
 
-        setResizable(false);
+        String s_time = "Время симуляции: " + time + "\n";
+        String s_allWorkersBirth = "Количество рабочих пчел: " + allWorkersBirth + "\n";
+        String s_allDronesBirth = "Количество трутней: " + allDronesBirth + "\n";
+
+        textArea.append(s_time);
+        textArea.append(s_allWorkersBirth);
+        textArea.append(s_allDronesBirth);
+        textArea.setEditable(false); // Не редактируемое поле
+
+        setResizable(false); // Не изменять размеры окна
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setSize(500, 500);
-        setLayout(new GridLayout(3,1));
 
-        this.timerResult.setHorizontalAlignment(SwingConstants.CENTER);
-        add(this.timerResult);
+        setSize(new Dimension(300, 300));
+        textArea.setFont(new Font("Dialog", Font.BOLD, 14));
+        textArea.setTabSize(10);
+        add(textArea);
 
-        this.WorkerResult.setHorizontalAlignment(SwingConstants.CENTER);
-        add(this.WorkerResult);
+        textArea.setMaximumSize(new Dimension(300, 280));
+        this.setModal(true); // Блокирует остальные окна
 
-        this.DroneResult.setHorizontalAlignment(SwingConstants.CENTER);
-        add(this.DroneResult);
+        ok = new JButton("Ок");
+        cancel = new JButton("Отмена");
 
-        this.setModal(true);
+        ok.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b = true;
+                setVisible(false);
+            }
+        });
+
+        cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b = false;
+                setVisible(false);
+            }
+        });
+
+        JPanel jPanel = new JPanel();
+        jPanel.setLayout(new GridLayout(1, 2));
+
+
+        jPanel.setLayout(new GridLayout(1, 2));
+        jPanel.add(ok);
+        jPanel.add(cancel);
+
+        add(jPanel);
+        jPanel.setMaximumSize(new Dimension(180, 20));
+
+        jPanel.setVisible(true);
 
     }
 
-    public void viewInformation(){
-        this.timerResult.setVisible(true);
-        this.WorkerResult.setVisible(true);
-        this.DroneResult.setVisible(true);
-        setVisible(true);
+    public Boolean return_B(){
+        return b;
     }
 }

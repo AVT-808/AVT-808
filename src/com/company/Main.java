@@ -1,52 +1,64 @@
 package com.company;
 
+import com.company.Habitat.BeesArray.Singleton;
 import com.company.Habitat.Habitat;
-import com.company.Habitat.HabitatTask;
 
+import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Timer;
 
-public class Main extends KeyAdapter {
+public class Main extends KeyAdapter{
 
-    private Timer timer;
-    private HabitatTask habitatTask;
     private final Habitat habitat;
+    Singleton st;
+    JButton startButton;
+    JButton stopButton;
+    private Boolean bool;
     private Boolean isStarted;
-    private Boolean isShown;
+
 
     private Main() {
-        habitat = new Habitat("Habitat", 2,2,0.9f,0.9f);
+        habitat = new Habitat();
         habitat.setVisible(true);
         habitat.addKeyListener(this);
-        isStarted = false;
-        isShown = true;
+        startButton = habitat.returnStart();
+        stopButton = habitat.returnStop();
+        st = Singleton.getInstance();
+        bool = true;
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        super.keyPressed(e);
-        int key = e.getKeyCode();
-        if(key == KeyEvent.VK_B && !isStarted){
-            isStarted = true;
-            timer = new Timer();
-            habitatTask = new HabitatTask(habitat);
-            timer.schedule(habitatTask,0,1000);
-        }
-        if (key == KeyEvent.VK_E && isStarted) {
-            timer.cancel();
-            habitatTask.cancel();
-            timer.purge();
-            habitat.stop();
-            isStarted = false;
-        }
-        if(key == KeyEvent.VK_T) {
-            isShown = !isShown;
-            habitat.timerVisibility(isShown);
+            if (e.getKeyCode() == KeyEvent.VK_B) {
+                isStarted = st.getIsStart();//isStarted присваиваем то, какое оно в Singleton
+                if(isStarted) { //isStarted = true
+                    st.Start(habitat, startButton, stopButton);
+                    habitat.requestFocus();
+                    startButton.setEnabled(false);
+                    stopButton.setEnabled(true);
+                    isStarted = false;//кнопка на клавиатуре нажата и если нажмем еще раз, она работать не будет
+                }
+            }
+
+         if (e.getKeyCode() == KeyEvent.VK_E ){
+             isStarted = st.getIsStart();//isStarted присваиваем true через метод getIsStart который возвращает isStart
+             if(!isStarted) {//isStarted = false
+                 st.Stop(habitat, startButton, stopButton);
+                 habitat.requestFocus();
+                 stopButton.setEnabled(false);
+                 startButton.setEnabled(true);
+                 isStarted = true;
+             }
+         }
+        if(e.getKeyCode() == KeyEvent.VK_T) {
+            bool = habitat.return_bool();
+            bool=!bool;
+            habitat.Timer_show_hide(bool);
         }
     }
 
     public static void main(String[] args) {
         new Main();
     }
+
 }

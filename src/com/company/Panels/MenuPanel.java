@@ -8,6 +8,7 @@ public class MenuPanel extends JPanel {
     private final JLabel beesAmount;
     private final JLabel timer;
 
+
     public MenuPanel()
     {
         setLayout(new GridLayout(1,2));
@@ -15,6 +16,7 @@ public class MenuPanel extends JPanel {
         beesAmount.setFont(new Font("Courier New", Font.BOLD,16));
         timer = new JLabel("Таймер: 0");
         timer.setFont(new Font("Courier New", Font.BOLD,16));
+
         add(beesAmount);
         add(timer);
     }
@@ -27,8 +29,20 @@ public class MenuPanel extends JPanel {
         this.timer.setText("Таймер: " + timer);
     }
 
-    public void setTimerVisibility(Boolean isVisible) {
-        timer.setVisible(isVisible);
+   // public void setTimerVisibility(Boolean isVisible) {
+       // timer.setVisible(isVisible);
+    //}
+
+   /* public Boolean return_bool() {
+        return bool;
+    }
+
+    public void return2_bool() {
+
+    }*/
+
+    public void TimerShowHide(boolean b) {
+        timer.setVisible(b);
     }
 }
 
