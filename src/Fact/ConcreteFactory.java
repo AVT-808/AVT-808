@@ -1,6 +1,9 @@
 package Fact;
 
+import Contr.Periods;
 import Object.*;
+import Contr.ComboB;
+import Menu.*;
 
 import java.awt.*;
 import java.io.IOException;
@@ -14,21 +17,16 @@ public class ConcreteFactory implements AbstractFactory
     private Integer number_of_Big;
     private Integer number_of_Small;
 
-    private final Integer time_birth_small;
-    private final Integer time_birth_big;
-    private final Float chance_birth_big;
-    private final Float percent;
+    private  Integer time_birth_small;
+    private  Integer time_birth_big;
+    private Float chance_birth_big;
+    private Float percent;
 
-    public ConcreteFactory(Integer time_birth_small, Integer time_birth_big, Float chance_birth_big, Float percent)
-    {
+
+    public ConcreteFactory() {
         number_of_birds = 0;
         number_of_Big = 0;
         number_of_Small = 0;
-
-        this.time_birth_small = time_birth_small;
-        this.time_birth_big = time_birth_big;
-        this.chance_birth_big = chance_birth_big;
-        this.percent = percent;
     }
 
     @Override
@@ -45,14 +43,22 @@ public class ConcreteFactory implements AbstractFactory
     }
 
     @Override
-    public Bird Luntik(Integer time, Point place) throws IOException {
+    public Bird Luntik(Integer time, Point place, menu men) throws IOException {
 
-        if (time % time_birth_big == 0)
-        {
+        Periods periods = men.Return_periods();
+        this.time_birth_big = periods.Return_time_birth_big();
+        this.time_birth_small = periods.Return_time_birth_small();
+
+        ComboB comboB = men.Return_combob();
+        this.chance_birth_big = comboB.Return_chance_birth_big();
+        this.percent = comboB.Return_percent();
+
+        if (time % this.time_birth_big == 0){ // % -  остаток от деления. Т.о. каждые n секунд
+
             Random random = new Random();
-            float chance = random.nextFloat();
-            if (chance <= chance_birth_big)
-            {
+            float chance = random.nextFloat(); // float nextFloat() - возвращает следующее случайное значение типа float
+
+            if (chance <= chance_birth_big) {
                 Bird fowl = new Big(place);
                 number_of_birds++;
                 number_of_Big++;
@@ -60,10 +66,8 @@ public class ConcreteFactory implements AbstractFactory
             }
         }
 
-        if (time % time_birth_small == 0)
-        {
-            if(number_of_Small < number_of_Big*percent)
-            {
+        if (time % this.time_birth_small == 0) {
+            if(number_of_Small < number_of_Big*percent) {
                 Bird fowl = new Small(place);
                 number_of_birds++;
                 number_of_Small++;
@@ -72,5 +76,4 @@ public class ConcreteFactory implements AbstractFactory
         }
         return null;
     }
-
 }

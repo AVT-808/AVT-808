@@ -3,6 +3,6 @@ package Behav;
 import java.awt.*;
 
 public interface IBehaviour {
-     Image getImage();
-     Point getPlace();
+    Image getImage();
+    Point getPlace();
 }

@@ -1,31 +1,27 @@
 package DrawPanel;
 
+import Array.*;
 import Object.*;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Depict_a_bird extends JPanel {
 
-    Bird bird_s[];
-    int Mass;
+    private final Singleton Bird_s;
 
-   public Depict_a_bird(Bird bird_s[], int Mass) {
-        this.bird_s = bird_s;
-        this.Mass = Mass;
-    }
+    public Depict_a_bird () { Bird_s = Singleton.getM(); }
 
     @Override
     protected void paintComponent(Graphics graphics)
     {
         super.paintComponent(graphics);
 
-        if (bird_s[0] == null)
-            return;
+       if (Bird_s.getBird_s().isEmpty()) return;
 
-        for (int i=0; bird_s [i] != null; i++)
-            if (i < Mass) {
-                setBackground(Color.GREEN);
-                graphics.drawImage(bird_s[i].getImage(),bird_s[i].getPlace().x,bird_s[i].getPlace().y,50,50,null);
-            }
+       for (Bird bird : Bird_s.getBird_s()) {
+           setBackground(Color.GREEN);
+           graphics.drawImage(bird.getImage(),bird.getPlace().x,bird.getPlace().y,50,50,null);
+       }
     }
 }

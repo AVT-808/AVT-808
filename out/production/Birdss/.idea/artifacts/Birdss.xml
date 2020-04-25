@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="Birdss">
+    <output-path>$PROJECT_DIR$/out/artifacts/Birdss</output-path>
+    <root id="root">
+      <element id="archive" name="Birdss.jar">
+        <element id="module-output" name="Birdss" />
+      </element>
+    </root>
+  </artifact>
+</component>
