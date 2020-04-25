@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="t4.lab:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/t4_lab_jar</output-path>
+    <root id="root">
+      <element id="archive" name="t4.lab.jar">
+        <element id="module-output" name="t4.lab" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="t4.lab:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff80edab-c339-4291-a95f-791baf2270a2" name="Default Changelist" comment="" />
+    <list default="true" id="ff80edab-c339-4291-a95f-791baf2270a2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/t4_lab_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/ConcreteFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/ConcreteFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/DrawingAnts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/DrawingAnts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Habitat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Habitat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/AbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/AbstractFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/ConcreteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/ConcreteFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/DrawingAnts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/DrawingAnts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/Habitat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Habitat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +33,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1aKxayqjamtGta7PyWcvsr88GJM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,18 +44,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/AntFarm/AntPics" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/LR2" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src" />
-      <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src\AntFarm\AntPics" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src\AntFarm\AntPics" />
       <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src" />
+      <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src\AntFarm\AntPics" />
     </key>
   </component>
   <component name="RunManager">
@@ -68,6 +93,11 @@
       <option name="presentableId" value="Default" />
       <updated>1586498153493</updated>
       <workItem from="1586498159632" duration="15601000" />
+      <workItem from="1587471575824" duration="1076000" />
+      <workItem from="1587535294440" duration="7189000" />
+      <workItem from="1587705592952" duration="36327000" />
+      <workItem from="1587790570966" duration="15163000" />
+      <workItem from="1587818750359" duration="16776000" />
     </task>
     <servers />
   </component>
@@ -75,21 +105,45 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1586515800937">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1587741228124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586515800937" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1586515800937">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1587741228124" />
+    <state x="521" y="135" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587536123705">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586515800937" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1586515800936">
+    <state x="521" y="135" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1587536123705" />
+    <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587840690487">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586515800936" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1586515800937">
+    <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1587840690487" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1587841003408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586515800937" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587841003408" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1587842210289">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587842210289" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1587842210289">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587842210289" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1587842210289">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587842210289" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1587842210289">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587842210289" />
+    <state x="271" y="2" width="1040" height="699" key="SettingsEditor" timestamp="1587841461124">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="271" y="2" width="1040" height="699" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587841461124" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587794254531">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587794254531" />
   </component>
 </project>

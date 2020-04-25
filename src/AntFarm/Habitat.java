@@ -1,113 +1,188 @@
 package AntFarm;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class Habitat extends JFrame {
     private int time;
     private int antsAmount, workersAmount, warriorsAmount;
-    private Ant[] ants;
-    private AbstractFactory factory;
-    private JLabel timer;
-    private DrawingAnts antDraw;
+    private Singleton ants;
+    protected AbstractFactory factory;
+    private GUI gui;
+    private boolean isInformationShowing;
+    private boolean isOver, isPaused;
 
-    Habitat() {
+    Habitat(ActionListener actionListener)
+    {
         super("Муравьиная ферма");
         int width = 1100, height = 700;
         setSize(width, height);
-        setLayout(null);
+        setFocusable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         antsAmount = 0;
         workersAmount = 0;
         warriorsAmount = 0;
-        ants = new Ant[500];
+        ants = Singleton.getSingleton();
         factory = new ConcreteFactory();
         time = 0;
+        isInformationShowing = true;
+        isOver = true; isPaused = false;
 
-        JPanel timerPanel = new JPanel();
-        timerPanel.setLayout(new GridLayout(1, 1));
-        timerPanel.setBackground(Color.lightGray);
-        timerPanel.setBounds(0, 0, width, 24);
-
-        timer = new JLabel("Таймер: 0");
-        timer.setHorizontalAlignment(SwingConstants.CENTER);
-        timer.setFont(new Font("Arial", Font.BOLD, 20));
-        timerPanel.add(timer);
-        add(timerPanel);
-
-        antDraw = new DrawingAnts(ants);
-        antDraw.setBounds(0, 24, width, height - 24);
-        add(antDraw);
+        gui = new GUI(actionListener);
+        add(gui);
     }
 
-    void timerVisibility(boolean isVisible) {
-        if (isVisible)
-            timer.setVisible(false);
+    void timerVisibility(boolean isTimerVisible) {
+        if (isTimerVisible)
+            gui.timer.setVisible(false);
         else
-            timer.setVisible(true);
+            gui.timer.setVisible(true);
+    }
+
+    void informationShowing()
+    {
+        if (isInformationShowing)
+            gui.getInfoVisibility().setSelected(false);
+        else
+            gui.getInfoVisibility().setSelected(true);
+        isInformationShowing = !isInformationShowing;
     }
 
     void update() {
-        time++;
-        timer.setText("Таймер: " + time);
-        Random random = new Random();
-        int xcord = random.nextInt(antDraw.getWidth() - 200);
-        int ycord = random.nextInt(antDraw.getHeight() - 200);
-        Ant ant = factory.createAnt(xcord, ycord, time);
-        if (ant != null) {
-            if (ant.getClass() == AntWorker.class)
-                workersAmount++;
-            else
-                warriorsAmount++;
-            ants[antsAmount] = ant;
-            antsAmount++;
-            antDraw.repaint();
+        if (!isPaused)
+        {
+            time++;
+            gui.timer.setText("Таймер: " + time);
+            Random random = new Random();
+            int xcord = random.nextInt(gui.draw.getWidth() - 200);
+            int ycord = random.nextInt(gui.draw.getHeight() - 200);
+            Ant ant = factory.createAnt(xcord, ycord, time);
+            if (ant != null) {
+                if (ant.getClass() == AntWorker.class)
+                    workersAmount++;
+                else
+                    warriorsAmount++;
+                ants.addAnt(ant);
+                antsAmount++;
+                gui.draw.repaint();
+            }
+        }
+        else
+        {
+            gui.draw.repaint();
         }
     }
 
-    void stop() {
-        JDialog results = new JDialog(this, "Результаты");
+    boolean stop() {
+        if (isInformationShowing) {
+            isPaused = true;
+            switch(JOptionPane.showConfirmDialog(null, "Время симуляции: " + time + "\nПоявилось муравьев: "
+                            + antsAmount + "\nМуравьев-рабочих: " + workersAmount + "\nМуравьев-воинов: " +
+                    warriorsAmount, "Результаты", JOptionPane.OK_CANCEL_OPTION)) {
+                case JOptionPane.OK_OPTION: {
+                    factory.exterminate();
+                    isPaused = false;
+                    isOver = true;
+                    time = 0;
+                    gui.timer.setText("Таймер: " + time);
+                    ants.clearAnts();
+                    antsAmount = 0;
+                    workersAmount = 0; warriorsAmount = 0;
+                    gui.draw.repaint();
+                    return isOver;
+                }
+                case JOptionPane.CANCEL_OPTION:
+                    {
+                        isOver = false;
+                        isPaused = false;
+                        return isOver;
+                    }
+                default:
+                {
+                    isOver = false;
+                    isPaused = false;
+                    return false;
+                }
+            }
+        }
+        else {
+            factory.exterminate();
+            isOver = true;
+            System.out.println(isOver);
+            time = 0;
+            gui.timer.setText("Таймер: " + time);
+            ants.clearAnts();
+            antsAmount = 0;
+            workersAmount = 0; warriorsAmount = 0;
+            gui.draw.repaint();
+        }
+        return true;
+    }
 
-        JLabel timerCount = new JLabel("Время симуляции: " + time);
-        timerCount.setFont(new Font("Courier New", Font.ITALIC,20));
-        timerCount.setForeground(Color.PINK);
-        timerCount.setHorizontalAlignment(SwingConstants.CENTER);
-        results.add(timerCount);
+    public JButton getButtonStart()
+    {
+        return gui.getButtonStart();
+    }
 
-        JLabel str = new JLabel("Появилось муравьев: " + antsAmount);
-        str.setFont(new Font("Times New Roman", Font.BOLD, 18));
-        str.setForeground(Color.RED);
-        str.setHorizontalAlignment(SwingConstants.CENTER);
-        results.add(str);
+    public JButton getButtonStop()
+    {
+        return gui.getButtonStop();
+    }
 
-        JLabel workersCount = new JLabel("Муравьев-рабочих: " + workersAmount);
-        workersCount.setFont(new Font("Arial", Font.BOLD,15));
-        workersCount.setForeground(Color.GREEN);
-        workersCount.setHorizontalAlignment(SwingConstants.CENTER);
-        results.add(workersCount);
+    public JCheckBox getInformationVisibility()
+    {
+        return gui.getInfoVisibility();
+    }
 
-        JLabel warriorsCount = new JLabel("Муравьев-воинов: " + warriorsAmount);
-        warriorsCount.setFont(new Font("Calibri", Font.PLAIN,14));
-        warriorsCount.setForeground(Color.ORANGE);
-        warriorsCount.setHorizontalAlignment(SwingConstants.CENTER);
-        results.add(warriorsCount);
+    public JRadioButton getTimerIsVisible()
+    {
+        return gui.getTimerIsVisible();
+    }
 
-        results.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        results.setSize(400, 400);
-        results.setLayout(new GridLayout(4,1));
-        results.setModal(true);
-        results.setVisible(true);
+    public JRadioButton getTimerNotVisible()
+    {
+        return gui.getTimerNotVisible();
+    }
 
-        factory.exterminate();
-        time = 0;
-        timer.setText("Таймер: " + time);
-        for (int i = 0; i <antsAmount; i++)
-            ants[i] = null;
-        antsAmount = 0;
-        workersAmount = 0; warriorsAmount = 0;
-        antDraw.repaint();
+    public JTextField getWorkerPeriod()
+    {
+        return gui.getWorkerPeriod();
+    }
+
+    public JTextField getWarriorPeriod()
+    {
+        return gui.getWarriorPeriod();
+    }
+
+    public JComboBox getWorkerProbability()
+    {
+        return gui.getWorkerProbability();
+    }
+
+    public JComboBox getWarriorProbability()
+    {
+        return gui.getWarriorProbability();
+    }
+
+    public JMenuItem getMenuStart()
+    {
+        return gui.getMenuStart();
+    }
+
+    public JMenuItem getMenuStop()
+    {
+        return gui.getMenuStop();
+    }
+
+    public JMenuItem getMenuTimerVisible()
+    {
+        return gui.getMenuTimerVisible();
+    }
+
+    public JMenuItem getMenuInformationVisible()
+    {
+        return gui.getMenuInformationVisible();
     }
 }
