@@ -3,7 +3,9 @@ package com.company.Habitat.Pet.Creatures;
 import com.company.Habitat.Pet.Pet;
 import com.company.Single.Singleton;
 
-public class Cat extends Pet {
+import java.io.Serializable;
+
+public class Cat extends Pet implements Serializable {
     private int speed = 10;
 
 

@@ -3,6 +3,7 @@ package com.company.Habitat;
 
 import com.company.Habitat.Pet.Creatures.Cat;
 import com.company.Habitat.Pet.Creatures.Dog;
+import com.company.Server.Client;
 import com.company.Single.Singleton;
 
 
@@ -69,7 +70,7 @@ public class Habitat {
             quantityPet++;
             dogs++;
         }
-
+        Client.Update();
         TimeToDie(time);
     }
 

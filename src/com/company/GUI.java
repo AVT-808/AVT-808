@@ -6,6 +6,7 @@ import com.company.BaseAI.AI.DogAI;
 import com.company.Habitat.Habitat;
 import com.company.Habitat.Pet.Creatures.Cat;
 import com.company.Habitat.Pet.Creatures.Dog;
+import com.company.Server.Client;
 import com.company.Single.Singleton;
 
 import javax.swing.*;
@@ -17,10 +18,12 @@ import java.util.TimerTask;
 import static java.awt.event.KeyEvent.*;
 
 public class GUI extends JPanel {
+
     private DataFile myFile;
     public MyTimerTask timerTask = new MyTimerTask();
 
     public int myTimer = 0;
+    public int nameList;
     Habitat window;
     boolean endApp = false;
     boolean timeVisible = true;
@@ -38,6 +41,10 @@ public class GUI extends JPanel {
     CatAI catAI = new CatAI();
     DogAI dogAI = new DogAI();
 
+    public JButton buttonServer = new JButton("Server");
+    ActionListener actionListenerForServer = new serverActionListener();
+    public JButton buttonDown = new JButton("SwapUser");
+    ActionListener actionListenerForDown = new downActionListener();
     public JButton buttonConsole = new JButton("Console");
     ActionListener actionListenerForConsole = new consoleActionListener();
     public JButton buttonCatAI = new JButton("Cat AI");
@@ -88,6 +95,7 @@ public class GUI extends JPanel {
     public GUI(Habitat window, JFrame jFrame, DataFile dataFile){
         this.window = window;
         this.jFrame = jFrame;
+        new Client();
         myFile = dataFile;
         myFile.RunApplication(window,catAI,dogAI);
 
@@ -171,9 +179,13 @@ public class GUI extends JPanel {
         buttonCatAI.addActionListener(actionListenerForCatAI);
         buttonDogAI.addActionListener(actionListenerForDogAI);
         buttonConsole.addActionListener(actionListenerForConsole);
+        buttonServer.addActionListener(actionListenerForServer);
+        buttonDown.addActionListener(actionListenerForDown);
         priorityCatAI.addActionListener(priorityAIActionListenerForCats);
         priorityDogAI.addActionListener(priorityAIActionListenerForDogs);
 
+        add(buttonServer);
+        add(buttonDown);
         add(buttonConsole);
         add(buttonCatAI);
         add(buttonDogAI);
@@ -217,10 +229,11 @@ public class GUI extends JPanel {
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-
          if(beginning){
             selectLifeOfCats.setVisible(false);
             selectLifeOfDogs.setVisible(false);
+            buttonServer.setVisible(false);
+            buttonDown.setVisible(false);
             buttonConsole.setVisible(false);
             buttonCatAI.setVisible(false);
             buttonDogAI.setVisible(false);
@@ -279,12 +292,29 @@ public class GUI extends JPanel {
         pause.setBounds(0,30,80,30);
         screenResolution.setLocation(200,0);
         buttonConsole.setBounds(200,60,100,30);
+        buttonServer.setBounds(200,90,100,30);
+        buttonDown.setBounds(300,90,100,30);
         buttonCatAI.setBounds(300,30,70,15);
         buttonDogAI.setBounds(300,45,70,15);
 
+
         if(lineVisible) {
+            nameList = 150;
             g.setColor(Color.white);
             g.fillRect(0, 0, 10000, 120);
+            g.setColor(Color.BLACK);
+            Font myFont = new Font("Times Roman", Font.PLAIN, 15);
+            g.setFont(myFont);
+            g.drawString("User online:", 0, 135);
+            for (int i =0;i<Client.CountUsers();i++){
+                g.drawString(Client.NameUsers(i), 0, nameList);
+                nameList += 15;
+            }
+            myFont = new Font("Times Roman", Font.BOLD, 15);
+            g.setFont(myFont);
+            g.drawString(Client.YouNow()+"(You)", 0, nameList);
+
+
         }
         if(timeVisible) {
             g.setColor(Color.BLACK);
@@ -355,6 +385,8 @@ public class GUI extends JPanel {
                     case VK_B:
                         if(!useKeys)break;
                         if(!isPressedOnB) {
+                            buttonServer.setVisible(true);
+                            buttonDown.setVisible(true);
                             buttonConsole.setVisible(true);
                             buttonCatAI.setVisible(true);
                             buttonDogAI.setVisible(true);
@@ -423,6 +455,7 @@ public class GUI extends JPanel {
                         timerTask.StopWork();
                         if(!useKeys)break;
                         useKeys = false;
+                        Client.Disconnect();
 
 
                         timeVisible = false;
@@ -454,6 +487,8 @@ public class GUI extends JPanel {
                         buttonCatAI.setVisible(false);
                         buttonDogAI.setVisible(false);
                         buttonConsole.setVisible(false);
+                        buttonServer.setVisible(false);
+                        buttonDown.setVisible(false);
                         window.allClear();
 
                         myFile.ExitApplication(window, catAI.getPriority(),dogAI.getPriority());
@@ -574,6 +609,22 @@ public class GUI extends JPanel {
             myConsole.showConsole();
         }
     }
+    private class serverActionListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pause.doClick();
+            Client.Swap();
+            run.doClick();
+        }
+    }
+    private class downActionListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Client.Download();
+        }
+    }
     private class catsComboBoxActionListener implements ActionListener {
         int num;
         @Override
@@ -644,6 +695,18 @@ public class GUI extends JPanel {
     private class historyActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            //
+            //
+            //
+            //
+            //
+
+            //
+            //
+            //
+            //
+            //
+            //
             JTextArea display = new JTextArea(21,33);
             display.setEditable(false);
 

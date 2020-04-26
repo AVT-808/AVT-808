@@ -53,6 +53,12 @@ public class Singleton implements mySingle {
         petsID.remove(i);
         petsLife.remove(i);
     }
+    public ArrayList<Pet> getArray(){
+        return array;
+    }
+    public void setArray(ArrayList<Pet> pet){
+        array = pet;
+    }
     public static Singleton getInstance(){
         return singleton;
     }

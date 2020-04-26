@@ -3,7 +3,9 @@ package com.company.Habitat.Pet.Creatures;
 import com.company.Habitat.Pet.Pet;
 import com.company.Single.Singleton;
 
-public class Dog  extends Pet {
+import java.io.Serializable;
+
+public class Dog  extends Pet implements Serializable {
 
     public Dog(int id, int birth) {
         super(id,birth);
