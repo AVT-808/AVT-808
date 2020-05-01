@@ -57,6 +57,11 @@ public class MyComponent extends JComponent {
     private JButton jButtonSave = new JButton("Save");
     private JButton jButtonLoad = new JButton("Load");
     private JButton jButtonLoadUserHouses = new JButton("Server");
+    private JButton jButtonWriteDB = new JButton("Write");
+    private JButton jButtonReadDB = new JButton("Read");
+
+    private JCheckBox jCheckBoxWoodenDB = new JCheckBox("WooDB");
+    private JCheckBox jCheckBoxCapitalDB = new JCheckBox("CapitalDB");
 
 
     MyComponent(){
@@ -116,6 +121,18 @@ public class MyComponent extends JComponent {
         add(jButtonLoad);
         jButtonLoadUserHouses.setBounds(1180,552 ,80,30);
         add(jButtonLoadUserHouses);
+
+        jCheckBoxCapitalDB.setBounds(1180, 580, 80, 23);
+        jCheckBoxCapitalDB.setSelected(true);
+        add(jCheckBoxCapitalDB);
+        jCheckBoxWoodenDB.setBounds(1180, 605, 80, 23);
+        jCheckBoxWoodenDB.setSelected(true);
+        add(jCheckBoxWoodenDB);
+
+        jButtonWriteDB.setBounds(1180,630 ,80,30);
+        add(jButtonWriteDB);
+        jButtonReadDB.setBounds(1180,662 ,80,30);
+        add(jButtonReadDB);
 
 
         jMenuBar.add(jMenuStart);
@@ -297,4 +314,12 @@ public class MyComponent extends JComponent {
     public static void setCount(int count) { MyComponent.count = count; }
 
     public JButton getjButtonLoadUserHouses() { return jButtonLoadUserHouses; }
+
+    public JButton getjButtonWriteDB() { return jButtonWriteDB; }
+
+    public JButton getjButtonReadDB() { return jButtonReadDB; }
+
+    public JCheckBox getjCheckBoxWoodenDB() { return jCheckBoxWoodenDB; }
+
+    public JCheckBox getjCheckBoxCapitalDB() { return jCheckBoxCapitalDB; }
 }

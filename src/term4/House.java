@@ -40,4 +40,8 @@ public abstract class House implements IBehaviour, Serializable {
     public double getId() { return id; }
 
     public TypeOfHouse getTypeOfHouse() { return typeOfHouse; }
+
+    public int getSpeed() { return speed; }
+
+    public void setSpeed(int speed) { this.speed = speed; }
 }

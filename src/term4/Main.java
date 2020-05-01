@@ -2,6 +2,7 @@ package term4;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 
 
 public class Main {
@@ -540,12 +541,43 @@ public class Main {
             }
         });
 
-        habitat.myComponent.getjButtonLoadUserHouses().addMouseListener(new MouseAdapter() {
+        habitat.getMyComponent().getjButtonLoadUserHouses().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 Client.getHouses();
             }
         });
+
+        habitat.getMyComponent().getjButtonWriteDB().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    DB.connect();
+                    DB.create();
+                    DB.write();
+                    DB.close();
+                }
+                catch (ClassNotFoundException |SQLException ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+        habitat.getMyComponent().getjButtonReadDB().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    DB.connect();
+                    DB.create();
+                    DB.read();
+                    DB.close();
+                }
+                catch (ClassNotFoundException |SQLException ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+
 
     }
 
