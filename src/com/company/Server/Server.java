@@ -1,10 +1,6 @@
 package com.company.Server;
 
 import com.company.Habitat.Pet.Pet;
-import com.company.Single.Singleton;
-import com.company.Habitat.Pet.Pet;
-import com.company.Habitat.Pet.Creatures.*;
-import jdk.nashorn.internal.parser.JSONParser;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -71,7 +67,7 @@ public class Server implements Runnable {
                     objectOutputStream.writeObject("ERROR");
             }
 
-        } catch (IOException | ClassNotFoundException /*| ClassNotFoundException*/ e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

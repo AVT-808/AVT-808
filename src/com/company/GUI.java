@@ -12,6 +12,7 @@ import com.company.Single.Singleton;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -41,9 +42,9 @@ public class GUI extends JPanel {
     CatAI catAI = new CatAI();
     DogAI dogAI = new DogAI();
 
-    public JButton buttonServer = new JButton("Server");
+    public JButton buttonServer = new JButton("Swap Pets");
     ActionListener actionListenerForServer = new serverActionListener();
-    public JButton buttonDown = new JButton("SwapUser");
+    public JButton buttonDown = new JButton("Change User");
     ActionListener actionListenerForDown = new downActionListener();
     public JButton buttonConsole = new JButton("Console");
     ActionListener actionListenerForConsole = new consoleActionListener();
@@ -98,6 +99,7 @@ public class GUI extends JPanel {
         new Client();
         myFile = dataFile;
         myFile.RunApplication(window,catAI,dogAI);
+
 
 
         lifeCats.addActionListener(actionListenerLifeCats);
@@ -293,7 +295,7 @@ public class GUI extends JPanel {
         screenResolution.setLocation(200,0);
         buttonConsole.setBounds(200,60,100,30);
         buttonServer.setBounds(200,90,100,30);
-        buttonDown.setBounds(300,90,100,30);
+        buttonDown.setBounds(300,90,140,30);
         buttonCatAI.setBounds(300,30,70,15);
         buttonDogAI.setBounds(300,45,70,15);
 

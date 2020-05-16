@@ -4,11 +4,19 @@ import com.company.Habitat.Habitat;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class MyMenuBar extends MenuBar {
     MyMenuBar(GUI myGUI, DataFile dataFile, Habitat window){
+        DataBase base = new DataBase();
+        try {
+            base.connect();
+            base.create();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         MenuBar newMenu = new MenuBar();
         Menu menu = new Menu("Menu");
         add(menu);
@@ -105,6 +113,70 @@ public class MyMenuBar extends MenuBar {
         settings.add(lifeTime);
 
 
+        Menu Database = new Menu("Database");
+        add(Database);
+        Menu saveInData = new Menu("Save");
+        MenuItem saveAll = new MenuItem("All");
+        MenuItem saveCats = new MenuItem("Cats");
+        MenuItem saveDogs = new MenuItem("Dogs");
+        saveInData.add(saveAll);
+        saveInData.add(new MenuItem("-"));
+        saveInData.add(saveCats);
+        saveInData.add(saveDogs);
+
+        Menu downloadInData = new Menu("Download");
+        MenuItem downloadAll = new MenuItem("All");
+        MenuItem downloadCats = new MenuItem("Cats");
+        MenuItem downloadDogs = new MenuItem("Dogs");
+        downloadInData.add(downloadAll);
+        downloadInData.add(new MenuItem("-"));
+        downloadInData.add(downloadCats);
+        downloadInData.add(downloadDogs);
+        Database.add(saveInData);
+        Database.add(downloadInData);
+
+        saveAll.addActionListener(e -> {
+            try {
+                base.saveALL();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        });
+        saveCats.addActionListener(e -> {
+            try {
+                base.saveCats();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        });
+        saveDogs.addActionListener(e -> {
+            try {
+                base.saveDogs();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        });
+        downloadAll.addActionListener(e -> {
+            try {
+                base.downloadALL(myGUI.myTimer);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        });
+        downloadCats.addActionListener(e -> {
+            try {
+                base.downloadCats(myGUI.myTimer);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        });
+        downloadDogs.addActionListener(e -> {
+            try {
+                base.downloadDogs(myGUI.myTimer);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        });
         console.addActionListener(e -> myGUI.buttonConsole.doClick());
         save.addActionListener(e -> dataFile.SavePets(window));
         download.addActionListener(e -> dataFile.DownloadPets(myGUI, window));
