@@ -156,7 +156,3 @@ public class Habitat extends JFrame implements KeyListener {
 
     }
 }
-
-
-
-
