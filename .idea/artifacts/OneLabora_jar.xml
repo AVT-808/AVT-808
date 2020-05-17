@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/OneLabora_jar</output-path>
     <root id="archive" name="OneLabora.jar">
       <element id="module-output" name="OneLabora" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/mysql-connector-java-5.1.49-bin.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

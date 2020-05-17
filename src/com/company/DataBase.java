@@ -79,13 +79,13 @@ public class DataBase {
         Singleton.getInstance().getWindow().quantityPet=0;
         while(resultSet.next()){
             if(resultSet.getInt(2) == 1) {
-                myCat = new Cat(resultSet.getInt(4),time);
+                myCat = new Cat(resultSet.getInt(5),time);
                 myCat.setX(resultSet.getInt(3));
                 myCat.setY(resultSet.getInt(4));
                 Singleton.getInstance().getArray().add(myCat);
                 Singleton.getInstance().getWindow().quantityPet++;
             }else {
-                myDog = new Dog(resultSet.getInt(4),time);
+                myDog = new Dog(resultSet.getInt(5),time);
                 myDog.setX(resultSet.getInt(3));
                 myDog.setY(resultSet.getInt(4));
                 Singleton.getInstance().getArray().add(myDog);
@@ -99,7 +99,7 @@ public class DataBase {
         Singleton.getInstance().Clear();
         Singleton.getInstance().getWindow().quantityPet=0;
         while(resultSet.next()){
-            myCat = new Cat(resultSet.getInt(4),time);
+            myCat = new Cat(resultSet.getInt(5),time);
             myCat.setX(resultSet.getInt(3));
             myCat.setY(resultSet.getInt(4));
             Singleton.getInstance().getArray().add(myCat);
@@ -112,7 +112,7 @@ public class DataBase {
         Singleton.getInstance().Clear();
         Singleton.getInstance().getWindow().quantityPet=0;
         while(resultSet.next()){
-            myDog = new Dog(resultSet.getInt(4),time);
+            myDog = new Dog(resultSet.getInt(5),time);
             myDog.setX(resultSet.getInt(3));
             myDog.setY(resultSet.getInt(4));
             Singleton.getInstance().getArray().add(myDog);
