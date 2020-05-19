@@ -1,79 +1,44 @@
 package Fact;
 
-import Contr.Periods;
 import Object.*;
-import Contr.ComboB;
 import Menu.*;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.Random;
 
 
-public class ConcreteFactory implements AbstractFactory
-{
-
-    private Integer number_of_birds;
-    private Integer number_of_Big;
-    private Integer number_of_Small;
-
-    private  Integer time_birth_small;
-    private  Integer time_birth_big;
-    private Float chance_birth_big;
-    private Float percent;
-
+public class ConcreteFactory implements AbstractFactory {
+    IdentifyType identifyType;
 
     public ConcreteFactory() {
-        number_of_birds = 0;
-        number_of_Big = 0;
-        number_of_Small = 0;
+        identifyType = new IdentifyType();
     }
 
     @Override
     public Integer Return_the_Number_of_animals() {
-        return number_of_birds;
-    }
-
-
-    @Override
-    public void Total_destruction() {
-        number_of_birds = 0;
-        number_of_Big = 0;
-        number_of_Small = 0;
+      return identifyType.Return_the_Number_of_animals();//number_of_birds;
     }
 
     @Override
-    public Bird Luntik(Integer time, Point place, menu men) throws IOException {
+    public void Total_destruction() { identifyType.Total_destruction(); }
 
-        Periods periods = men.Return_periods();
-        this.time_birth_big = periods.Return_time_birth_big();
-        this.time_birth_small = periods.Return_time_birth_small();
+    @Override
+    public Bird Luntik(Integer time, Point place, Men men, Integer identifier) throws IOException {
 
-        ComboB comboB = men.Return_combob();
-        this.chance_birth_big = comboB.Return_chance_birth_big();
-        this.percent = comboB.Return_percent();
+        Integer type = identifyType.Luntik_type(time, place, men, identifier);
 
-        if (time % this.time_birth_big == 0){ // % -  остаток от деления. Т.о. каждые n секунд
+        if (type==1) {
 
-            Random random = new Random();
-            float chance = random.nextFloat(); // float nextFloat() - возвращает следующее случайное значение типа float
+            return new Big(place, identifier,time, Existence.Life.Return_lifetime_Big());
 
-            if (chance <= chance_birth_big) {
-                Bird fowl = new Big(place);
-                number_of_birds++;
-                number_of_Big++;
-                return fowl;
-            }
+        } else {
+
+            if (type==2) {
+                return new Small(place, identifier,time,  Existence.Life.Return_lifetime_Small());
+            }  else return null;
         }
-
-        if (time % this.time_birth_small == 0) {
-            if(number_of_Small < number_of_Big*percent) {
-                Bird fowl = new Small(place);
-                number_of_birds++;
-                number_of_Small++;
-                return fowl;
-            }
-        }
-        return null;
     }
 }
+
+
+

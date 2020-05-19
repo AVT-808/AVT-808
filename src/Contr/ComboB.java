@@ -8,18 +8,18 @@ import javax.swing.*;
 
 public class ComboB extends JPanel {
 
-    JComboBox comboBox;
-    JComboBox comboBox2;
-    Float chance_birth_big = 0.0f;
-    Float percent = 0.0f;
+    JComboBox<Float> comboBox;
+    JComboBox<Float> comboBox2;
+    Float chance_birth_big = 1.0f; // Con
+    Float percent = 1.0f; // Con
 
     public ComboB(){
 
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
-        ActionListener actionListener = new ActionListener() { // Взросл
+        ActionListener actionListener = new ActionListener() { // Взрослые
             public void actionPerformed(ActionEvent e) {
-                chance_birth_big = (Float) comboBox.getSelectedItem();
+                chance_birth_big = (Float) comboBox.getSelectedItem(); // Возвращает выбранное
                 comboBox.setFocusable(false);
             }
         };
@@ -31,13 +31,12 @@ public class ComboB extends JPanel {
             }
         };
 
-
         Float[] items = {0.0f, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f};
 
-        comboBox = new JComboBox(items);
+        comboBox = new JComboBox<>(items);
         comboBox.addActionListener(actionListener);
 
-        comboBox2 = new JComboBox(items);
+        comboBox2 = new JComboBox<>(items);
         comboBox2.addActionListener(actionListener2);
 
         JLabel text = new JLabel("P рождения вз. птицы");

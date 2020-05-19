@@ -5,8 +5,11 @@ import java.awt.*;
 
 public abstract class Bird implements IBehaviour
 {
+    public Integer identifier;
     private Point place;
     protected Image ris;
+    public Integer time_luntik;
+    public Integer go_away;
 
     protected Bird(Point place) { this.place = place; }
 

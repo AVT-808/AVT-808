@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Birdss:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Birdss_jar</output-path>
+    <root id="archive" name="Birdss.jar">
+      <element id="module-output" name="Birdss" />
+    </root>
+  </artifact>
+</component>

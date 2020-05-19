@@ -9,8 +9,8 @@ public class Periods extends JPanel {
 
     JTextField textArea_big;
     JTextField textArea_small;
-    Integer time_birth_big;
-    Integer time_birth_small;
+    Integer time_birth_big; // Con
+    Integer time_birth_small; // Con
 
     public Periods() {
 
@@ -101,7 +101,7 @@ public class Periods extends JPanel {
         panel2.add(textArea_small);
 
         add(panel);
-        add(Box.createRigidArea(new Dimension(5,0))); // Разделитель
+        add(Box.createRigidArea(new Dimension(3,0))); // Разделитель
         add(panel2);
 
         setVisible(true);

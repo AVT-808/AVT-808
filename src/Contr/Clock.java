@@ -1,7 +1,5 @@
 package Contr;
 
-import Habit.Habitat;
-
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.GridLayout;
@@ -10,11 +8,11 @@ import java.awt.event.ActionListener;
 public class Clock extends JPanel{
 
     ButtonGroup group;
-    JRadioButton  yes_clock;
-    JRadioButton no_clock;
-    Boolean dd=true;
+    static JRadioButton  yes_clock;
+    static JRadioButton no_clock;
+    static Boolean dd = true;
 
-    public Clock(Habitat habitat) {
+    public Clock() {
 
         setLayout(new GridLayout(2, 1));
 
@@ -31,32 +29,45 @@ public class Clock extends JPanel{
 
         setVisible(true);
 
-        yes_clock.setFocusable(false);
-        no_clock.setFocusable(false);
         setFocusable(false);
 
         yes_clock.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                habitat.Clock_yes_no(true);
+                Line.Clock(true); // Показать линию
                 dd=true;
+                yes_clock.setEnabled(false); // Блокировка
+                no_clock.setEnabled(true);
                 yes_clock.setFocusable(false);
             }
         });
 
         no_clock.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                habitat.Clock_yes_no(false);
+                Line.Clock(false);
                 dd=false;
+                yes_clock.setEnabled(true);
+                no_clock.setEnabled(false);
                 no_clock.setFocusable(false);
             }
         });
     }
 
-    public Boolean Return_dd(){
+    public static Boolean Return_dd(){
         return dd;
-    }
+    } // В клаве получаем инфу отсюда
 
-    public void Change_dd() {
-        this.dd=!this.dd;
+    public static void Change_dd() { dd=!dd;  } // Изменяя на клаве, изменяется и здесь
+
+    public static void Change_point() {
+        if (dd) {
+            yes_clock.setSelected(true); // Нажимается "да" само на экране
+            yes_clock.setEnabled(false); // Блокировка
+            no_clock.setEnabled(true);
+        }
+        else {
+            no_clock.setSelected(true); // Нажимается "нет" само на экране
+            yes_clock.setEnabled(true);
+            no_clock.setEnabled(false);
+        }
     }
 }

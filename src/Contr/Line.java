@@ -5,12 +5,11 @@ import java.awt.*;
 
 public class Line extends JPanel {
 
-    private final JLabel timer;
+    private static final JLabel timer = new JLabel("0   Время: 0");
 
     public Line() {
 
         setLayout(new GridLayout(1,1));
-        timer = new JLabel("0   Время: 0");
         add(timer);
         setVisible(true);
     }
@@ -19,7 +18,7 @@ public class Line extends JPanel {
         this.timer.setText(number + "   Время: " + timer);
     }
 
-    public void Clock(Boolean p) {
+    public static void Clock(Boolean p) {
         timer.setVisible(p);
     }
 }

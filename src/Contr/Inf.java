@@ -7,14 +7,14 @@ import java.awt.event.ActionListener;
 
 public class Inf extends JDialog {
 
-    private final JTextArea textArea;
-    private final JButton button_ok;
-    private final JButton button_cancel;
+    protected final JTextArea textArea;
+    protected final JButton button_ok;
+    protected final JButton button_cancel;
     Boolean ddd = true;
 
     public Inf(JFrame habitat, Integer time, Integer number_of_Small, Integer number_of_Big) {
 
-        super(habitat, "Inf", false);
+        super(habitat, "Информация", false);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
         textArea = new JTextArea();
@@ -26,6 +26,7 @@ public class Inf extends JDialog {
         textArea.append(string_time);
         textArea.append(string_small);
         textArea.append(string_big);
+
         textArea.setEditable(false); // Не редактируемое поле
 
         setResizable(false); // Не изменять размеры окна
@@ -34,7 +35,6 @@ public class Inf extends JDialog {
         setSize(new Dimension(300,300));
 
         add(textArea);
-
         textArea.setMaximumSize(new Dimension(300, 280));
 
         this.setModal(true); // Блокирует остальные окна
@@ -68,6 +68,6 @@ public class Inf extends JDialog {
         panel.setVisible(true);
     }
 
-    public Boolean Return_ddd() { return ddd; }
+    public Boolean Return_ddd() { return ddd; } // Определяется нажали "Ок" или "Отмена"
 }
 
