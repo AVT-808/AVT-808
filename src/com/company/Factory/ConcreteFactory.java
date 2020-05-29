@@ -1,90 +1,48 @@
 package com.company.Factory;
 
-import com.company.Models.Abstract.BaseBee;
 import com.company.Models.Drone;
 import com.company.Models.Worker;
-import com.company.Panels.ComboBoxProbability;
+import com.company.Panels.LifeTimeOfBees;
 import com.company.Panels.MenuButtons;
-import com.company.Panels.TimeOfBirth;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class ConcreteFactory implements AbstractFactory {
 
 
-    private int allBeesBirth;
-    private int allDronesBirth;
-    private int allWorkersBirth;
-    private Double probabilityOfWorkers;
-    private Double percent;
-    private Integer birthTimeWorkers;
-    private Integer birthTimeDrones;
+    IdTypeOfBee idTypeOfBee;
 
 
-    public ConcreteFactory(){
-        allBeesBirth = 0;
-        allDronesBirth = 0;
-        allWorkersBirth = 0;
+    public ConcreteFactory() {
+        idTypeOfBee = new IdTypeOfBee();
+
+    }
+    @Override
+    public int getAmountOfBirth () {
+        return idTypeOfBee.getAmountOfBirth();
     }
 
     @Override
-    public BaseBee birth(int x, int y, int time,MenuButtons menuButtons) throws IOException {
+    public void destroy () {
+        idTypeOfBee.destroy();
+    }
 
-        ComboBoxProbability comboBoxProbability = menuButtons.return_comboBox();
-        this.probabilityOfWorkers = comboBoxProbability.return_probabilityOfWorkers();
-        this.percent = comboBoxProbability.return_percent();
+    @Override
+    public Object birth(int x, int y, int time, MenuButtons menuButtons, Integer id) throws IOException {
 
-        TimeOfBirth timeOfBirth = menuButtons.return_timerOfBirth();
-        this.birthTimeWorkers = timeOfBirth.return_birthTimeWorkers();
-        this.birthTimeDrones = timeOfBirth.return_birthTimeDrones();
+        int idType = idTypeOfBee.type_of_birth(x, y, time, menuButtons, id);
 
+        if (idType == 1) {
 
+            return new Worker(x, y, id, time,com.company.Panels.LifeTimeOfBees.return_life_time_Workers());
 
-        if (time % this.birthTimeWorkers == 0){ // % -  остаток от деления. Т.о. каждые n секунд
+        } else {
 
-            Random random = new Random();
-            double randomProbability = random.nextDouble(); // float nextFloat() - возвращает следующее случайное значение типа float
-
-            if (randomProbability <= probabilityOfWorkers) {
-                BaseBee baseBee = new Worker(x, y);
-                allBeesBirth++;
-                allWorkersBirth++;
-                return baseBee;
-            }
+            if (idType == 2) {
+                return new Drone(x, y, id, time, com.company.Panels.LifeTimeOfBees.return_life_time_Drones());
+            } else return null;
         }
 
-        if (time % this.birthTimeDrones == 0) {
-            if(allDronesBirth < allWorkersBirth*percent) {
-                BaseBee baseBee = new Drone(x, y);
-                allBeesBirth++;
-                allDronesBirth++;
-                return baseBee;
-            }
-        }
-        return null;
     }
 
-    @Override
-    public int getAmountOfDrones() {
-        return allDronesBirth;
-    }
-
-    @Override
-    public int getAmountOfWorkers() {
-        return allWorkersBirth;
-    }
-
-    @Override
-    public int getAmountOfBirth() {
-        return allBeesBirth;
-    }
-
-    @Override
-    public void destroy() {
-        allBeesBirth = 0;
-        allDronesBirth = 0;
-        allWorkersBirth = 0;
-    }
 }
-

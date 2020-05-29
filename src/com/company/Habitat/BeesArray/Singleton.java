@@ -5,21 +5,24 @@ import com.company.Habitat.HabitatTask;
 import com.company.Models.Abstract.BaseBee;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.Timer;
-import java.util.TreeMap;
+
 
 public class Singleton {
 
     private static Singleton instance;
     public final List<BaseBee> bees;
+    public HashSet<Integer> hashSet;
+    TreeMap<Integer,Integer> treeMap;
     private Timer timer;
     private HabitatTask habitatTask;
     Boolean isStart = true;
 
     public Singleton() {
         bees = new ArrayList<>();
+        hashSet = new HashSet<>();
+        treeMap = new TreeMap<>();
     }
 
     public static Singleton getInstance(){
@@ -34,13 +37,46 @@ public class Singleton {
             instance.bees.clear();
     }
 
+    public void destroy_hashSet() {
+        instance.hashSet.clear();
+    }
+
+    public void destroy_treeMap(){
+        instance.treeMap.clear();
+    }
+
+    public void removeBees(BaseBee bee){
+        bees.remove(bee);
+    }
+
+    public void removeHashSet(Integer k){
+        instance.hashSet.remove(k);
+    }
+    public void removeTreeMap(Integer k){
+        instance.treeMap.remove(k);
+    }
+
     public void addBees(BaseBee bee) {
         instance.bees.add(bee);
+    }
+
+    public void addId(Integer id){
+        instance.hashSet.add(id);
+    };
+
+    public void putTreeMap(Integer id, Integer dead){
+        instance.treeMap.put(id,dead);
     }
 
     public static List<BaseBee> getBees(){
         return instance.bees;
     }
+
+    public TreeMap<Integer, Integer> returnTreeMap() { return treeMap; }
+
+
+
+    //сделать текущий объект CurrentObj
     
     public void Start(Habitat habitat, JButton startButton, JButton stopButton ){
         isStart = false;

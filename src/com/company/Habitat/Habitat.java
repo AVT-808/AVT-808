@@ -4,7 +4,7 @@ import com.company.Factory.AbstractFactory;
 import com.company.Factory.ConcreteFactory;
 import com.company.Habitat.BeesArray.Singleton;
 import com.company.Models.Abstract.BaseBee;
-import com.company.Models.Drone;
+import com.company.Models.Worker;
 import com.company.Panels.*;
 
 import javax.swing.*;
@@ -12,6 +12,7 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.util.Random;
+import java.util.TreeMap;
 
 public class Habitat extends JFrame {
 
@@ -22,6 +23,9 @@ public class Habitat extends JFrame {
     private MenuPanel menuPanel;
     private Buttons button;
     private MenuButtons menuButtons;
+    Integer id;
+    private int allDronesBirth = 0;
+    private int allWorkersBirth = 0;
 
 
     JButton startButton;
@@ -75,16 +79,20 @@ public class Habitat extends JFrame {
         Boolean bl = menuButtons.return_chb();
 
         if (bl) {
-            Information informationPanel = new Information(this, "Информация", time, factory.getAmountOfWorkers(), factory.getAmountOfDrones());
+            Information informationPanel = new Information(this, "Информация", time, allWorkersBirth, allDronesBirth);
             informationPanel.setVisible(true);
             b = informationPanel.return_B();
         }
 
         if(b) {
             time = 0;
+            allWorkersBirth=0;
+            allDronesBirth = 0;
             bees.clear();
             drawBee.repaint();
             factory.destroy();
+            bees.destroy_hashSet();
+            bees.destroy_treeMap();
         }
     }
 
@@ -109,15 +117,39 @@ public class Habitat extends JFrame {
         requestFocus();//фокус на поле
 
         try{
-            BaseBee bee = factory.birth(x_cord,y_cord,time, menuButtons);
+            id = coordinatesRandom.nextInt(100);
+            BaseBee bee = (BaseBee) factory.birth(x_cord,y_cord,time, menuButtons,id);
             menuPanel.setBeesAmount(factory.getAmountOfBirth());
             if(bee != null) {
+                if(bee.getClass() == Worker.class){
+                    allWorkersBirth++;
+                }else {allDronesBirth++;}
                 bees.addBees(bee);
+                while (bees.hashSet.contains(id)) { //  Если элемент найден, он возвращает true, в противном случае false
+                    id = coordinatesRandom.nextInt(100); // Делаем для того, чтобы номера не повторились
+                }
+                bees.addId(id); // Добавить ключ
+                bees.putTreeMap(id,time);
                 drawBee.repaint();
             }
         }
         catch (Exception ex){
             ex.printStackTrace();
         }
+        for(BaseBee bee: Singleton.getBees()){
+            if(bee.dead==time){
+            Integer k = bee.id;
+
+                bees.removeHashSet(k);
+                bees.removeBees(bee);
+                bees.removeTreeMap(k);
+                drawBee.repaint();
+                break;
+
+            }
+        }
+    }
+    public TreeMap<Integer,Integer> returnTreeMap(){
+    return bees.returnTreeMap();
     }
 }

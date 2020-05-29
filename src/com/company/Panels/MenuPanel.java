@@ -29,17 +29,7 @@ public class MenuPanel extends JPanel {
         this.timer.setText("Таймер: " + timer);
     }
 
-   // public void setTimerVisibility(Boolean isVisible) {
-       // timer.setVisible(isVisible);
-    //}
 
-   /* public Boolean return_bool() {
-        return bool;
-    }
-
-    public void return2_bool() {
-
-    }*/
 
     public void TimerShowHide(boolean b) {
         timer.setVisible(b);

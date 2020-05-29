@@ -8,13 +8,19 @@ import javax.swing.*;
 public class MenuButtons extends JPanel {
 
     ShowInfButton chb;
+    CurObj CO;
     TimerShowHide timerShowHide;
     ComboBoxProbability comboBoxProbability;
     TimeOfBirth timeOfBirth;
+    LifeTimeOfBees lifeTimeOfBees;
+
 
     public MenuButtons(Habitat habitat){
 
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+
+        CO = new CurObj(habitat);
+        add(CO);
 
         chb = new ShowInfButton();// показать инфу да/нет
         add(chb);
@@ -27,6 +33,11 @@ public class MenuButtons extends JPanel {
 
         timeOfBirth = new TimeOfBirth();//время рождения тех или других пчел
         add(timeOfBirth);
+
+        lifeTimeOfBees = new LifeTimeOfBees();//время рождения тех или других пчел
+        add(lifeTimeOfBees);
+
+
 
         setVisible(true);
         setFocusable(false);
@@ -52,5 +63,9 @@ public class MenuButtons extends JPanel {
 
     public TimeOfBirth return_timerOfBirth(){
         return timeOfBirth;
+    }
+
+    public LifeTimeOfBees return_(){
+        return lifeTimeOfBees;
     }
 }
