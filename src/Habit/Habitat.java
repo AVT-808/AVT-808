@@ -17,7 +17,7 @@ public class Habitat {
     private final Singleton Bird_s;
     private final AbstractFactory factory;
     private Integer time;
-    private final DepictBird depict_a_bird;
+   public static DepictBird depict_a_bird;
 
     private Integer number_of_Big = 0;
     private Integer number_of_Small = 0;
@@ -61,6 +61,7 @@ public class Habitat {
         jFrame.add(line);
 
         jFrame.setFocusable(true);
+
     }
 
     //*********************************//
@@ -154,13 +155,19 @@ public class Habitat {
                 Bird_s.treeSet_remove(key);
                 Bird_s.Bird_s_remove(bird);
 
+
+
                 depict_a_bird.repaint();
                 break;
             }
         }
+
+
     }
 
     ////////////////////////////////
     public HashMap<Integer,Integer> Return_hashMap() { return Bird_s.Return_hashMap(); } // Связывает Singleton и OnTheField
+
+
 }
 

@@ -28,6 +28,7 @@ public class Butt extends JPanel {
 
         button_stop.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 st.StoP(habitat, button_start, button_stop);
             }
         });

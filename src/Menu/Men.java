@@ -3,6 +3,8 @@ package Menu;
 import Contr.*;
 import Habit.Habitat;
 import Existence.*;
+import Move.Pause;
+import Move.Prior;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +18,7 @@ public class Men extends JPanel {
     Life life;
     CurrentObjects currentObjects;
     Butt butt;
+    Pause pause;
 
     public Men(Habitat habitat) {
 
@@ -26,10 +29,18 @@ public class Men extends JPanel {
         add(butt);
         ////////
         currentObjects=new CurrentObjects(habitat); // Текущие объекты
-        add(currentObjects);
-        /////////
+        JPanel jPanel = currentObjects.getCCurrentObjects();
         checkB = new CheckB(); // Показывать информацию
-        add(checkB);
+        jPanel.add(checkB);
+        add(jPanel);
+        /////////
+        pause = new Pause(); // Остановка/движение объектов
+        add(pause);
+        /////////
+        Prior prior = new Prior(); // Приоритеты для потоков
+        add(prior);
+        /////////
+        add(Box.createRigidArea(new Dimension(2,0))); // Отступ в расположении
         /////////
         periods = new Periods(); // Периоды появления птиц
         add(periods);
@@ -45,7 +56,6 @@ public class Men extends JPanel {
         combob = new ComboB(); // Вероятности
         add(combob);
         ////////
-
 
         setVisible(true);
         setFocusable(false);

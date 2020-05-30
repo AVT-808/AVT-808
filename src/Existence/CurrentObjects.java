@@ -3,6 +3,7 @@ package Existence;
 import Habit.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +15,8 @@ public class CurrentObjects extends JPanel { // Кнопка - текущие о
 
         button = new JButton("Текущ. об.");
 
+        setLayout(new GridLayout(2, 1));
+
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 OnTheField onTheField = new OnTheField(habitat);
@@ -24,4 +27,6 @@ public class CurrentObjects extends JPanel { // Кнопка - текущие о
         add(button);
         setFocusable(false);
     }
+
+    public CurrentObjects getCCurrentObjects() { return this;}
 }

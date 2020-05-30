@@ -20,7 +20,7 @@ public class Singleton {
         hashMap = new HashMap<>();
     }
 
-    public static Singleton getM()  // Создающий метод, который будет использоваться для получения одиночки
+    public synchronized static Singleton getM()  // Создающий метод, который будет использоваться для получения одиночки
     {
         if (M == null) // Если объект ещё не создан
             M = new Singleton(); // Создать новый объект
@@ -56,5 +56,7 @@ public class Singleton {
     }
 
     public HashMap<Integer, Integer> Return_hashMap() { return hashMap; }
+
+
 }
 

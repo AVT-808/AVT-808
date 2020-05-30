@@ -10,8 +10,8 @@ public class ComboB extends JPanel {
 
     JComboBox<Float> comboBox;
     JComboBox<Float> comboBox2;
-    Float chance_birth_big = 1.0f; // Con
-    Float percent = 1.0f; // Con
+    Float chance_birth_big; // Con
+    Float percent; // Con
 
     public ComboB(){
 
@@ -41,12 +41,12 @@ public class ComboB extends JPanel {
 
         JLabel text = new JLabel("P рождения вз. птицы");
         text.setFont(new Font("Courier New", Font.BOLD,11));
-        text.setForeground(Color.BLACK);
+        text.setForeground(Color.BLUE);
         text.setHorizontalAlignment(SwingConstants.CENTER);
 
         JLabel text2 = new JLabel("Птенцы относительно вз., %");
         text2.setFont(new Font("Courier New", Font.BOLD,11));
-        text2.setForeground(Color.BLACK);
+        text2.setForeground(Color.BLUE);
         text2.setHorizontalAlignment(SwingConstants.CENTER);
 
         JPanel panel = new JPanel();

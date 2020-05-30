@@ -48,6 +48,7 @@ public class Clock extends JPanel{
                 yes_clock.setEnabled(true);
                 no_clock.setEnabled(false);
                 no_clock.setFocusable(false);
+
             }
         });
     }

@@ -8,18 +8,23 @@ import java.awt.*;
 
 public class DepictBird extends JPanel {
 
-    public DepictBird () { Singleton.getM(); }
+
+    public DepictBird () {
+        Singleton.getM();
+    }
 
     @Override
-    protected void paintComponent(Graphics graphics)
+    protected synchronized void paintComponent(Graphics graphics)
     {
         super.paintComponent(graphics);
 
         if (Singleton.getBird_s().isEmpty()) return; // Если пусто
+
 
         for (Bird bird : Singleton.getBird_s()) {
             setBackground(Color.GREEN);
             graphics.drawImage(bird.getImage(),bird.getPlace().x,bird.getPlace().y,50,50,null);
         }
     }
+
 }

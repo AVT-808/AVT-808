@@ -19,13 +19,13 @@ public class Life extends JPanel {
         //****метки****//
         JLabel text = new JLabel("Время жизни вз.");
         text.setFont(new Font("Courier New", Font.BOLD,11));
-        text.setForeground(Color.BLACK);
+        text.setForeground(Color.BLUE);
         text.setHorizontalAlignment(SwingConstants.CENTER);
 
 
         JLabel text2 = new JLabel("Время жизни пт.");
         text2.setFont(new Font("Courier New", Font.BOLD,11));
-        text2.setForeground(Color.BLACK);
+        text2.setForeground(Color.BLUE);
         text2.setHorizontalAlignment(SwingConstants.CENTER);
 
 

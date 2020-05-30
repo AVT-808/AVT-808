@@ -6,65 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0c037f-e5ef-4b1f-aebe-d33d12d6e324" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Birdss_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Birdss.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Birdss.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Birdss.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Birdss/Birdss.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/.idea/artifacts/Birdss.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/AnimalTour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/AnimalTour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Array/Singleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Array/Singleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Birdss.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Butt$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Butt$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Butt$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Butt$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Butt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Butt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/CheckB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/CheckB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Clock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Clock$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Clock$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Clock$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Clock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/ComboB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/ComboB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Inf.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Inf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Line.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/Periods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Contr/Periods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Contr/StarT_StoP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/DrawPanel/Depict_a_bird.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Fact/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Fact/AbstractFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Fact/ConcreteFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Fact/ConcreteFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Habit/Habitat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Habit/Habitat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Menu/menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Object/Big.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Object/Big.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Object/Bird.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Object/Bird.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/Object/Small.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Birdss/Object/Small.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/src/Small.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/src/duck.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Birdss/src/duck2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AnimalTour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AnimalTour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Array/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Array/Singleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Birdss.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contr/Butt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contr/Butt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contr/CheckB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contr/CheckB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contr/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contr/Clock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contr/ComboB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contr/ComboB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contr/Inf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contr/Inf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contr/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contr/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contr/Periods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contr/Periods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contr/StarT_StoP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DrawPanel/Depict_a_bird.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fact/AbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fact/AbstractFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fact/ConcreteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fact/ConcreteFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Habit/Habitat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Habit/Habitat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu/menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/Big.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/Big.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/Bird.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/Bird.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/Small.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/Small.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ТП_ЛР № 2_Хайрулина Елизавета_АВТ-808.docx" beforeDir="false" />
-    </list>
+    <list default="true" id="4e0c037f-e5ef-4b1f-aebe-d33d12d6e324" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,9 +20,6 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="ProjectId" id="1aIDykvxsAAbDrZnrI6J9wxacBC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -89,11 +28,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Application.AnimalTour">
     <configuration name="AnimalTour" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -179,76 +118,73 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1586509979118">
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1590182343116">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1586509979118" />
-    <state x="438" y="226" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1589917922852">
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1590182343116" />
+    <state x="438" y="226" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590857057806">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="438" y="226" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1589917922852" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589698283332">
+    <state x="438" y="226" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1590857057806" />
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590330792419">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1589698283332" />
-    <state width="1237" height="108" key="GridCell.Tab.0.bottom" timestamp="1589921999859">
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590330792419" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589918500903">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="108" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589921999859" />
-    <state width="1237" height="108" key="GridCell.Tab.0.center" timestamp="1589921999859">
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1589918500903" />
+    <state width="1237" height="108" key="GridCell.Tab.0.bottom" timestamp="1590859158728">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="108" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1589921999859" />
-    <state width="1237" height="108" key="GridCell.Tab.0.left" timestamp="1589921999859">
+    <state width="1237" height="108" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1590859158728" />
+    <state width="1237" height="108" key="GridCell.Tab.0.center" timestamp="1590859158728">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="108" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1589921999859" />
-    <state width="1237" height="108" key="GridCell.Tab.0.right" timestamp="1589921999859">
+    <state width="1237" height="108" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1590859158728" />
+    <state width="1237" height="108" key="GridCell.Tab.0.left" timestamp="1590859158728">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="108" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1589921999859" />
-    <state width="1237" height="199" key="GridCell.Tab.1.bottom" timestamp="1589720955137">
+    <state width="1237" height="108" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1590859158728" />
+    <state width="1237" height="108" key="GridCell.Tab.0.right" timestamp="1590859158728">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="199" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589720955137" />
-    <state width="1237" height="199" key="GridCell.Tab.1.center" timestamp="1589720955136">
+    <state width="1237" height="108" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1590859158728" />
+    <state width="1237" height="157" key="GridCell.Tab.1.bottom" timestamp="1590781146297">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="199" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1589720955136" />
-    <state width="1237" height="199" key="GridCell.Tab.1.left" timestamp="1589720955136">
+    <state width="1237" height="157" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1590781146297" />
+    <state width="1237" height="157" key="GridCell.Tab.1.center" timestamp="1590781146297">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="199" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1589720955136" />
-    <state width="1237" height="199" key="GridCell.Tab.1.right" timestamp="1589720955136">
+    <state width="1237" height="157" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1590781146297" />
+    <state width="1237" height="157" key="GridCell.Tab.1.left" timestamp="1590781146297">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="199" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1589720955136" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1589918728942">
+    <state width="1237" height="157" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1590781146297" />
+    <state width="1237" height="157" key="GridCell.Tab.1.right" timestamp="1590781146297">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1589918728942" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1587717674859">
+    <state width="1237" height="157" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1590781146297" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1590859724208">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587717674859" />
-    <state x="297" y="151" key="run.anything.popup" timestamp="1587731277004">
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1590859724208" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1590846951074">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587731277004" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1589890273987">
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1590846951074" />
+    <state x="0" y="0" width="612" height="680" key="find.popup" timestamp="1590770777857">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1589890273987" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Contr/Inf.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="0" y="0" width="612" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1590770777857" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1590247521155">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1590247521155" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1590749692679">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1590749692679" />
   </component>
 </project>

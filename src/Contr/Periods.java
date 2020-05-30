@@ -17,13 +17,13 @@ public class Periods extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
         //****метки****//
-        JLabel text = new JLabel("Период рожд. вз.");
+        JLabel text = new JLabel("Период вз.");
         text.setFont(new Font("Courier New", Font.BOLD,11));
         text.setForeground(Color.BLACK);
         text.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-        JLabel text2 = new JLabel("Период рожд. пт.");
+        JLabel text2 = new JLabel("Период пт.");
         text2.setFont(new Font("Courier New", Font.BOLD,11));
         text2.setForeground(Color.BLACK);
         text2.setHorizontalAlignment(SwingConstants.CENTER);
