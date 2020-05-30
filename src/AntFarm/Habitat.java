@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class Habitat extends JFrame {
-    private int time;
+    private int time, id;
     private int antsAmount, workersAmount, warriorsAmount;
     private Singleton ants;
     protected AbstractFactory factory;
@@ -51,23 +51,28 @@ public class Habitat extends JFrame {
     }
 
     void update() {
-        if (!isPaused)
-        {
+        if (!isPaused) {
             time++;
             gui.timer.setText("Таймер: " + time);
             Random random = new Random();
+            id = random.nextInt(500);
             int xcord = random.nextInt(gui.draw.getWidth() - 200);
             int ycord = random.nextInt(gui.draw.getHeight() - 200);
-            Ant ant = factory.createAnt(xcord, ycord, time);
+            Ant ant = factory.createAnt(xcord, ycord, id, time);
             if (ant != null) {
                 if (ant.getClass() == AntWorker.class)
                     workersAmount++;
                 else
                     warriorsAmount++;
-                ants.addAnt(ant);
+                ants.addAnt(ant, ant.id, time);
                 antsAmount++;
-                gui.draw.repaint();
             }
+            for (int i=0; i<ants.getArraySize(); i++)
+            {
+                if (ants.getAnts().get(i).deathTime == time)
+                    ants.removeAnt(ants.getAnts().get(i), ants.getAnts().get(i).id);
+            }
+            gui.draw.repaint();
         }
         else
         {
@@ -110,7 +115,6 @@ public class Habitat extends JFrame {
         else {
             factory.exterminate();
             isOver = true;
-            System.out.println(isOver);
             time = 0;
             gui.timer.setText("Таймер: " + time);
             ants.clearAnts();
@@ -129,6 +133,11 @@ public class Habitat extends JFrame {
     public JButton getButtonStop()
     {
         return gui.getButtonStop();
+    }
+
+    public JButton getButtonObjects()
+    {
+        return gui.getButtonObjects();
     }
 
     public JCheckBox getInformationVisibility()
@@ -154,6 +163,16 @@ public class Habitat extends JFrame {
     public JTextField getWarriorPeriod()
     {
         return gui.getWarriorPeriod();
+    }
+
+    public JTextField getWorkerLifetime()
+    {
+        return gui.getWorkerLifetime();
+    }
+
+    public JTextField getWarriorLifetime()
+    {
+        return gui.getWarriorLifetime();
     }
 
     public JComboBox getWorkerProbability()

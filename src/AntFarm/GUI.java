@@ -29,6 +29,13 @@ class GUI extends JPanel
     private JComboBox workerProbability;
     private JComboBox warriorProbability;
 
+    private JLabel labelWorkerLifetime;
+    private JLabel labelWarriorLifetime;
+    private JTextField workerLifetime;
+    private JTextField warriorLifetime;
+
+    private JButton buttonObjects;
+
     //меню
     private JMenu menuSimulation;
     private JMenu menuInstruments;
@@ -42,7 +49,7 @@ class GUI extends JPanel
         menu = new JMenuBar();
         settings = new JToolBar();
 
-        settings.setLayout(new GridLayout(13,1));
+        settings.setLayout(new GridLayout(18,1));
         settings.setFocusable(false);
         settings.setFloatable(false);
 
@@ -52,6 +59,9 @@ class GUI extends JPanel
         buttonStop = new JButton("Стоп");
         buttonStop.setEnabled(false);
         buttonStop.addActionListener(actionListener);
+
+        buttonObjects = new JButton("Текущие объекты");
+        buttonObjects.addActionListener(actionListener);
 
         infoVisibility = new JCheckBox("Информация о симуляции", true);
         infoVisibility.addActionListener(actionListener);
@@ -72,6 +82,12 @@ class GUI extends JPanel
         labelWarriorPeriod = new JLabel("Период рождения муравья-воина");
         warriorPeriod = new JTextField();
 
+        labelWorkerLifetime = new JLabel("Время жизни муравья-рабочего");
+        workerLifetime = new JTextField();
+
+        labelWarriorLifetime = new JLabel("Время жизни муравья-воина");
+        warriorLifetime = new JTextField();
+
         Double[] steps = new Double[] {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
 
         labelWorkerProbability = new JLabel("Вероятность рождения муравья-рабочего");
@@ -82,6 +98,7 @@ class GUI extends JPanel
 
         settings.add(buttonStart);
         settings.add(buttonStop);
+        settings.add(buttonObjects);
         settings.add(infoVisibility);
         settings.add(timerIsVisible);
         settings.add(timerNotVisible);
@@ -89,6 +106,10 @@ class GUI extends JPanel
         settings.add(workerPeriod);
         settings.add(labelWarriorPeriod);
         settings.add(warriorPeriod);
+        settings.add(labelWorkerLifetime);
+        settings.add(workerLifetime);
+        settings.add(labelWarriorLifetime);
+        settings.add(warriorLifetime);
         settings.add(labelWorkerProbability);
         settings.add(workerProbability);
         settings.add(labelWarriorProbability);
@@ -149,6 +170,8 @@ class GUI extends JPanel
         return buttonStop;
     }
 
+    public JButton getButtonObjects() { return buttonObjects;}
+
     public JCheckBox getInfoVisibility()
     {
         return infoVisibility;
@@ -173,6 +196,10 @@ class GUI extends JPanel
     {
         return warriorPeriod;
     }
+
+    public JTextField getWorkerLifetime() {return workerLifetime;}
+
+    public JTextField getWarriorLifetime() {return warriorLifetime;}
 
     public JComboBox getWorkerProbability()
     {

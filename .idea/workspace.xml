@@ -6,19 +6,29 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff80edab-c339-4291-a95f-791baf2270a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/t4_lab_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="ff80edab-c339-4291-a95f-791baf2270a2" name="Default Changelist" comment="LR3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AbstractFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Ant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Ant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AntWarrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AntWarrior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AntWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AntWorker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/ConcreteFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/ConcreteFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/DrawingAnts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/DrawingAnts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/GUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Habitat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Habitat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Singleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Singleton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/AbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/AbstractFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Ant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/AntWarrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/AntWarrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/AntWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/AntWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/ConcreteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/ConcreteFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/DrawingAnts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/DrawingAnts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/Habitat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Habitat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Singleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ТП АВТ-808 Кузьмина ЛР2.docx" beforeDir="false" afterPath="$PROJECT_DIR$/ТП АВТ-808 Кузьмина ЛР2.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,13 +63,13 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src\AntFarm\AntPics" />
-      <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src" />
       <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src\AntFarm\AntPics" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src\AntFarm\AntPics" />
+      <recent name="C:\Users\ТурбоПупс\IdeaProjects\t4.lab\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -98,11 +108,30 @@
       <workItem from="1587705592952" duration="36327000" />
       <workItem from="1587790570966" duration="15163000" />
       <workItem from="1587818750359" duration="16776000" />
+      <workItem from="1587844540186" duration="2775000" />
+      <workItem from="1587875372807" duration="9020000" />
+      <workItem from="1589605930322" duration="6544000" />
+      <workItem from="1589695915332" duration="8268000" />
+      <workItem from="1590736220720" duration="18215000" />
+      <workItem from="1590815755244" duration="26098000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1587741228124">
@@ -113,37 +142,69 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="521" y="135" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1587536123705" />
-    <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587840690487">
+    <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590865634815">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1587840690487" />
+    <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1590865634815" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1590870660312">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590870660312" />
+    <state x="129" y="55" width="1092" height="610" key="DiffContextDialog" timestamp="1590736955775">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="55" width="1092" height="610" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1590736955775" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1587841003408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587841003408" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1587842210289">
+    <state width="1323" height="129" key="GridCell.Tab.0.bottom" timestamp="1590866035356">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587842210289" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1587842210289">
+    <state width="1323" height="129" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590866035356" />
+    <state width="1323" height="129" key="GridCell.Tab.0.center" timestamp="1590866035355">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587842210289" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1587842210289">
+    <state width="1323" height="129" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590866035355" />
+    <state width="1323" height="129" key="GridCell.Tab.0.left" timestamp="1590866035355">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587842210289" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1587842210289">
+    <state width="1323" height="129" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590866035355" />
+    <state width="1323" height="129" key="GridCell.Tab.0.right" timestamp="1590866035355">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587842210289" />
-    <state x="271" y="2" width="1040" height="699" key="SettingsEditor" timestamp="1587841461124">
+    <state width="1323" height="129" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590866035355" />
+    <state x="481" y="86" key="RollbackChangesDialog" timestamp="1590736650643">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="271" y="2" width="1040" height="699" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587841461124" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587794254531">
+    <state x="481" y="86" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590736650643" />
+    <state x="271" y="2" width="1040" height="699" key="SettingsEditor" timestamp="1590868967037">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587794254531" />
+    <state x="271" y="2" width="1040" height="699" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590868967037" />
+    <state x="92" y="92" width="1182" height="544" key="ShowDiffWithBranchDialog" timestamp="1587846597928">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="ShowDiffWithBranchDialog/0.0.1366.728@0.0.1366.728" timestamp="1587846597928" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1590870304597">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1590870304597" />
+    <state x="401" y="98" key="VcsDiffUtil.ChangesDialog" timestamp="1590736977151">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="401" y="98" key="VcsDiffUtil.ChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590736977151" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1587846597928">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587846597928" />
+    <state x="464" y="77" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590737313084">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="464" y="77" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.728@0.0.1366.728" timestamp="1590737313084" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590773346412">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590773346412" />
   </component>
 </project>

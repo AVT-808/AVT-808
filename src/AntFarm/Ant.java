@@ -6,6 +6,7 @@ public abstract class Ant implements IBehaviour
 {
     protected int x, y;
     protected Image image;
+    protected int id, birthTime, deathTime;
 
     protected Ant(int x, int y)
     {

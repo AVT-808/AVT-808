@@ -18,8 +18,7 @@ public class DrawingAnts extends JPanel
         super.paintComponent(g);
         if (Singleton.getAnts().isEmpty())
             return;
-        for (int i = 0; i< ants.getArraySize() && i<500; i++)
-        {
+        for (int i = 0; i < ants.getArraySize(); i++) {
             if (ants.getAnts().get(i).getClass() == AntWorker.class)
                 g.drawImage(ants.getAnts().get(i).getImage(), ants.getAnts().get(i).getX(), ants.getAnts().get(i).getY(), 100, 130, null);
             else

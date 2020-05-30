@@ -9,10 +9,11 @@ import java.util.Timer;
 
 public class Main extends KeyAdapter implements ActionListener {
     private Habitat antFarm;
+    private CurrentObjects obj;
     protected MyTimerTask myTimerTask;
     protected Timer timer;
     private boolean isStarted, isTimerVisible;
-    int workerPeriod, warriorPeriod;
+    int workerPeriod, warriorPeriod, workerLifetime, warriorLifetime;
     double workerProbability, warriorProbability;
 
     public static void main(String[] args)
@@ -64,6 +65,11 @@ public class Main extends KeyAdapter implements ActionListener {
             if (isStarted)
                 stopSimulation();
         }
+        if (action == antFarm.getButtonObjects())
+        {
+            obj = new CurrentObjects(Singleton.getBirthTime());
+            obj.setVisible(true);
+        }
         if (action == antFarm.getInformationVisibility()) {
             antFarm.informationShowing();
         }
@@ -113,24 +119,29 @@ public class Main extends KeyAdapter implements ActionListener {
         {
             workerPeriod = Integer.parseInt(antFarm.getWorkerPeriod().getText());
             warriorPeriod = Integer.parseInt(antFarm.getWarriorPeriod().getText());
+            workerLifetime = Integer.parseInt(antFarm.getWorkerLifetime().getText());
+            warriorLifetime = Integer.parseInt(antFarm.getWarriorLifetime().getText());
             workerProbability = (double)(antFarm.getWorkerProbability().getSelectedItem());
             warriorProbability = (double)(antFarm.getWarriorProbability().getSelectedItem());
-            antFarm.factory.setParameters(workerPeriod, warriorPeriod, workerProbability, warriorProbability);
+            antFarm.factory.setParameters(workerPeriod, warriorPeriod, workerProbability, warriorProbability, workerLifetime, warriorLifetime);
         }
         else
         {
             JOptionPane.showMessageDialog(null, "Введено некорректное значение. Установлены значения по умолчанию.", "Ошибка!", JOptionPane.ERROR_MESSAGE);
             workerPeriod = 5;
             warriorPeriod = 3;
+            workerLifetime = 10;
+            warriorLifetime = 7;
             workerProbability = 0.9;
             warriorProbability = 0.7;
-            antFarm.factory.setParameters(workerPeriod, warriorPeriod, workerProbability, warriorProbability);
+            antFarm.factory.setParameters(workerPeriod, warriorPeriod, workerProbability, warriorProbability, workerLifetime, warriorLifetime);
             antFarm.getWorkerPeriod().setText(Integer.toString(workerPeriod));
             antFarm.getWarriorPeriod().setText(Integer.toString(warriorPeriod));
+            antFarm.getWorkerLifetime().setText(Integer.toString(workerLifetime));
+            antFarm.getWarriorLifetime().setText(Integer.toString(warriorLifetime));
             antFarm.getWorkerProbability().setSelectedItem(workerProbability);
             antFarm.getWarriorProbability().setSelectedItem(warriorProbability);
         }
-        //System.out.println(workerPeriod + " " + warriorPeriod + " " + workerProbability + " " + warriorProbability);
         isStarted = true;
         timer = new Timer();
         myTimerTask = new MyTimerTask(antFarm);
@@ -139,6 +150,8 @@ public class Main extends KeyAdapter implements ActionListener {
         antFarm.getButtonStop().setEnabled(true);
         antFarm.getWorkerPeriod().setEnabled(false);
         antFarm.getWarriorPeriod().setEnabled(false);
+        antFarm.getWorkerLifetime().setEnabled(false);
+        antFarm.getWarriorLifetime().setEnabled(false);
         antFarm.getWorkerProbability().setEnabled(false);
         antFarm.getWarriorProbability().setEnabled(false);
     }
@@ -152,6 +165,8 @@ public class Main extends KeyAdapter implements ActionListener {
             antFarm.getButtonStop().setEnabled(false);
             antFarm.getWorkerPeriod().setEnabled(true);
             antFarm.getWarriorPeriod().setEnabled(true);
+            antFarm.getWorkerLifetime().setEnabled(true);
+            antFarm.getWarriorLifetime().setEnabled(true);
             antFarm.getWorkerProbability().setEnabled(true);
             antFarm.getWarriorProbability().setEnabled(true);
             timer.cancel();
@@ -165,13 +180,9 @@ public class Main extends KeyAdapter implements ActionListener {
         try
         {
             Integer.parseInt(antFarm.getWorkerPeriod().getText());
-        }
-        catch (NumberFormatException e)
-        {
-            return false;
-        }
-        try {
             Integer.parseInt(antFarm.getWarriorPeriod().getText());
+            Integer.parseInt(antFarm.getWorkerLifetime().getText());
+            Integer.parseInt(antFarm.getWarriorLifetime().getText());
         }
         catch (NumberFormatException e)
         {
