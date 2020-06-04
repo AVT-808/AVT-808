@@ -4,8 +4,8 @@ import java.awt.*;
 
 public abstract class Ant implements IBehaviour
 {
-    protected int x, y;
-    protected Image image;
+    private int x, y;
+    private Image image;
     protected int id, birthTime, deathTime;
 
     protected Ant(int x, int y)
@@ -49,4 +49,7 @@ public abstract class Ant implements IBehaviour
     {
         return image;
     }
+
+    @Override
+    public void move() {}
 }

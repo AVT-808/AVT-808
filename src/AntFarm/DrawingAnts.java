@@ -13,7 +13,7 @@ public class DrawingAnts extends JPanel
     }
 
     @Override
-    protected void paintComponent(Graphics g)
+    protected synchronized void paintComponent(Graphics g)
     {
         super.paintComponent(g);
         if (Singleton.getAnts().isEmpty())

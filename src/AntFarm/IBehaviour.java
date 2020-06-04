@@ -10,4 +10,5 @@ public interface IBehaviour
     int getY();
     void setImage(Image image);
     Image getImage();
+    void move();
 }

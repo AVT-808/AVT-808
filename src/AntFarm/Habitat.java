@@ -185,6 +185,16 @@ public class Habitat extends JFrame {
         return gui.getWarriorProbability();
     }
 
+    public JCheckBox getWorkerAI() { return gui.getWorkerAI();}
+
+    public JCheckBox getWarriorAI() { return gui.getWarriorAI();}
+
+    public JComboBox getMainThread() { return gui.getMainThread();}
+
+    public JComboBox getWorkerThread() {return gui.getWorkerThread();}
+
+    public JComboBox getWarriorThread() {return gui.getWarriorThread();}
+
     public JMenuItem getMenuStart()
     {
         return gui.getMenuStart();

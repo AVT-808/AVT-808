@@ -36,6 +36,16 @@ class GUI extends JPanel
 
     private JButton buttonObjects;
 
+    private JCheckBox workerAI;
+    private JCheckBox warriorAI;
+    private JLabel labelThreads;
+    private JLabel labelMainThread;
+    private JLabel labelWorkerThread;
+    private JLabel labelWarriorThread;
+    private JComboBox mainThread;
+    private JComboBox workerThread;
+    private JComboBox warriorThread;
+
     //меню
     private JMenu menuSimulation;
     private JMenu menuInstruments;
@@ -49,7 +59,7 @@ class GUI extends JPanel
         menu = new JMenuBar();
         settings = new JToolBar();
 
-        settings.setLayout(new GridLayout(18,1));
+        settings.setLayout(new GridLayout(22,1));
         settings.setFocusable(false);
         settings.setFloatable(false);
 
@@ -59,6 +69,11 @@ class GUI extends JPanel
         buttonStop = new JButton("Стоп");
         buttonStop.setEnabled(false);
         buttonStop.addActionListener(actionListener);
+
+        JPanel startStop = new JPanel();
+        startStop.setLayout(new GridLayout(1,2));
+        startStop.add(buttonStart);
+        startStop.add(buttonStop);
 
         buttonObjects = new JButton("Текущие объекты");
         buttonObjects.addActionListener(actionListener);
@@ -96,12 +111,45 @@ class GUI extends JPanel
         labelWarriorProbability = new JLabel("Вероятность рождения муравья-воина");
         warriorProbability = new JComboBox(steps);
 
-        settings.add(buttonStart);
-        settings.add(buttonStop);
+        workerAI = new JCheckBox("Интеллект муравья-рабочего", true);
+        workerAI.addActionListener(actionListener);
+
+        warriorAI = new JCheckBox("Интеллект муравья-воина", true);
+        warriorAI.addActionListener(actionListener);
+
+        Integer [] priorities = new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        labelThreads = new JLabel("Приоритеты потоков:");
+        labelMainThread = new JLabel("Основной");
+        mainThread = new JComboBox(priorities);
+        labelWorkerThread = new JLabel("Рабочий");
+        workerThread = new JComboBox(priorities);
+        labelWarriorThread = new JLabel("Воин");
+        warriorThread = new JComboBox(priorities);
+
+        JPanel labels = new JPanel();
+        labels.setLayout(new GridLayout(1,3,5,0));
+
+        JPanel threads = new JPanel();
+        threads.setLayout(new GridLayout(1,3,5,0));
+
+        labels.add(labelMainThread);
+        labels.add(labelWorkerThread);
+        labels.add(labelWarriorThread);
+        threads.add(mainThread);
+        threads.add(workerThread);
+        threads.add(warriorThread);
+
+        settings.add(startStop);
         settings.add(buttonObjects);
         settings.add(infoVisibility);
         settings.add(timerIsVisible);
         settings.add(timerNotVisible);
+        settings.add(workerAI);
+        settings.add(warriorAI);
+        settings.add(labelThreads);
+        settings.add(labels);
+        settings.add(threads);
         settings.add(labelWorkerPeriod);
         settings.add(workerPeriod);
         settings.add(labelWarriorPeriod);
@@ -209,6 +257,31 @@ class GUI extends JPanel
     public JComboBox getWarriorProbability()
     {
         return warriorProbability;
+    }
+
+    public JCheckBox getWorkerAI()
+    {
+        return workerAI;
+    }
+
+    public JCheckBox getWarriorAI()
+    {
+        return warriorAI;
+    }
+
+    public JComboBox getMainThread()
+    {
+        return mainThread;
+    }
+
+    public JComboBox getWorkerThread()
+    {
+        return workerThread;
+    }
+
+    public JComboBox getWarriorThread()
+    {
+        return warriorThread;
     }
 
     public JMenuItem getMenuStart()

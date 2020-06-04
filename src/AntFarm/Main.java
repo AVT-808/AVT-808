@@ -10,11 +10,14 @@ import java.util.Timer;
 public class Main extends KeyAdapter implements ActionListener {
     private Habitat antFarm;
     private CurrentObjects obj;
+    private WorkerAI workerAI;
+    private WarriorAI warriorAI;
     protected MyTimerTask myTimerTask;
     protected Timer timer;
     private boolean isStarted, isTimerVisible;
     int workerPeriod, warriorPeriod, workerLifetime, warriorLifetime;
     double workerProbability, warriorProbability;
+    int mainPriority, workerPriority, warriorPriority;
 
     public static void main(String[] args)
     {
@@ -25,6 +28,8 @@ public class Main extends KeyAdapter implements ActionListener {
         antFarm = new Habitat(this);
         antFarm.setVisible(true);
         antFarm.addKeyListener(this);
+        workerAI = new WorkerAI();
+        warriorAI = new WarriorAI();
         isStarted = false;
         isTimerVisible = true;
     }
@@ -86,6 +91,18 @@ public class Main extends KeyAdapter implements ActionListener {
             }
             isTimerVisible = !isTimerVisible;
         }
+        if (action == antFarm.getWorkerAI())
+        {
+            if (antFarm.getWorkerAI().isSelected())
+                workerAI.startAI();
+            else workerAI.stopAI();
+        }
+        if(action == antFarm.getWarriorAI())
+        {
+            if (antFarm.getWarriorAI().isSelected())
+                warriorAI.startAI();
+            else warriorAI.stopAI();
+        }
         if (action == antFarm.getMenuStart()) {
             if (!isStarted)
                 startSimulation();
@@ -128,12 +145,12 @@ public class Main extends KeyAdapter implements ActionListener {
         else
         {
             JOptionPane.showMessageDialog(null, "Введено некорректное значение. Установлены значения по умолчанию.", "Ошибка!", JOptionPane.ERROR_MESSAGE);
-            workerPeriod = 5;
-            warriorPeriod = 3;
-            workerLifetime = 10;
-            warriorLifetime = 7;
-            workerProbability = 0.9;
-            warriorProbability = 0.7;
+            workerPeriod = 20;
+            warriorPeriod = 7;
+            workerLifetime = 50;
+            warriorLifetime = 30;
+            workerProbability = 1.0;
+            warriorProbability = 0.8;
             antFarm.factory.setParameters(workerPeriod, warriorPeriod, workerProbability, warriorProbability, workerLifetime, warriorLifetime);
             antFarm.getWorkerPeriod().setText(Integer.toString(workerPeriod));
             antFarm.getWarriorPeriod().setText(Integer.toString(warriorPeriod));
@@ -142,6 +159,12 @@ public class Main extends KeyAdapter implements ActionListener {
             antFarm.getWorkerProbability().setSelectedItem(workerProbability);
             antFarm.getWarriorProbability().setSelectedItem(warriorProbability);
         }
+        mainPriority = (int)antFarm.getMainThread().getSelectedItem();
+        workerPriority = (int)antFarm.getWorkerThread().getSelectedItem();
+        warriorPriority = (int)antFarm.getWarriorThread().getSelectedItem();
+        Thread.currentThread().setPriority(mainPriority);
+        workerAI.setPriority(workerPriority);
+        warriorAI.setPriority(warriorPriority);
         isStarted = true;
         timer = new Timer();
         myTimerTask = new MyTimerTask(antFarm);
@@ -154,10 +177,14 @@ public class Main extends KeyAdapter implements ActionListener {
         antFarm.getWarriorLifetime().setEnabled(false);
         antFarm.getWorkerProbability().setEnabled(false);
         antFarm.getWarriorProbability().setEnabled(false);
+        antFarm.getMainThread().setEnabled(false);
+        antFarm.getWorkerThread().setEnabled(false);
+        antFarm.getWarriorThread().setEnabled(false);
     }
 
     public void stopSimulation()
     {
+        workerAI.stopAI(); warriorAI.stopAI();
         boolean isOver = antFarm.stop();
         if (isOver)
         {
@@ -169,11 +196,15 @@ public class Main extends KeyAdapter implements ActionListener {
             antFarm.getWarriorLifetime().setEnabled(true);
             antFarm.getWorkerProbability().setEnabled(true);
             antFarm.getWarriorProbability().setEnabled(true);
+            antFarm.getMainThread().setEnabled(true);
+            antFarm.getWorkerThread().setEnabled(true);
+            antFarm.getWarriorThread().setEnabled(true);
             timer.cancel();
             timer.purge();
             myTimerTask.cancel();
             isStarted = false;
         }
+        else { workerAI.startAI(); warriorAI.startAI(); }
     }
 
     public boolean checkParameters() {
