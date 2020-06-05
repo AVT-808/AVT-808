@@ -8,7 +8,7 @@ public class ShowInfButton extends JPanel {
     Boolean bl;
 
     public ShowInfButton() {
-        chb = new JCheckBox("Показать информацию", true);
+        chb = new JCheckBox("Показать инф.", true);
         add(chb);
         chb.setFocusable(false);
     }

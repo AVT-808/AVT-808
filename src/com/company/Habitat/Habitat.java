@@ -19,7 +19,7 @@ public class Habitat extends JFrame {
     private final Singleton bees;
     private int time;
     private AbstractFactory factory;
-    private DrawBee drawBee;
+    public static DrawBee drawBee;
     private MenuPanel menuPanel;
     private Buttons button;
     private MenuButtons menuButtons;
@@ -50,6 +50,7 @@ public class Habitat extends JFrame {
         menuPanel.setMaximumSize(new Dimension(width,50));
         drawBee = new DrawBee();
         drawBee.setBounds(0,21, width, height -21);
+        bees.setPanel(drawBee);
         menuButtons = new MenuButtons(this);
         menuButtons.setMaximumSize(new Dimension(width, 90));
         button = new Buttons(this);
@@ -113,12 +114,12 @@ public class Habitat extends JFrame {
         Random coordinatesRandom = new Random();
         int x_cord = coordinatesRandom.nextInt(drawBee.getWidth()-100);
         int y_cord = coordinatesRandom.nextInt(drawBee.getHeight()-100);
-
+        Point coordinates  = new Point(x_cord, y_cord);
         requestFocus();//фокус на поле
 
         try{
             id = coordinatesRandom.nextInt(100);
-            BaseBee bee = (BaseBee) factory.birth(x_cord,y_cord,time, menuButtons,id);
+            BaseBee bee = (BaseBee) factory.birth(coordinates,time, menuButtons,id);
             menuPanel.setBeesAmount(factory.getAmountOfBirth());
             if(bee != null) {
                 if(bee.getClass() == Worker.class){
@@ -139,7 +140,6 @@ public class Habitat extends JFrame {
         for(BaseBee bee: Singleton.getBees()){
             if(bee.dead==time){
             Integer k = bee.id;
-
                 bees.removeHashSet(k);
                 bees.removeBees(bee);
                 bees.removeTreeMap(k);

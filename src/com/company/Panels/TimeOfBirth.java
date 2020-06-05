@@ -15,13 +15,13 @@ public class TimeOfBirth extends JPanel {
     public TimeOfBirth(){
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
-        JLabel text = new JLabel("Время рождения раб.");
+        JLabel text = new JLabel("Вр. рож. раб.");
         text.setFont(new Font("Courier New", Font.BOLD,11));
         text.setForeground(Color.BLACK);
         text.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-        JLabel text2 = new JLabel("Время рождения трут.");
+        JLabel text2 = new JLabel("Вр. рож. трут.");
         text2.setFont(new Font("Courier New", Font.BOLD,11));
         text2.setForeground(Color.BLACK);
         text2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -54,15 +54,13 @@ public class TimeOfBirth extends JPanel {
                     frame.setSize(200,200);
                     JTextArea textArea = new JTextArea();
                     String string1 = "Введены некорректные данные\n";
-                    String string2 = "Период рожд. пт. = 2\n";
-                    String string3 = "(значение по умолчанию)\n";
+
                     textArea.append(string1);
-                    textArea.append(string2);
-                    textArea.append(string3);
+
                     textArea.setEditable(false);
                     frame.add(textArea);
                     frame.setVisible(true);
-                    txt.setText("2");
+                    txt.setText(" ");
                 }
                 txt.setEnabled(false);
                 txt.setFocusable(false);
@@ -79,15 +77,11 @@ public class TimeOfBirth extends JPanel {
                     frame.setSize(200,200);
                     JTextArea textArea = new JTextArea();
                     String string1 = "Введены некорректные данные\n";
-                    String string2 = "Период рожд. пт. = 5\n";
-                    String string3 = "(значение по умолчанию)\n";
                     textArea.append(string1);
-                    textArea.append(string2);
-                    textArea.append(string3);
                     textArea.setEditable(false);
                     frame.add(textArea);
                     frame.setVisible(true);
-                    txt2.setText("2");
+                    txt2.setText(" ");
                 }
                 txt2.setEnabled(false);
                 txt2.setFocusable(false);

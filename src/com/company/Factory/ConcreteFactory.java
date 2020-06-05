@@ -5,6 +5,7 @@ import com.company.Models.Worker;
 import com.company.Panels.LifeTimeOfBees;
 import com.company.Panels.MenuButtons;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class ConcreteFactory implements AbstractFactory {
@@ -28,18 +29,18 @@ public class ConcreteFactory implements AbstractFactory {
     }
 
     @Override
-    public Object birth(int x, int y, int time, MenuButtons menuButtons, Integer id) throws IOException {
+    public Object birth(Point place, int time, MenuButtons menuButtons, Integer id) throws IOException {
 
-        int idType = idTypeOfBee.type_of_birth(x, y, time, menuButtons, id);
+        int idType = idTypeOfBee.type_of_birth(place, time, menuButtons, id);
 
         if (idType == 1) {
 
-            return new Worker(x, y, id, time,com.company.Panels.LifeTimeOfBees.return_life_time_Workers());
+            return new Worker(place, id, time,com.company.Panels.LifeTimeOfBees.return_life_time_Workers());
 
         } else {
 
             if (idType == 2) {
-                return new Drone(x, y, id, time, com.company.Panels.LifeTimeOfBees.return_life_time_Drones());
+                return new Drone(place, id, time, com.company.Panels.LifeTimeOfBees.return_life_time_Drones());
             } else return null;
         }
 

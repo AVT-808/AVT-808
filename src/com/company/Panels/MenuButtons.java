@@ -1,6 +1,8 @@
 package com.company.Panels;
 
 import com.company.Habitat.Habitat;
+import com.company.MovingBees.Pause;
+import com.company.MovingBees.Priority;
 
 import javax.swing.*;
 
@@ -13,6 +15,7 @@ public class MenuButtons extends JPanel {
     ComboBoxProbability comboBoxProbability;
     TimeOfBirth timeOfBirth;
     LifeTimeOfBees lifeTimeOfBees;
+    Pause pause;
 
 
     public MenuButtons(Habitat habitat){
@@ -20,13 +23,20 @@ public class MenuButtons extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
         CO = new CurObj(habitat);
-        add(CO);
+        JPanel jPanel = CO.getCCurrentObjects();
+        add(jPanel);
 
         chb = new ShowInfButton();// показать инфу да/нет
         add(chb);
 
         timerShowHide = new TimerShowHide(habitat);//скрыть/показать таймер
         add(timerShowHide);
+
+        pause = new Pause();
+        add(pause);
+
+        Priority priority = new Priority();
+        add(priority);
 
         comboBoxProbability = new ComboBoxProbability();//вероятность рождения пчел
         add(comboBoxProbability);

@@ -41,7 +41,7 @@ public class ComboBoxProbability extends JPanel {
         text.setForeground(Color.BLACK);
         text.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JLabel text2 = new JLabel("% отн. общ. числа");
+        JLabel text2 = new JLabel("% отн.общ.числа");
         text2.setFont(new Font("Courier New", Font.BOLD,11));
         text2.setForeground(Color.BLACK);
         text2.setHorizontalAlignment(SwingConstants.CENTER);

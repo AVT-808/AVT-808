@@ -3,6 +3,7 @@ package com.company.Habitat.BeesArray;
 import com.company.Habitat.Habitat;
 import com.company.Habitat.HabitatTask;
 import com.company.Models.Abstract.BaseBee;
+import com.company.Panels.DrawBee;
 
 import javax.swing.*;
 import java.util.*;
@@ -11,6 +12,7 @@ import java.util.Timer;
 
 public class Singleton {
 
+    private static DrawBee drawBee;
     private static Singleton instance;
     public final List<BaseBee> bees;
     public HashSet<Integer> hashSet;
@@ -25,7 +27,7 @@ public class Singleton {
         treeMap = new TreeMap<>();
     }
 
-    public static Singleton getInstance(){
+    public static synchronized Singleton getInstance(){
         if (instance == null) {
             instance = new Singleton();
         }
@@ -74,9 +76,14 @@ public class Singleton {
 
     public TreeMap<Integer, Integer> returnTreeMap() { return treeMap; }
 
+    public void setPanel(DrawBee shish){
+        drawBee = shish;
+    }
 
+    public void update(){
+        drawBee.repaint();
+    }
 
-    //сделать текущий объект CurrentObj
     
     public void Start(Habitat habitat, JButton startButton, JButton stopButton ){
         isStart = false;

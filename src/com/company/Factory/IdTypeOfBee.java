@@ -4,6 +4,7 @@ import com.company.Panels.ComboBoxProbability;
 import com.company.Panels.MenuButtons;
 import com.company.Panels.TimeOfBirth;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
 
@@ -31,7 +32,7 @@ public class IdTypeOfBee {
         allDronesBirth = 0;
         allWorkersBirth = 0;
     }
-    public int type_of_birth(int x, int y, int time, MenuButtons menuButtons, Integer id) throws IOException {
+    public int type_of_birth(Point place, int time, MenuButtons menuButtons, Integer id) throws IOException {
 
 
         ComboBoxProbability comboBoxProbability = menuButtons.return_comboBox();

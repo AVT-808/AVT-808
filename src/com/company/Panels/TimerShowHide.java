@@ -18,8 +18,8 @@ public class TimerShowHide extends JPanel {
 
         setLayout(new GridLayout(2, 1));
 
-        show_timer = new JRadioButton("Показать таймер",true);
-        hide_timer = new JRadioButton("Скрыть таймер",true);
+        show_timer = new JRadioButton("Show таймер",true);
+        hide_timer = new JRadioButton("Hide таймер",true);
 
         buttonGroup.add(show_timer);
         buttonGroup.add(hide_timer);

@@ -2,6 +2,9 @@ package com.company;
 
 import com.company.Habitat.BeesArray.Singleton;
 import com.company.Habitat.Habitat;
+import com.company.MovingBees.DroneAI;
+import com.company.MovingBees.Pause;
+import com.company.MovingBees.WorkerAI;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -25,6 +28,9 @@ public class Main extends KeyAdapter{
         stopButton = habitat.returnStop();
         st = Singleton.getInstance();
         bool = true;
+        DroneAI droneAI = new DroneAI();
+        WorkerAI workerAI = new WorkerAI();
+        Pause.setAI(droneAI,workerAI);
     }
 
     @Override

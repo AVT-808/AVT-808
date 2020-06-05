@@ -3,16 +3,11 @@ package com.company.Models.Behaviour;
 import java.awt.*;
 
 public interface IBehaviour {
-     int getX();
-
-     void setX(int x);
-
-     int getY();
-
-     void setY(int y);
-
+     /*int getX();
+     int getY();*/
+     Point getPlace();
      Image getBeeImage();
+     void moving();
 
-     void setBeeImage(Image beeImage);
 }
 

@@ -10,18 +10,18 @@ import java.awt.*;
 public class DrawBee extends JPanel {
     private final Singleton bees;
 
-    public DrawBee() {
+    public  DrawBee() {
         bees = Singleton.getInstance();
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected synchronized void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if(bees.getBees().isEmpty())
+        if(Singleton.getBees().isEmpty())
             return;
-        for (BaseBee bee : bees.getBees()) {
+        for (BaseBee bee : Singleton.getBees()) {
             setBackground(Color.PINK);
-            g.drawImage(bee.getBeeImage(),bee.getX(),bee.getY(),40,40,null);
+            g.drawImage(bee.getBeeImage(),bee.getPlace().x,bee.getPlace().y,40,40,null);
         }
     }
 }

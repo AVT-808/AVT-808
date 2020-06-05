@@ -6,37 +6,33 @@ import com.company.Models.Behaviour.IBehaviour;
 import java.awt.*;
 
 public abstract class BaseBee implements IBehaviour {
-    private int x;
-    private int y;
+    /*protected int x;
+    protected int y;*/
+    public Point place;
 
     protected Image beeImage;
     public Integer id;
     public Integer timeOfBirth;
     public Integer dead;
 
-    protected BaseBee(int x, int y) {
-        this.x = x;
-        this.y = y;
+    protected BaseBee(Point place) {
+      /*  this.x = x;
+        this.y = y;*/
+        this.place = place;
     }
 
-    @Override
+    /*@Override
     public int getX() {
         return x;
     }
 
     @Override
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    @Override
     public int getY() {
         return y;
-    }
-
+    }*/
     @Override
-    public void setY(int y) {
-        this.y = y;
+    public Point getPlace() {
+        return place;
     }
 
     @Override
@@ -44,8 +40,4 @@ public abstract class BaseBee implements IBehaviour {
         return beeImage;
     }
 
-    @Override
-    public void setBeeImage(Image beeImage) {
-        this.beeImage = beeImage;
-    }
 }

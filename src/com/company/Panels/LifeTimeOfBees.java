@@ -15,13 +15,13 @@ public class LifeTimeOfBees extends JPanel {
     public LifeTimeOfBees(){
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
-        JLabel text = new JLabel("Время жизни раб.");
+        JLabel text = new JLabel("Вр. жизни раб.");
         text.setFont(new Font("Courier New", Font.BOLD,11));
         text.setForeground(Color.BLACK);
         text.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-        JLabel text2 = new JLabel("Время жизни трут.");
+        JLabel text2 = new JLabel("Вр. жизни трут.");
         text2.setFont(new Font("Courier New", Font.BOLD,11));
         text2.setForeground(Color.BLACK);
         text2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -58,7 +58,7 @@ public class LifeTimeOfBees extends JPanel {
                     textArea.setEditable(false);
                     frame.add(textArea);
                     frame.setVisible(true);
-                    life_workers.setText("еак");
+                    life_workers.setText(" ");
                 }
                /* life_workers.setEnabled(false);
                 life_workers.setFocusable(false);*/
@@ -79,7 +79,7 @@ public class LifeTimeOfBees extends JPanel {
                     textArea.setEditable(false);
                     frame.add(textArea);
                     frame.setVisible(true);
-                    life_drones.setText("ерр");
+                    life_drones.setText(" ");
                 }
                 /* life_drones.setEnabled(false);
                 life_drones.setFocusable(false); */
