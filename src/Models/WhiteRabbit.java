@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class WhiteRabbit extends BaseRabbit {
 
-    public WhiteRabbit(Point coordinates) throws IOException {
-        super(coordinates);
+    public WhiteRabbit(Point coordinates, Integer birthTime, Integer deathTime) throws IOException {
+        super(coordinates, birthTime, deathTime);
         this.rabbitImage = ImageIO.read(getClass().getResource("/WhiteRabbit.png"));
     }
 }

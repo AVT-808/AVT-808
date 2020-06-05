@@ -3,11 +3,11 @@ package Panels;
 import javax.swing.*;
 import java.awt.*;
 
-public class InformationDialog extends JDialog {
+public class EndSimulationDialog extends JDialog {
 
     private final JTextArea results;
 
-    public InformationDialog(JFrame frame, String title, Integer time, Integer normalRabbitsAmount, Integer whiteRabbitsAmount) {
+    public EndSimulationDialog(JFrame frame, String title, Integer time, Integer normalRabbitsAmount, Integer whiteRabbitsAmount) {
         super(frame, title, false);
         setLayout(new BorderLayout());
         results = new JTextArea();

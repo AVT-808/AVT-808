@@ -6,15 +6,6 @@ import java.awt.*;
 import java.io.IOException;
 
 public interface AbstractFactory {
-    Integer getAmountOfBirth();//получть количество рожденных объектов
-
-    BaseRabbit birth(Integer time, Point coordinates) throws IOException;//Родить объект BaseRabbit, содержащий в себе ссылку на наследника
-
-    void destroy();//уничтожить скписок объектов
-
-    void setSimulationProperties(Integer normalRabbitBirthTime, Integer whiteRabbitBirthTime, Float normalRabbitBirthProbability, Float rabbitsPercent);
-
-    Integer getAmountOfNormalRabbits();
-    Integer getAmountOfWhiteRabbits();
-
+    BaseRabbit birthNormalRabbit(Point coordinates, Integer birthTime, Integer deathTime) throws IOException;//Родить объект BaseRabbit, содержащий в себе ссылку на наследника
+    BaseRabbit birthWhiteRabbit(Point coordinates, Integer birthTime, Integer deathTime) throws IOException;
 }

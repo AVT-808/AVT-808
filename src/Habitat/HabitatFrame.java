@@ -1,17 +1,18 @@
 package Habitat;
 
 import Habitat.RabbitList.Singleton;
-import Panels.DrawRabbitPanel;
+import Models.NormalRabbit;
+import Models.WhiteRabbit;
+import Panels.*;
 import Factory.AbstractFactory;
 import Factory.ConcreteFactory;
 import Models.Abstract.BaseRabbit;
-import Panels.InformationDialog;
-import Panels.InformationPanel;
-import Panels.MenuPanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class HabitatFrame extends JFrame {
@@ -24,6 +25,19 @@ public class HabitatFrame extends JFrame {
     private final InformationPanel informationPanel;
     private Boolean isInformationPanelAllowed;
 
+    private Integer normalRabbitBirthTime;
+    private Integer whiteRabbitBirthTime;
+    private Float normalRabbitBirthProbability;
+    private Float rabbitPercent;
+    private Integer normalRabbitDeathTime;
+    private Integer whiteRabbitDeathTime;
+
+    private Integer whiteRabbitsAmount;
+    private Integer normalRabbitsAmount;
+    private Integer rabbitsAmount;
+    private Integer deathTime = 3;
+
+
     public HabitatFrame(String title, ActionListener actionListener) {
         super(title);
         int width = 1200;
@@ -33,7 +47,9 @@ public class HabitatFrame extends JFrame {
         setFocusable(true);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        whiteRabbitsAmount = 0;
+        normalRabbitsAmount = 0;
+        rabbitsAmount=0;
         this.time = 0;
         rabbits = Singleton.getInstance();
         factory = new ConcreteFactory();
@@ -55,14 +71,16 @@ public class HabitatFrame extends JFrame {
 
     public void stop(){//остановить отрисовку среды
         if(isInformationPanelAllowed) {
-            InformationDialog informationDialog = new InformationDialog(this,"Информация",time, factory.getAmountOfNormalRabbits(), factory.getAmountOfWhiteRabbits());
-            informationDialog.viewInformation();
+            EndSimulationDialog endSimulationDialog = new EndSimulationDialog(this,"Информация",time, normalRabbitsAmount, whiteRabbitsAmount);
+            endSimulationDialog.viewInformation();
         }
-        factory.destroy();
+        whiteRabbitsAmount=0;
+        normalRabbitsAmount=0;
+        rabbitsAmount=0;
         rabbits.clearRabbits();
         time = 0;
 
-        informationPanel.setRabbitsAmount(factory.getAmountOfBirth());
+        informationPanel.setRabbitsAmount(rabbitsAmount);
         informationPanel.setTimer(time);
         drawRabbit.repaint();
     }
@@ -76,23 +94,85 @@ public class HabitatFrame extends JFrame {
 
     void update() {//продолжить симуляцию
         time++;
+        clearDeathRabbits(time);
         informationPanel.setTimer(time);
         Random coordinatesRandom = new Random();
-        int xCoordinate = coordinatesRandom.nextInt(drawRabbit.getWidth()-100);
-        int yCoordinate = coordinatesRandom.nextInt(drawRabbit.getHeight()-100);
 
-        Point coordinates  = new Point(xCoordinate, yCoordinate);
 
         try{
-            BaseRabbit rabbit = factory.birth(time, coordinates);
-            informationPanel.setRabbitsAmount(factory.getAmountOfBirth());
-            if(rabbit != null) {
-                rabbits.addRabbit(rabbit);
-                drawRabbit.repaint();
+            if(time%normalRabbitBirthTime==0)
+            {
+                int xCoordinate = coordinatesRandom.nextInt(drawRabbit.getWidth()-100);
+                int yCoordinate = coordinatesRandom.nextInt(drawRabbit.getHeight()-100);
+
+                Point coordinates  = new Point(xCoordinate, yCoordinate);
+                BaseRabbit rabbit = birthNormalRabbit(coordinates,time,normalRabbitDeathTime);
+                if(rabbit != null) {
+                    rabbits.addRabbit(rabbit);
+                }
             }
+            if (time%whiteRabbitBirthTime==0)
+            {
+                int xCoordinate = coordinatesRandom.nextInt(drawRabbit.getWidth()-100);
+                int yCoordinate = coordinatesRandom.nextInt(drawRabbit.getHeight()-100);
+
+                Point coordinates  = new Point(xCoordinate, yCoordinate);
+                BaseRabbit rabbit = birthWhiteRabbit(coordinates,time,whiteRabbitDeathTime);
+                if(rabbit != null) {
+                    rabbits.addRabbit(rabbit);
+                }
+
+            }
+            informationPanel.setRabbitsAmount(rabbitsAmount);
+            drawRabbit.repaint();
         }
         catch (Exception ex){
             ex.printStackTrace();
+        }
+    }
+
+
+    private BaseRabbit birthNormalRabbit(Point coordinates, Integer birthTime, Integer deathTime) throws IOException {
+        Random random = new Random();
+        float probability = random.nextFloat();
+        if (probability <= normalRabbitBirthProbability) {
+            BaseRabbit rabbit = factory.birthNormalRabbit(coordinates,birthTime,deathTime);
+            rabbitsAmount++;
+            normalRabbitsAmount++;
+            return rabbit;
+        }
+        return null;
+    }
+
+    private BaseRabbit birthWhiteRabbit(Point coordinates, Integer birthTime, Integer deathTime) throws IOException {
+        if(whiteRabbitsAmount<rabbitsAmount*rabbitPercent) {
+            BaseRabbit rabbit = factory.birthWhiteRabbit(coordinates,birthTime,deathTime);
+            rabbitsAmount++;
+            whiteRabbitsAmount++;
+            return rabbit;
+        }
+        return null;
+    }
+
+    private void clearDeathRabbits(Integer time){
+        var listToDelete = new ArrayList<BaseRabbit>();
+        for (var rabbit: rabbits.getRabbits()) {
+
+            if(rabbit instanceof WhiteRabbit && time - rabbit.getBirthTime() == whiteRabbitDeathTime)
+            {
+                listToDelete.add(rabbit);
+                whiteRabbitsAmount--;
+                rabbitsAmount--;
+            }
+            if(rabbit instanceof NormalRabbit && time - rabbit.getBirthTime() == normalRabbitDeathTime)
+            {
+                listToDelete.add(rabbit);
+                normalRabbitsAmount--;
+                rabbitsAmount--;
+            }
+        }
+        for (var rabbit: listToDelete) {
+            rabbits.clearRabbit(rabbit);
         }
     }
 
@@ -104,8 +184,12 @@ public class HabitatFrame extends JFrame {
         menuPanel.disableSimulationProperties();
     }
 
-    public Boolean checkSimulationProperties() {
-        return menuPanel.checkSimulationProperties();
+    public Boolean checkBirthSimulationProperties() {
+        return menuPanel.checkBirthSimulationProperties();
+    }
+
+    public Boolean checkDeathSimulationProperties() {
+        return menuPanel.checkDeathSimulationProperties();
     }
 
     public Integer getNormalRabbitBirthTime() {
@@ -124,8 +208,13 @@ public class HabitatFrame extends JFrame {
         return menuPanel.getRabbitPercent();
     }
 
-    public void setSimulationProperties(Integer normalRabbitBirthTime, Integer whiteRabbitBirthTime, Float normalRabbitBirthProbability, Float rabbitPercent) {
-        factory.setSimulationProperties(normalRabbitBirthTime, whiteRabbitBirthTime, normalRabbitBirthProbability, rabbitPercent);
+    public void setSimulationProperties(Integer normalRabbitBirthTime, Integer whiteRabbitBirthTime, Float normalRabbitBirthProbability, Float rabbitPercent, Integer normalRabbitDeathTime, Integer whiteRabbitDeathTime) {
+        this.normalRabbitBirthTime = normalRabbitBirthTime;
+        this.whiteRabbitBirthTime = whiteRabbitBirthTime;
+        this.normalRabbitBirthProbability = normalRabbitBirthProbability;
+        this.rabbitPercent = rabbitPercent;
+        this.normalRabbitDeathTime = normalRabbitDeathTime;
+        this.whiteRabbitDeathTime = whiteRabbitDeathTime;
     }
 
     public void enableStopButton() {
@@ -166,6 +255,23 @@ public class HabitatFrame extends JFrame {
 
     public JMenuItem getMenuShowHideInformationDialog() {
         return menuPanel.getMenuShowHideInformationDialog();
+    }
+
+    public Integer getNormalRabbitDeathTime() {
+        return menuPanel.getNormalRabbitDeathTime();
+    }
+
+    public Integer getWhiteRabbitDeathTime() {
+        return menuPanel.getWhiteRabbitDeathTime();
+    }
+
+    public JButton getShowAliveObjectsInformation(){
+        return menuPanel.getShowAliveObjectsInformation();
+    }
+
+    public void showAliveObjectsInformation() {
+        AliveRabbitsDialog aliveRabbitsDialog = new AliveRabbitsDialog(this,"Alive objects");
+        aliveRabbitsDialog.viewInformation();
     }
 }
 

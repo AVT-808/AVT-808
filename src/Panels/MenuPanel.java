@@ -31,8 +31,12 @@ public class MenuPanel extends JPanel {
         toolBar.disableSimulationProperties();
     }
 
-    public Boolean checkSimulationProperties() {
-        return toolBar.checkSimulationProperties();
+    public Boolean checkBirthSimulationProperties() {
+        return toolBar.checkBirthTimeSimulationProperties();
+    }
+
+    public Boolean checkDeathSimulationProperties() {
+        return toolBar.checkDeathTimeSimulationProperties();
     }
 
     public Integer getNormalRabbitBirthTime() {
@@ -85,5 +89,17 @@ public class MenuPanel extends JPanel {
 
     public JMenuItem getMenuShowHideInformationDialog() {
         return menu.getInformationViewability();
+    }
+
+    public Integer getNormalRabbitDeathTime() {
+        return Integer.parseInt(toolBar.getNormalRabbitDeathTime().getText());
+    }
+
+    public Integer getWhiteRabbitDeathTime() {
+        return Integer.parseInt(toolBar.getWhiteRabbitDeathTime().getText());
+    }
+
+    public JButton getShowAliveObjectsInformation() {
+        return toolBar.getShowAliveObjectsInformation();
     }
 }

@@ -76,17 +76,33 @@ class Simulation extends KeyAdapter implements ActionListener{
             habitat.getInformationDialogSelecter().setSelected(!habitat.getInformationDialogSelecter().isSelected());
         }
 
+        if(e.getSource() == habitat.getShowAliveObjectsInformation()){
+            timer.cancel();
+            habitatTask.cancel();
+            timer.purge();
+
+            habitat.showAliveObjectsInformation();
+            timer = new Timer();
+            habitatTask = new HabitatTask(habitat);
+            timer.schedule(habitatTask,0,1000);
+
+        }
         habitat.requestFocus();
     }
 
     private void startSimulation(){
         habitat.disableSimulationProperties();
-        if(habitat.checkSimulationProperties()){
+        var isBirthPropertiesCorrect = habitat.checkBirthSimulationProperties();
+        var isDeathPropertiesCorrect = habitat.checkDeathSimulationProperties();
+        if(isBirthPropertiesCorrect && isDeathPropertiesCorrect){
             Integer normalRabbitBirthTime = habitat.getNormalRabbitBirthTime();
             Integer whiteRabbitBirthTime = habitat.getWhiteRabbitBirthTime();
             Float normalRabbitBirthProbability = habitat.getNormalRabbitBirthProbability();
             Float rabbitPercent = habitat.getRabbitPercent();
-            habitat.setSimulationProperties(normalRabbitBirthTime, whiteRabbitBirthTime, normalRabbitBirthProbability, rabbitPercent);
+            Integer normalRabbitDeathTime = habitat.getNormalRabbitDeathTime();
+            Integer whiteRabbitDeathTime = habitat.getWhiteRabbitDeathTime();
+
+            habitat.setSimulationProperties(normalRabbitBirthTime, whiteRabbitBirthTime, normalRabbitBirthProbability, rabbitPercent, normalRabbitDeathTime, whiteRabbitDeathTime);
             startSimulationTask();
             habitat.enableStopButton();
         }

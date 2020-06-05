@@ -16,7 +16,9 @@ public class ToolBarComponent extends JToolBar {
     private final JTextField whiteRabbitBirthTime;//поле для получения времени рождения
     private final JComboBox normalRabbitBirthProbability;//вероятность рождения
     private final JComboBox rabbitsPercent;// процент от общего числа кроликов
-
+    private final JTextField normalRabbitDeathTime;
+    private final JTextField whiteRabbitDeathTime;
+    private final JButton showAliveObjectsInformation;
 
     public ToolBarComponent(ActionListener actionListener) {
         setFloatable(false);
@@ -65,6 +67,15 @@ public class ToolBarComponent extends JToolBar {
         Float[] rabbitsPercentArray = {0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f};
         rabbitsPercent = new JComboBox(rabbitsPercentArray);
 
+        var normalRabbitDeathTimeLabel = new JLabel("Normal rabbit death time (1 - 999):");
+        normalRabbitDeathTime = new JTextField();
+        var whiteRabbitDeathTimeLabel = new JLabel("White rabbit death time (1 - 999):");
+        whiteRabbitDeathTime = new JTextField();
+
+        showAliveObjectsInformation = new JButton("Show alive objects information");
+        showAliveObjectsInformation.setEnabled(false);
+
+        showAliveObjectsInformation.addActionListener(actionListener);
 
         add(normalRabbitBirthTimeLabel);
         add(whiteRabbitBirthTimeLabel);
@@ -74,19 +85,23 @@ public class ToolBarComponent extends JToolBar {
 
 
         add(isInformationPanelAllowed);
-
+        add(showAliveObjectsInformation);
         add(normalRabbitBirthTime);
         add(whiteRabbitBirthTime);
 
         add(normalRabbitBirthProbability);
         add(rabbitsPercent);
-        add(new JLabel(""));
+
         add(startSimulation);
         add(stopSimulation);
 
         add(timerAllowed);
         add(timerNotAllowed);
 
+        add(normalRabbitDeathTimeLabel);
+        add(normalRabbitDeathTime);
+        add(whiteRabbitDeathTimeLabel);
+        add(whiteRabbitDeathTime);
     }
 
     public JButton getStartSimulation() {
@@ -131,9 +146,12 @@ public class ToolBarComponent extends JToolBar {
         whiteRabbitBirthTime.setEnabled(false);
         normalRabbitBirthProbability.setEnabled(false);
         rabbitsPercent.setEnabled(false);
+        whiteRabbitDeathTime.setEnabled(false);
+        normalRabbitDeathTime.setEnabled(false);
+        showAliveObjectsInformation.setEnabled(true);
     }
 
-    public Boolean checkSimulationProperties() {
+    public Boolean checkBirthTimeSimulationProperties() {
         Boolean check;
         check = checkTextFieldsForCorrectness(normalRabbitBirthTime);
         if(!check){
@@ -141,6 +159,17 @@ public class ToolBarComponent extends JToolBar {
             return false;
         }
         check = checkTextFieldsForCorrectness(whiteRabbitBirthTime);
+        return check;
+    }
+
+    public Boolean checkDeathTimeSimulationProperties() {
+        Boolean check;
+        check = checkTextFieldsForCorrectness(normalRabbitDeathTime);
+        if(!check){
+            check = checkTextFieldsForCorrectness(whiteRabbitDeathTime);
+            return false;
+        }
+        check = checkTextFieldsForCorrectness(whiteRabbitDeathTime);
         return check;
     }
 
@@ -170,6 +199,20 @@ public class ToolBarComponent extends JToolBar {
         normalRabbitBirthProbability.setEnabled(true);
         rabbitsPercent.setEnabled(true);
         stopSimulation.setEnabled(false);
+        normalRabbitDeathTime.setEnabled(true);
+        whiteRabbitDeathTime.setEnabled(true);
+        showAliveObjectsInformation.setEnabled(false);
     }
 
+    public JTextField getNormalRabbitDeathTime() {
+        return normalRabbitDeathTime;
+    }
+
+    public JTextField getWhiteRabbitDeathTime() {
+        return whiteRabbitDeathTime;
+    }
+
+    public JButton getShowAliveObjectsInformation() {
+        return showAliveObjectsInformation;
+    }
 }
