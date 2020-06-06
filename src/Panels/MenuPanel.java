@@ -102,4 +102,21 @@ public class MenuPanel extends JPanel {
     public JButton getShowAliveObjectsInformation() {
         return toolBar.getShowAliveObjectsInformation();
     }
+
+
+    public JButton getNormalRabbitAIButton() {
+        return toolBar.getNormalRabbitAIButton();
+    }
+
+    public JButton getWhiteRabbitAIButton() {
+        return toolBar.getWhiteRabbitAIButton();
+    }
+
+    public Integer getNormalRabbitThreadPriority(){
+        return (Integer) toolBar.getNormalRabbitThreadPriority().getSelectedItem();
+    }
+
+    public Integer getWhiteRabbitThreadPriority(){
+        return (Integer) toolBar.getWhiteRabbitThreadPriority().getSelectedItem();
+    }
 }

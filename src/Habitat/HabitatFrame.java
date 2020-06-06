@@ -1,5 +1,6 @@
 package Habitat;
 
+import Behaviour.Abstract.BaseAI;
 import Habitat.RabbitList.Singleton;
 import Models.NormalRabbit;
 import Models.WhiteRabbit;
@@ -19,12 +20,11 @@ public class HabitatFrame extends JFrame {
 
     private final AbstractFactory factory;
     private final Singleton rabbits;
-    private Integer time;
+    private static Integer time;
     private final DrawRabbitPanel drawRabbit;
     private final MenuPanel menuPanel;
     private final InformationPanel informationPanel;
     private Boolean isInformationPanelAllowed;
-
     private Integer normalRabbitBirthTime;
     private Integer whiteRabbitBirthTime;
     private Float normalRabbitBirthProbability;
@@ -35,12 +35,11 @@ public class HabitatFrame extends JFrame {
     private Integer whiteRabbitsAmount;
     private Integer normalRabbitsAmount;
     private Integer rabbitsAmount;
-    private Integer deathTime = 3;
 
 
     public HabitatFrame(String title, ActionListener actionListener) {
         super(title);
-        int width = 1200;
+        int width = 1600;
         int height = 800;
         setSize(width, height);
         setResizable(false);
@@ -272,6 +271,26 @@ public class HabitatFrame extends JFrame {
     public void showAliveObjectsInformation() {
         AliveRabbitsDialog aliveRabbitsDialog = new AliveRabbitsDialog(this,"Alive objects");
         aliveRabbitsDialog.viewInformation();
+    }
+
+    public static Integer getTime(){
+        return time;
+    }
+
+    public JButton getNormalRabbitAIButton() {
+        return menuPanel.getNormalRabbitAIButton();
+    }
+
+    public JButton getWhiteRabbitAIButton() {
+        return menuPanel.getWhiteRabbitAIButton();
+    }
+
+    public Integer getNormalRabbitThreadPriority() {
+        return menuPanel.getNormalRabbitThreadPriority();
+    }
+
+    public Integer getWhiteRabbitThreadPriority() {
+        return menuPanel.getWhiteRabbitThreadPriority();
     }
 }
 

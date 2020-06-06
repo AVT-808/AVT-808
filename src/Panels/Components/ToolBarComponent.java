@@ -19,6 +19,12 @@ public class ToolBarComponent extends JToolBar {
     private final JTextField normalRabbitDeathTime;
     private final JTextField whiteRabbitDeathTime;
     private final JButton showAliveObjectsInformation;
+    private final JButton normalRabbitAIButton;
+    private final JButton whiteRabbitAIButton;
+    private final JComboBox normalRabbitThreadPriority;
+    private final JComboBox whiteRabbitThreadPriority;
+
+
 
     public ToolBarComponent(ActionListener actionListener) {
         setFloatable(false);
@@ -77,20 +83,41 @@ public class ToolBarComponent extends JToolBar {
 
         showAliveObjectsInformation.addActionListener(actionListener);
 
+        normalRabbitAIButton = new JButton("Запуск/Остановка ИИ обычного кролика");
+        normalRabbitAIButton.addActionListener(actionListener);
+
+        whiteRabbitAIButton = new JButton("Запуск/Остановка ИИ кролика альбингоса");
+        whiteRabbitAIButton.addActionListener(actionListener);
+
+
+        Integer[] rabbitThreadArray = {1,2,3,4,5,6,7,8,9,10};
+        var normalRabbitThreadPriorityLabel= new JLabel("Приоритет потока ИИ обычного кролика:");
+        normalRabbitThreadPriority = new JComboBox(rabbitThreadArray);
+        var whiteRabbitThreadPriorityLabel= new JLabel("Приоритет потока ИИ кролика альбиноса:");
+        whiteRabbitThreadPriority = new JComboBox(rabbitThreadArray);
+
+
+
         add(normalRabbitBirthTimeLabel);
+        add(normalRabbitBirthTime);
         add(whiteRabbitBirthTimeLabel);
+        add(whiteRabbitBirthTime);
 
         add(normalRabbitBirthProbabilityLabel);
+        add(normalRabbitBirthProbability);
         add(whiteRabbitPercentLabel);
+        add(rabbitsPercent);
 
+
+
+        add(normalRabbitDeathTimeLabel);
+        add(normalRabbitDeathTime);
+        add(whiteRabbitDeathTimeLabel);
+        add(whiteRabbitDeathTime);
 
         add(isInformationPanelAllowed);
         add(showAliveObjectsInformation);
-        add(normalRabbitBirthTime);
-        add(whiteRabbitBirthTime);
 
-        add(normalRabbitBirthProbability);
-        add(rabbitsPercent);
 
         add(startSimulation);
         add(stopSimulation);
@@ -98,10 +125,16 @@ public class ToolBarComponent extends JToolBar {
         add(timerAllowed);
         add(timerNotAllowed);
 
-        add(normalRabbitDeathTimeLabel);
-        add(normalRabbitDeathTime);
-        add(whiteRabbitDeathTimeLabel);
-        add(whiteRabbitDeathTime);
+
+
+        add(normalRabbitAIButton);
+        add(whiteRabbitAIButton);
+
+        add(normalRabbitThreadPriorityLabel);
+        add(normalRabbitThreadPriority);
+        add(whiteRabbitThreadPriorityLabel);
+        add(whiteRabbitThreadPriority);
+
     }
 
     public JButton getStartSimulation() {
@@ -149,6 +182,8 @@ public class ToolBarComponent extends JToolBar {
         whiteRabbitDeathTime.setEnabled(false);
         normalRabbitDeathTime.setEnabled(false);
         showAliveObjectsInformation.setEnabled(true);
+        normalRabbitThreadPriority.setEnabled(false);
+        whiteRabbitThreadPriority.setEnabled(false);
     }
 
     public Boolean checkBirthTimeSimulationProperties() {
@@ -202,6 +237,8 @@ public class ToolBarComponent extends JToolBar {
         normalRabbitDeathTime.setEnabled(true);
         whiteRabbitDeathTime.setEnabled(true);
         showAliveObjectsInformation.setEnabled(false);
+        normalRabbitThreadPriority.setEnabled(true);
+        whiteRabbitThreadPriority.setEnabled(true);
     }
 
     public JTextField getNormalRabbitDeathTime() {
@@ -214,5 +251,21 @@ public class ToolBarComponent extends JToolBar {
 
     public JButton getShowAliveObjectsInformation() {
         return showAliveObjectsInformation;
+    }
+
+    public JButton getNormalRabbitAIButton() {
+        return normalRabbitAIButton;
+    }
+
+    public JButton getWhiteRabbitAIButton() {
+        return whiteRabbitAIButton;
+    }
+
+    public JComboBox getNormalRabbitThreadPriority() {
+        return normalRabbitThreadPriority;
+    }
+
+    public JComboBox getWhiteRabbitThreadPriority() {
+        return whiteRabbitThreadPriority;
     }
 }

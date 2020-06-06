@@ -1,3 +1,6 @@
+import Behaviour.Abstract.BaseAI;
+import Behaviour.NormalRabbitBehaviour;
+import Behaviour.WhiteRabbitBehaviour;
 import Habitat.HabitatFrame;
 import Habitat.HabitatTask;
 
@@ -13,6 +16,11 @@ class Simulation extends KeyAdapter implements ActionListener{
     private final HabitatFrame habitat;
     private Boolean isStarted;
     private Boolean isShown;
+    private BaseAI normalRabbitAI;
+    private BaseAI whiteRabbitAI;
+    private Boolean isNormalRabbitAIStarted;
+    private Boolean isWhiteRabbitAIStarted;
+
 
     private Simulation() {
         habitat = new HabitatFrame("Habitat",this);
@@ -20,6 +28,10 @@ class Simulation extends KeyAdapter implements ActionListener{
         habitat.addKeyListener(this);
         isStarted = false;
         isShown = true;
+        normalRabbitAI = new NormalRabbitBehaviour();
+        whiteRabbitAI = new WhiteRabbitBehaviour();
+        isNormalRabbitAIStarted = false;
+        isWhiteRabbitAIStarted = false;
     }
 
     @Override
@@ -56,6 +68,26 @@ class Simulation extends KeyAdapter implements ActionListener{
 
         if(e.getSource() == habitat.getInformationDialogSelecter()) {
             habitat.changeInformationPanelVisibility();
+        }
+
+        if(e.getSource() == habitat.getNormalRabbitAIButton()){
+            isNormalRabbitAIStarted=!isNormalRabbitAIStarted;
+            if(isNormalRabbitAIStarted) {
+                normalRabbitAI.startRabbitBehaviour();
+            }
+            else {
+                normalRabbitAI.stopRabbitBehaviour();
+            }
+        }
+
+        if (e.getSource() == habitat.getWhiteRabbitAIButton()) {
+            isWhiteRabbitAIStarted=!isWhiteRabbitAIStarted;
+            if(isWhiteRabbitAIStarted) {
+                whiteRabbitAI.startRabbitBehaviour();
+            }
+            else {
+                whiteRabbitAI.stopRabbitBehaviour();
+            }
         }
 
         if(e.getSource() == habitat.getMenuStartStopButton()) {
@@ -101,7 +133,10 @@ class Simulation extends KeyAdapter implements ActionListener{
             Float rabbitPercent = habitat.getRabbitPercent();
             Integer normalRabbitDeathTime = habitat.getNormalRabbitDeathTime();
             Integer whiteRabbitDeathTime = habitat.getWhiteRabbitDeathTime();
-
+            Integer normalRabbitThreadPriority = habitat.getNormalRabbitThreadPriority();
+            normalRabbitAI.setPriority(normalRabbitThreadPriority);
+            Integer whiteRabbitThreadPriority = habitat.getWhiteRabbitThreadPriority();
+            whiteRabbitAI.setPriority(whiteRabbitThreadPriority);
             habitat.setSimulationProperties(normalRabbitBirthTime, whiteRabbitBirthTime, normalRabbitBirthProbability, rabbitPercent, normalRabbitDeathTime, whiteRabbitDeathTime);
             startSimulationTask();
             habitat.enableStopButton();
@@ -137,7 +172,6 @@ class Simulation extends KeyAdapter implements ActionListener{
             habitat.getShowTimerRadioButton().setEnabled(true);
             habitat.getHideTimerRadioButton().setEnabled(false);
             habitat.getHideTimerRadioButton().setSelected(true);
-
         }
         else {
             habitat.getShowTimerRadioButton().setEnabled(false);
