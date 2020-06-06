@@ -19,6 +19,7 @@ public class Renderer extends Thread implements Runnable {
 
     Timer timer;
 
+
     public Renderer(JPanel s, Habitat h) {
         surface = s;
         habitat = h;
@@ -32,8 +33,9 @@ public class Renderer extends Thread implements Runnable {
             public void run() {
                 render();
             }
-        }, 0, 1000);
+        }, 0, 200);
     }
+
 
     public void render() {
         if(active) {
@@ -43,8 +45,8 @@ public class Renderer extends Thread implements Runnable {
                 surface.add(new JPanel() {
                     {
                         setBounds(
-                                (int) (surface.getWidth()  * (Math.min(c.getX(), 0.9))),
-                                (int) (surface.getHeight() * (Math.min(c.getY(), 0.9))),
+                                (int) (surface.getWidth()  * (c.getX() > 0.9 ? 0.9 : c.getX())),
+                                (int) (surface.getHeight() * (c.getY() > 0.9 ? 0.9 : c.getY())),
                                 (int) (surface.getWidth()  * 0.1),
                                 (int) (surface.getHeight() * 0.1)
                         );

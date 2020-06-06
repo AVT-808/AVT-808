@@ -9,16 +9,17 @@ public class Habitat {
 
 
 
+    private TreeSet<Integer> creatureID = new TreeSet<>();
+
 
     private LinkedList<CreatureEventListener> creatureCreateListeners = new LinkedList<>();
     private LinkedList<CreatureEventListener> creatureDieListeners = new LinkedList<>();
     private LinkedList<Class<? extends ICreature>> creatureTypes = new LinkedList<>();
 
-    private int ticks = 0;
 
     private HabitatMetrics metrics = new HabitatMetrics();
-    private TreeSet<Integer> creatureID = new TreeSet<>();
 
+    private int ticks = 0;
     private LinkedList<ICreature> creatures = new LinkedList<>();//хранение объектов обьектов
 
     private HashMap<Integer, LinkedList<ICreature>> creaturesTTLs = new HashMap();//записывается время рождения обьектов
@@ -153,6 +154,7 @@ public class Habitat {
 
 
     protected class HabitatMetrics implements IHabitatMetrics {
+        private int creatureCount = 0;
         private int ticks = 0;
 
         private HashMap<Class<? extends ICreature>, Integer> creatureCountByType = new HashMap<>();//записываются птицы разного вида
@@ -170,14 +172,14 @@ public class Habitat {
 
 
         public void incrementCreatureCount(Class<? extends ICreature> type) {
-
+            ++creatureCount;
 
             int count = creatureCountByType.getOrDefault(type, 0);
             creatureCountByType.put(type, ++count);
         }
 
         public void decrementCreatureCount(Class<? extends ICreature> type) {
-
+            --creatureCount;
 
             int count = creatureCountByType.get(type);
             creatureCountByType.put(type, --count);

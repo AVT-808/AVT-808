@@ -13,6 +13,7 @@ public class StatusBar extends JPanel {
         add(messageLabel, BorderLayout.CENTER);
     }
 
+
     public void setStatus(String message, Color c) {
         messageLabel.setText(message);
         setBackground(c);

@@ -7,12 +7,15 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import lab.Renderer;
 import lab.frames.components.ControlBox;
 import lab.frames.components.StatusBar;
 import lab.habitat.Habitat;
 import lab.habitat.ICreature;
+import lab.habitat.ai.BigBirdAI;
+import lab.habitat.ai.SmallBirdAI;
 import lab.habitat.creatures.birds.BigBird;
 import lab.habitat.creatures.birds.SmallBird;
 
@@ -33,18 +36,22 @@ public class MainForm extends JFrame {
     private Duration pauseTime = Duration.ZERO;
 
     private Renderer renderer;
+    private BigBirdAI BigBirdAI;
+    private SmallBirdAI SmallBirdAI;
 
     private boolean running = false;
-    private boolean showingInfo = false;
+    private boolean showingInfo = true;
+    private boolean BigBirdAI_active = true;
+    private boolean SmallBirdAI_active = true;
     private boolean showingStats = false;
-
-
 
 
     public MainForm(Habitat h) {
 
         habitat = h;
         renderer = new Renderer(creatureBox, habitat);
+        BigBirdAI = new BigBirdAI(h);
+        SmallBirdAI = new SmallBirdAI(h);
 
         // habitat settings
         habitat.addCreatureCreateListener(e -> {
@@ -70,7 +77,7 @@ public class MainForm extends JFrame {
 
         // frame settings
         setFocusable(true);
-        setFocusTraversalKeysEnabled(false);
+        setFocusTraversalKeysEnabled(true);
         setLayout(new BorderLayout());
         setIconImage(new ImageIcon("src/lab/assets/icon256.png").getImage());
         setJMenuBar(menuBar);
@@ -85,7 +92,7 @@ public class MainForm extends JFrame {
         statusBar.setStatus("Симуляция ещё не началась", Color.RED);
         statusBar.setPreferredSize(new Dimension(980,20));
 
-
+        // menuBar settin
         JMenu actionMenu = new JMenu("Действия");
         JMenuItem menuStopItem = new JMenuItem("Стоп");
         JMenuItem menuStartItem = new JMenuItem("Начать");
@@ -133,42 +140,27 @@ public class MainForm extends JFrame {
         creatureBox.setPreferredSize(new Dimension(980,620));
 
         // controlBox settings
-        controlBox.run.addActionListener(e ->{
-
-            runSimulation();
-            menuStartItem.setEnabled(false);
-            menuStopItem.setEnabled(true);
-
-        } );
-
+        controlBox.run.addActionListener(e -> runSimulation());
         controlBox.pause.setEnabled(false);
         controlBox.pause.addActionListener(e -> {
-            if(running) {
-                pauseSimulation();
-                menuPauseItem.setText("Продолжить");
-            }
-            else {
-                resumeSimulation();
-                menuPauseItem.setText("Пауза");
-            }
-
+            if(running) pauseSimulation(); else resumeSimulation();
         });
         controlBox.stop.setEnabled(false);
-        controlBox.stop.addActionListener(e -> {
+        controlBox.stop.addActionListener(e -> stopSimulation());
 
-            stopSimulation();
-            menuStartItem.setEnabled(true);
-            menuStopItem.setEnabled(false);
-
-    });
+        controlBox.aiBigBird.addActionListener(e -> BigBirdAI.pause(BigBirdAI_active = !BigBirdAI_active));
+        controlBox.aiSmallBird.addActionListener(e -> SmallBirdAI.pause(SmallBirdAI_active = !SmallBirdAI_active));
         controlBox.showTimeOn.setSelected(true);
+
+
         controlBox.showTimeOn.addActionListener(e -> controlBox.ticks.setVisible(true));
         controlBox.showTimeOff.addActionListener(e -> controlBox.ticks.setVisible(false));
 
-
-
         controlBox.BigBirdChance.addChangeListener(e -> BigBird.setBornChance((Integer) controlBox.BigBirdChance.getValue() / 100.0));
         controlBox.SmallBirdChance.addChangeListener(e -> SmallBird.setBornChance((Integer) controlBox.SmallBirdChance.getValue() / 100.0));
+
+        controlBox.sliderLifeBig.addChangeListener(e -> BigBird.setTTL(controlBox.sliderLifeBig.getValue()));
+        controlBox.sliderLifeLit.addChangeListener(e -> SmallBird.setTTL(controlBox.sliderLifeLit.getValue()));
 
         ((JSpinner.DefaultEditor) controlBox.textIntervalLit.getEditor()).getTextField().setFocusable(false);
         controlBox.textIntervalLit.addChangeListener(e -> SmallBird.setPeriod( (Integer) controlBox.textIntervalLit.getValue()));
@@ -178,11 +170,9 @@ public class MainForm extends JFrame {
         controlBox.textIntervalBig.addChangeListener(e -> BigBird.setPeriod( (Integer) controlBox.textIntervalBig.getValue()));
 
 
-        controlBox.sliderLifeBig.addChangeListener(e -> BigBird.setTTL(controlBox.sliderLifeBig.getValue()));
-        controlBox.sliderLifeLit.addChangeListener(e -> SmallBird.setTTL(controlBox.sliderLifeLit.getValue()));
+
 
         controlBox.showStats.addActionListener(e -> showingStats = !showingStats);
-
         controlBox.lifecreaturesBox.addActionListener(e-> {
             if (controlBox.lifecreaturesBox.getSelectedIndex() == 0) {
                 controlBox.sliderLifeLit.setVisible(true);
@@ -195,6 +185,7 @@ public class MainForm extends JFrame {
             }
         });
 
+
         controlBox.current.addActionListener(e -> {
             pauseSimulation();
 
@@ -205,8 +196,11 @@ public class MainForm extends JFrame {
                 for (ICreature c : creatureTTLs.get(time)) {
 
                     sb.append(String.format("<p>ID: %s,Тип: %s, Умрет: %d</p>", c.getID(), c.getClass().getSimpleName(), time));
+
                 }
+
             }
+
             String[] options = { "Ok" };
             JOptionPane.showOptionDialog(
                     this,
@@ -223,19 +217,16 @@ public class MainForm extends JFrame {
         });
 
 
+        BigBirdAI.pause(BigBirdAI_active);
+        SmallBirdAI.pause(SmallBirdAI_active);
         renderer.run();
-
-
-
+        BigBirdAI.run();
+        SmallBirdAI.run();
     }
 
     private void runSimulation() {
-
-
         running = true;
         habitat.reset();
-
-
 
         startTimer();
         startPoint = Instant.now();
@@ -252,15 +243,19 @@ public class MainForm extends JFrame {
 
         stopTimer();
         pausePoint = Instant.now();
-        statusBar.setStatus("Симуляция на паузе", Color.YELLOW);
+        BigBirdAI.pause(true);
+        SmallBirdAI.pause(true);
 
+        statusBar.setStatus("Симуляция на паузе", Color.YELLOW);
     }
 
     private void resumeSimulation() {
         running = true;
 
         startTimer();
-
+        pauseTime.plus(Duration.between(pausePoint, Instant.now()));
+        BigBirdAI.pause(BigBirdAI_active);
+        SmallBirdAI.pause(SmallBirdAI_active);
 
         statusBar.setStatus("Симуляция запущена", Color.GREEN);
     }
@@ -277,27 +272,25 @@ public class MainForm extends JFrame {
         stopPoint = Instant.now();
 
 
-
-
         if(showingStats) {
             showStatistics();
 
         }
         else{
 
-        controlBox.run.setEnabled(true);
-        controlBox.pause.setEnabled(false);
-        controlBox.stop.setEnabled(false);
+            controlBox.run.setEnabled(true);
+            controlBox.pause.setEnabled(false);
+            controlBox.stop.setEnabled(false);
 
-        controlBox.ticks.setText("Тик: 0");
-        controlBox.cBig.setText("Количество птиц: 0");
-        controlBox.cLit.setText("Количество птенцов: 0");
+            controlBox.ticks.setText("Тик: 0");
+            controlBox.cBig.setText("Количество птиц: 0");
+            controlBox.cLit.setText("Количество птенцов: 0");
 
-        statusBar.setStatus("Симуляция ещё не началась", Color.RED);
+            statusBar.setStatus("Симуляция ещё не началась", Color.RED);
 
             habitat.reset();
 
-}
+        }
 
     }
 
@@ -306,7 +299,6 @@ public class MainForm extends JFrame {
             case VK_B: {            // Бинд кнопки "В"
                 if(!running) {
                     runSimulation();
-
                 }
                 break;
             }
@@ -323,6 +315,7 @@ public class MainForm extends JFrame {
                     pauseSimulation();
                 else
                     resumeSimulation();
+
                 break;
             }
         }
@@ -338,7 +331,7 @@ public class MainForm extends JFrame {
                 habitat.update();
                 controlBox.ticks.setText("Тик: " + habitat.getMetrics().getTime());
             }
-        }, 0, 1000);
+        }, 0, 200);
     }
 
     private void stopTimer() {
@@ -348,8 +341,7 @@ public class MainForm extends JFrame {
         timer.cancel();
     }
 
-
-        private void showStatistics() {
+    private void showStatistics() {
 
 
         controlBox.stop.setEnabled(false);
@@ -412,7 +404,4 @@ public class MainForm extends JFrame {
         }
 
     }
-
-
-
 }

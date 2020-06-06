@@ -12,10 +12,11 @@ import java.util.Random;
 
 public class BigBird extends Bird {
     private static BufferedImage image;
-    private static int ttl = 10;
+    private static int ttl = 15;
     private static double bornChance = 0.5;
     public static int Period = 2;
     public static int ID;
+    private double step = 0.01 * Math.random() + 0.005;
     static {
         try {
             image = ImageIO.read(new File("src/lab/assets/habitat/creatures/birds/BigBird.png"));
@@ -60,6 +61,9 @@ public class BigBird extends Bird {
     public int getID() {
         ID = (new Random().nextInt(65550));
         return ID;
+    }
+    public double step() {
+        return step;
     }
 }
 

@@ -1,7 +1,6 @@
 package lab.frames.components;
 
 import javax.swing.*;
-
 import java.awt.*;
 
 
@@ -18,16 +17,20 @@ public class ControlBox extends JPanel {
     public JLabel ticks = new JLabel("Тик: 0");
     public JLabel cLit = new JLabel("Количество птенцов: 0");
     public JLabel cBig = new JLabel("Количество птиц: 0");
+    public JLabel timerEnabled = new JLabel("Время: Off");
+    public JLabel pauseEnabled = new JLabel("Пауза: Off");
 
     public JButton run = new JButton("Старт");
     public JButton pause = new JButton("Пауза");
     public JButton stop = new JButton("Стоп");
     public JButton current = new JButton("Текущие объекты");
+    public JButton aiSmallBird = new JButton("ИИ птенцов");
+    public JButton aiBigBird = new JButton("ИИ птиц");
     public JButton showObjectsInfo = new JButton("C");
 
     public JSpinner SmallBirdChance = new JSpinner(new SpinnerNumberModel(50, 0, 100, 10));
     public JSpinner BigBirdChance = new JSpinner(new SpinnerNumberModel(50, 0, 100, 10));
-    public JSpinner textIntervalBig = new JSpinner(new SpinnerNumberModel(2, 1, 100, 1));
+    public JSpinner textIntervalBig = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
     public JSpinner textIntervalLit = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
 
     String[] itemsLit = {
@@ -36,8 +39,8 @@ public class ControlBox extends JPanel {
     };
     public JComboBox lifecreaturesBox = new JComboBox(itemsLit);
 
-    public JSlider sliderLifeBig = new JSlider(1, 100, 10);
-    public JSlider sliderLifeLit = new JSlider(1, 100, 15);
+    public JSlider sliderLifeBig = new JSlider(1, 100, 15);
+    public JSlider sliderLifeLit = new JSlider(1, 100, 10);
 
     public JRadioButton showTimeOn = new JRadioButton("Показать время");
     public JRadioButton showTimeOff = new JRadioButton("Скрыть время");
@@ -58,6 +61,7 @@ public class ControlBox extends JPanel {
     private JPanel CheckPanelOFF = new JPanel();
     private JPanel CheckPanelON = new JPanel();
     private JPanel CurrentPanel = new JPanel();
+    private JPanel aiBirdPanel = new JPanel();
 
 
     public ControlBox() {
@@ -68,7 +72,7 @@ public class ControlBox extends JPanel {
         add(showTextPanel);
         add(BtnPanel);
         add(CurrentPanel);
-        add(CurrentPanel);
+        add(aiBirdPanel);
         add(ChancePanelLit);
         add(ChancePanelBig);
         add(IntervalPanelLit);
@@ -94,6 +98,9 @@ public class ControlBox extends JPanel {
 
         CurrentPanel.add(current);
 
+        aiBirdPanel.add(aiSmallBird);
+        aiBirdPanel.add(aiBigBird);
+
         ChancePanelLit.add(optChLit);
         ChancePanelLit.add(SmallBirdChance);
         SmallBirdChance.setPreferredSize(new Dimension(50,25));
@@ -104,9 +111,11 @@ public class ControlBox extends JPanel {
 
         IntervalPanelLit.add(optIntLit);
         IntervalPanelLit.add(textIntervalLit);
+        textIntervalLit.setPreferredSize(new Dimension(50,25));
 
         IntervalPanelBig.add(optIntBig);
         IntervalPanelBig.add(textIntervalBig);
+        textIntervalBig.setPreferredSize(new Dimension(50,25));
 
         showTimeGroup.add(showTimeOn);
         showTimeGroup.add(showTimeOff);
@@ -122,7 +131,7 @@ public class ControlBox extends JPanel {
         showStats.setEnabled(true);
         showObjectsInfo.setEnabled(true);
 
-
+        // showInfoPanel settings
         sliderLifeLit.setPaintTicks(true);
         sliderLifeLit.setPaintLabels(true);
         sliderLifeLit.setMajorTickSpacing(10);
@@ -131,12 +140,11 @@ public class ControlBox extends JPanel {
         sliderLifeBig.setPaintLabels(true);
         sliderLifeBig.setMajorTickSpacing(10);
 
-
+        // showInfoPanel settings
         showInfoPanel.setLayout(new BoxLayout(showInfoPanel, BoxLayout.Y_AXIS));
         showInfoPanel.add(ticks);
         showInfoPanel.add(cLit);
         showInfoPanel.add(cBig);
-
 
         // tool tips
         run.setToolTipText("Запуск симуляции");
@@ -149,10 +157,11 @@ public class ControlBox extends JPanel {
         BigBirdChance.setToolTipText("Шанс появления птиц");
         textIntervalLit.setToolTipText("Интервал появления птенцов");
         textIntervalBig.setToolTipText("Интервал появления птиц");
-        sliderLifeLit.setToolTipText("Время жизни птенцов)");
+        sliderLifeLit.setToolTipText("Время жизни птенцов");
         sliderLifeBig.setToolTipText("Время жизни птиц");
+        timerEnabled.setToolTipText("Таймер");
         ticks.setToolTipText("Время симуляции");
         cLit.setToolTipText("Кол-во птенцов");
-        cBig.setToolTipText("Кол-во птиц");
+        cBig.setToolTipText("Кол-во взрослых птиц");
     }
 }

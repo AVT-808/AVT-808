@@ -14,4 +14,8 @@ public interface ICreature {
     double getY();
     void setX(double x);
     void setY(double y);
+    void move(double x, double y);
+    double getTargetX();
+    double getTargetY();
+    double step();
 }
