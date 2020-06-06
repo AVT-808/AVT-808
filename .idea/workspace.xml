@@ -31,7 +31,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Технология программирования/lab2.1" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -91,10 +91,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="317" y="0" key="#org.jetbrains.kotlin.idea.refactoring.safeDelete.KotlinOverridingDialog/0.0.1536.824@0.0.1536.824" timestamp="1589701711227" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1590657166958">
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1590915721599">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590657166958" />
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590915721599" />
     <state width="1492" height="84" key="GridCell.Tab.0.bottom" timestamp="1590910992085">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

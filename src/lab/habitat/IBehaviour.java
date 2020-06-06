@@ -1,7 +1,6 @@
 package lab.habitat;
 
 
-
 public interface IBehaviour {
     double getX();
     double getY();
