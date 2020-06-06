@@ -5,16 +5,17 @@ import Habit.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.event.KeyAdapter;
+import java.io.IOException;
 
 public class Keyboard extends KeyAdapter {
 
     private final Habitat habitat;
-    Boolean dd = true;
+    static Boolean dd = true;
     StartStop st;
     JButton button_start;
     JButton button_stop;
 
-    public Keyboard() {
+    public Keyboard() throws IOException {
 
         habitat = new Habitat();
         habitat.jFrame.setVisible(true);
@@ -47,4 +48,18 @@ public class Keyboard extends KeyAdapter {
         }
     }
 
+    public Habitat getHabitat() {
+        return habitat;
+    }
+
+    public static void setDd(Boolean u) {
+        if (dd!=u) {
+            dd = u;
+            Clock.Change_dd(); // Меняем на кнопках
+            Clock.Change_point(); // Меняем "выбранность" на экране
+            if (u) Line.Clock(true);
+            else Line.Clock(false);
+        }
+
+    }
 }

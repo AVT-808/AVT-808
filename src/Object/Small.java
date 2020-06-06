@@ -14,12 +14,13 @@ public class Small extends Bird {
 
         super(place);
 
+        this.who = false;
         this.identifier = identifier;
         this.time_luntik = time_luntik;
         this.go_away = time_luntik + lifetime_Small;
         this.place = place;
-
         this.ris = ImageIO.read(getClass().getResource("/Small.png"));
+
     }
 
     @Override
@@ -42,4 +43,6 @@ public class Small extends Bird {
 }
 
     public static void setY_Coord(int y) { y_Coord=y; }
+
+
 }

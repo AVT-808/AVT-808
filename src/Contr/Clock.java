@@ -71,4 +71,6 @@ public class Clock extends JPanel{
             no_clock.setEnabled(false);
         }
     }
+
+
 }

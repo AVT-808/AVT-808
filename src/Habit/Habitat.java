@@ -1,5 +1,6 @@
 package Habit;
 
+import Cons.Console;
 import Menu.*;
 import Contr.*;
 import Array.Singleton;
@@ -9,6 +10,9 @@ import Object.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -16,8 +20,8 @@ public class Habitat {
 
     private final Singleton Bird_s;
     private final AbstractFactory factory;
-    private Integer time;
-   public static DepictBird depict_a_bird;
+    private static Integer time;
+    public static DepictBird depict_a_bird;
 
     private Integer number_of_Big = 0;
     private Integer number_of_Small = 0;
@@ -25,13 +29,16 @@ public class Habitat {
     private final Line line;
 
     private final Men men;
+    private final LowerMenu lowerMenu;
 
     Integer identifier;
-   public JFrame jFrame;
+    public JFrame jFrame;
+
+    public static Console console;
 
     //*********************************//
 
-    public Habitat() {
+    public Habitat() throws IOException {
 
         jFrame = new JFrame("Field");
         int width = 1250;
@@ -50,6 +57,9 @@ public class Habitat {
         men = new Men(this);
         men.setMaximumSize(new Dimension(width, 50));
 
+        lowerMenu = new LowerMenu(this);
+        lowerMenu.setMaximumSize(new Dimension(width, 25));
+
         depict_a_bird = new DepictBird();
         depict_a_bird.setMaximumSize(new Dimension(width, height-21 ));
 
@@ -58,19 +68,24 @@ public class Habitat {
 
         jFrame.add(men);
         jFrame.add(depict_a_bird);
+        jFrame.add(lowerMenu);
         jFrame.add(line);
 
         jFrame.setFocusable(true);
+
+        console = new Console(jFrame);
+        console.ConsoleOperation();
 
     }
 
     //*********************************//
 
-    public void Stop() // Остановить отрисовку среды
+    public void Stop(int x) // Остановить отрисовку среды
     {
         Boolean ddd = true;
 
         Boolean d = men.Return_nagatost(); // Показывать инфу или нет
+        if (x==1) d=false;
 
         if (d) { // d==true
 
@@ -168,6 +183,16 @@ public class Habitat {
     ////////////////////////////////
     public HashMap<Integer,Integer> Return_hashMap() { return Bird_s.Return_hashMap(); } // Связывает Singleton и OnTheField
 
+    public static Console getConsole() {
+        return console;
+    }
 
+    public JFrame getjFrame() {
+        return jFrame;
+    }
+
+    public static int getTime(){
+        return time;
+    }
 }
 

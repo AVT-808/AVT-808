@@ -2,15 +2,16 @@ package Array;
 
 import Object.*;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.HashMap;
 
-public class Singleton {
+public class Singleton implements Serializable {
 
     private static Singleton M; // Поле, содержащее одиночный объект
-    public final LinkedList <Bird> Bird_s;
+    public LinkedList <Bird> Bird_s;
     public Set<Integer> treeSet;
     HashMap<Integer, Integer> hashMap;
 
@@ -56,6 +57,10 @@ public class Singleton {
     }
 
     public HashMap<Integer, Integer> Return_hashMap() { return hashMap; }
+
+    public void setBird_s(LinkedList<Bird> a){
+        Bird_s = a;
+    }
 
 
 }

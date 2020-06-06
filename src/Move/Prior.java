@@ -5,9 +5,9 @@ import javax.swing.*;
 
 public class Prior extends JPanel {
 
-    JComboBox<Integer> comboBoxS;
-    JComboBox<Integer> comboBoxB;
-    JComboBox<Integer> comboBoxM;
+    static JComboBox<Integer> comboBoxS;
+    static JComboBox<Integer> comboBoxB;
+    static  JComboBox<Integer> comboBoxM;
 
     public Prior () {
 
@@ -48,22 +48,50 @@ public class Prior extends JPanel {
 
         comboBoxS.addActionListener(e -> {
             SmallAI.getThread().setPriority((int)comboBoxS.getSelectedItem());
-            System.out.println("Поток "+ SmallAI.getThread().getName()+" Пр: " + SmallAI.getThread().getPriority());
+            //System.out.println("Поток "+ SmallAI.getThread().getName()+" Пр: " + SmallAI.getThread().getPriority());
             comboBoxS.setFocusable(false);
         });
 
         comboBoxB.addActionListener(e -> {
                 BigAI.getThread().setPriority((int)comboBoxB.getSelectedItem());
-                System.out.println("Поток "+ BigAI.getThread().getName()+" Пр: " + BigAI.getThread().getPriority());
+                //System.out.println("Поток "+ BigAI.getThread().getName()+" Пр: " + BigAI.getThread().getPriority());
                 comboBoxB.setFocusable(false);
         });
 
         comboBoxM.addActionListener(e -> {
                 int pr = (int)comboBoxM.getSelectedItem();
                 Thread.currentThread().setPriority(pr); // Получение ссылки на объект главного потока
-                System.out.println("Поток "+ Thread.currentThread().getName()+" Пр: " + Thread.currentThread().getPriority());
+                //System.out.println("Поток "+ Thread.currentThread().getName()+" Пр: " + Thread.currentThread().getPriority());
                 comboBoxM.setFocusable(false);
         });
     }
+
+    public static int getPriorMain () {
+        return (int)comboBoxM.getSelectedItem();
+    }
+
+    public static int getPriorBaseSmall () {
+        return (int)comboBoxS.getSelectedItem();
+    }
+
+    public static int getPriorBaseBig () {
+        return (int)comboBoxB.getSelectedItem();
+    }
+
+    public static void setComboBoxB(int u) {
+        comboBoxB.setSelectedItem(u);
+        BigAI.getThread().setPriority(u);
+    }
+
+    public static void setComboBoxS(int u) {
+        comboBoxS.setSelectedItem(u);
+        SmallAI.getThread().setPriority(u);
+    }
+
+    public static void setComboBoxM(int u) {
+        comboBoxM.setSelectedItem(u);
+        Thread.currentThread().setPriority(u);
+    }
+
 
 }

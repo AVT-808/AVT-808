@@ -1,5 +1,6 @@
 package Menu;
 
+import Cons.ButtConsole;
 import Contr.*;
 import Habit.Habitat;
 import Existence.*;
@@ -56,6 +57,7 @@ public class Men extends JPanel {
         combob = new ComboB(); // Вероятности
         add(combob);
         ////////
+
 
         setVisible(true);
         setFocusable(false);

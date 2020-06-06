@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 
 public class Life extends JPanel {
 
-    JTextField textArea_big;
-    JTextField textArea_small;
-   static Integer lifetime_Big; // Con
-    static  Integer lifetime_Small; // Con
+    static JTextField textArea_big;
+    static JTextField textArea_small;
+   static Integer lifetime_Big=10; // Con
+    static  Integer lifetime_Small=10; // Con
 
     public Life() {
 
@@ -110,5 +110,13 @@ public class Life extends JPanel {
     public static  Integer Return_lifetime_Big() {return lifetime_Big;}
 
     public static  Integer Return_lifetime_Small() {return lifetime_Small;}
+
+    public static JTextField getTextArea_big() {
+        return textArea_big;
+    }
+
+    public static JTextField getTextArea_small() {
+        return textArea_small;
+    }
 }
 

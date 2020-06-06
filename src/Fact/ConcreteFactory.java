@@ -2,6 +2,7 @@ package Fact;
 
 import Object.*;
 import Menu.*;
+import Habit.*;
 
 import java.awt.*;
 import java.io.IOException;
@@ -10,8 +11,8 @@ import java.io.IOException;
 public class ConcreteFactory implements AbstractFactory {
     IdentifyType identifyType;
 
-    public ConcreteFactory() {
-        identifyType = new IdentifyType();
+    public ConcreteFactory(/*Habitat habitat*/) throws IOException {
+        identifyType = new IdentifyType(/*habitat.getConsole().getStream()*/);
     }
 
     @Override

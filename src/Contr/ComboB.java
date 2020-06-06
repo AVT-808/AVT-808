@@ -8,10 +8,10 @@ import javax.swing.*;
 
 public class ComboB extends JPanel {
 
-    JComboBox<Float> comboBox;
-    JComboBox<Float> comboBox2;
-    Float chance_birth_big; // Con
-    Float percent; // Con
+   public static JComboBox<Float> comboBox;
+   public static JComboBox<Float> comboBox2;
+    static Float chance_birth_big=1.0f; // Con
+    static Float percent=1.0f; // Con
 
     public ComboB(){
 
@@ -71,7 +71,15 @@ public class ComboB extends JPanel {
         setFocusable(false);
     }
 
-    public Float Return_chance_birth_big() { return chance_birth_big; }
+    public static Float Return_chance_birth_big() { return chance_birth_big; }
 
-    public Float Return_percent() { return percent; }
+    public static Float Return_percent() { return percent; }
+
+    public static void setComboBoxS(float p) {
+        comboBox2.setSelectedItem(p);
+    }
+
+    public static void setComboBoxB(float p) {
+        comboBox.setSelectedItem(p);
+    }
 }

@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 
 public class Periods extends JPanel {
 
-    JTextField textArea_big;
-    JTextField textArea_small;
-    Integer time_birth_big; // Con
-    Integer time_birth_small; // Con
+    public static JTextField textArea_big;
+    public static JTextField textArea_small;
+    static Integer time_birth_big=3; // Con
+    static Integer time_birth_small=5; // Con
 
     public Periods() {
 
@@ -107,7 +107,15 @@ public class Periods extends JPanel {
         setVisible(true);
     }
 
-    public Integer Return_time_birth_big() {return time_birth_big;}
+    public static Integer Return_time_birth_big() {return time_birth_big;}
 
-    public Integer Return_time_birth_small() {return time_birth_small;}
+    public static Integer Return_time_birth_small() {return time_birth_small;}
+
+    public static JTextField getTextArea_big() {
+        return textArea_big;
+    }
+
+    public static JTextField getTextArea_small() {
+        return textArea_small;
+    }
 }

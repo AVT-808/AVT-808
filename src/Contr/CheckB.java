@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class CheckB extends JPanel {
 
-    private JCheckBox Box;
+    private static  JCheckBox Box;
 
     public CheckB() {
         Box = new JCheckBox("Показывать инф.",true);
@@ -15,7 +15,10 @@ public class CheckB extends JPanel {
         Box.setFocusable(false);
     }
 
-    public Boolean Return_nagatost() {
+    public static Boolean Return_nagatost() {
         return Box.isSelected(); // Стоит ли галочка (да\нет)
+    }
+    public static JCheckBox getBox() {
+        return Box;
     }
 }

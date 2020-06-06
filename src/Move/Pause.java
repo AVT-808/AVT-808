@@ -41,4 +41,35 @@ public class Pause extends JPanel {
         bigAI = bigAI2;
     }
 
+    public static Boolean getBigAI() {
+        return Box_Big.isSelected();
+    }
+
+    public static Boolean getSmallAI() {
+        return Box_Small.isSelected();
+    }
+
+    public static JCheckBox getBox_Big() {
+        return Box_Big;
+    }
+
+    public static JCheckBox getBox_Small() {
+        return Box_Small;
+    }
+
+    public static void setBox_Big(Boolean u){
+        Box_Big.setSelected(u);
+        if (Box_Big.isSelected())
+            bigAI.startAI();
+        else bigAI.stopAI();
+    }
+
+    public static void setBox_Small(Boolean u){
+        Box_Small.setSelected(u);
+        if (Box_Small.isSelected())
+            smallAI.startAI();
+        else smallAI.stopAI();
+    }
+
+
 }

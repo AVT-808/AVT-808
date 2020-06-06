@@ -3,18 +3,39 @@ import Move.BigAI;
 import Move.Pause;
 import Move.SmallAI;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+import Conf.*;
+import Serial.Serializ;
+
 
 public class AnimalTour  {
 
-    private AnimalTour() {
+    private AnimalTour() throws IOException {
         Keyboard keyboard = new Keyboard();
+
         SmallAI smallAI = new SmallAI();
         BigAI bigAI = new BigAI();
         Pause.setAI(smallAI,bigAI);
+
+        Configuration configuration = new Configuration();
+        configuration.downloadInformation();
+
+        keyboard.getHabitat().getjFrame().addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                configuration.saveInformation();
+                System.out.println("\nДанные успешно сохранены в конфигурационный файл\n");
+            }
+        });
+
+
+
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new AnimalTour();
     }
 }

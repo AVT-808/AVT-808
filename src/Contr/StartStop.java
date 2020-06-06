@@ -40,7 +40,7 @@ public class StartStop {
             timer.cancel(); // cancel() - прерывает поток таймера
             habitatTask.cancel();
             timer.purge(); // purge() - удаляет прерванные задания из очереди таймера
-            habitat.Stop();
+            habitat.Stop(0);
 
             button_stop.setEnabled(false);
             button_start.setEnabled(true);
