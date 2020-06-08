@@ -5,6 +5,7 @@ import com.company.Habitat.Habitat;
 import com.company.MovingBees.DroneAI;
 import com.company.MovingBees.Pause;
 import com.company.MovingBees.WorkerAI;
+import com.company.Serialization.DataFile;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -21,6 +22,7 @@ public class Main extends KeyAdapter{
 
 
     private Main() {
+
         habitat = new Habitat();
         habitat.setVisible(true);
         habitat.addKeyListener(this);
@@ -31,6 +33,8 @@ public class Main extends KeyAdapter{
         DroneAI droneAI = new DroneAI();
         WorkerAI workerAI = new WorkerAI();
         Pause.setAI(droneAI,workerAI);
+        Singleton.getInstance().setConsole(habitat);
+
     }
 
     @Override
@@ -64,6 +68,7 @@ public class Main extends KeyAdapter{
     }
 
     public static void main(String[] args) {
+        DataFile.RunApplication();
         new Main();
     }
 

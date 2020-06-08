@@ -2,23 +2,29 @@ package com.company.Panels;
 
 import com.company.Habitat.BeesArray.Singleton;
 import com.company.Habitat.Habitat;
+import com.company.Serialization.Seria;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 public class Buttons extends JPanel {
     private final JButton startButton;
     private final JButton stopButton;
+    private final JButton consoleButton;
+    private static final JButton button_save =  new JButton("Сохранить");
+    private static final JButton button_load = new JButton("Загрузить");
+
   Singleton st;
 
     public Buttons(Habitat habitat){
         setLayout(new GridLayout(2,1));
         setFocusable(false);
 
+        Seria serializ = new Seria();
         startButton = new JButton("Старт");
-       // startButton.setFocusable(true);
         startButton.setMnemonic('B');
         startButton.setFocusable(false);
         startButton.setEnabled(true);
@@ -28,10 +34,31 @@ public class Buttons extends JPanel {
         stopButton.setMnemonic('E');
         stopButton.setEnabled(false);
 
+        consoleButton = new JButton("Консоль");
+        consoleButton.setEnabled(true);
+        consoleButton.setFocusable(false);
+
+
+        button_save.setEnabled(true);
+        button_save.setFocusable(false);
+
+        button_load.setEnabled(true);
+        button_load.setFocusable(false);
+
+
         add(startButton);
         startButton.setVisible(true);
+        add(button_save);
+        button_save.setVisible(true);
+        add(consoleButton);
+        consoleButton.setVisible(true);
         add(stopButton);
         stopButton.setVisible(true);
+
+        add(button_load);
+        button_load.setVisible(true);
+
+
 
         st = Singleton.getInstance();
 
@@ -54,6 +81,25 @@ public class Buttons extends JPanel {
                 setFocusable(false);
             }
         });
+        consoleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+               Singleton.getInstance().console();
+            }
+        });
+
+        button_save.addActionListener(e -> {
+            serializ.serialization();
+        });
+
+        button_load.addActionListener(e -> {
+            try {
+                serializ.deserialization(habitat);
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        });
+
         stopButton.setFocusable(false);
         startButton.setFocusable(false);
         setFocusable(false);
@@ -65,4 +111,12 @@ public class Buttons extends JPanel {
     public JButton returnStop() {
         return stopButton;
     }
+
+    public JButton returnConsoleButton() {
+        return stopButton;
+    }
+
+    public static JButton returnSbutton() { return button_save; } // Для доступа к этим же кнопкам в Keyboard
+
+    public static JButton returnLbutton() { return button_load; }
 }

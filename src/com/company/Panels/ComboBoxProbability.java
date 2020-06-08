@@ -1,5 +1,7 @@
 package com.company.Panels;
 
+import com.company.Serialization.DataFile;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,8 +11,8 @@ public class ComboBoxProbability extends JPanel {
 
     JComboBox cb;
     JComboBox cb1;
-    Double probabilityOfWorkers;
-    Double percent;
+   public static Double probabilityOfWorkers ;
+    public static Double percent ;
 
     public ComboBoxProbability(){
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -20,6 +22,7 @@ public class ComboBoxProbability extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 probabilityOfWorkers = (Double) cb.getSelectedItem();
+
                 cb.setFocusable(false);
             }
         };
@@ -27,14 +30,21 @@ public class ComboBoxProbability extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 percent = (Double) cb1.getSelectedItem();
+
                 cb1.setFocusable(false);
             }
         };
 
+
+        probabilityOfWorkers = (double)(DataFile.bufferInt[2])/10;
+        percent =  (double)(DataFile.bufferInt[3])/10;
         cb = new JComboBox(Items);
+        cb.setSelectedIndex(DataFile.bufferInt[2]-1);
         cb.addActionListener(actionListener);
         cb1 = new JComboBox(Items);
+        cb1.setSelectedIndex(DataFile.bufferInt[3]-1);
         cb1.addActionListener(actionListener1);
+
 
         JLabel text = new JLabel("Вер.рожд.трутней");
         text.setFont(new Font("Courier New", Font.BOLD,11));

@@ -18,6 +18,7 @@ public class MenuButtons extends JPanel {
     Pause pause;
 
 
+
     public MenuButtons(Habitat habitat){
 
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));

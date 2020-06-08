@@ -1,5 +1,7 @@
 package com.company.Panels;
 
+import com.company.Serialization.DataFile;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,8 +11,8 @@ public class TimeOfBirth extends JPanel {
 
     JTextField txt;
     JTextField txt2;
-    Integer birthTimeWorkers;
-    Integer birthTimeDrones;
+   public static Integer birthTimeWorkers = 2;
+    public static Integer birthTimeDrones = 3;
 
     public TimeOfBirth(){
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -37,8 +39,14 @@ public class TimeOfBirth extends JPanel {
         panel.add(text);
         panel2.add(text2);
 
+        birthTimeWorkers = DataFile.bufferInt[4];
+        birthTimeDrones = DataFile.bufferInt[5];
         txt = new JTextField(9);
+        txt.setText(String.valueOf(birthTimeWorkers));
         txt2 = new JTextField(9);
+        txt2.setText(String.valueOf(birthTimeDrones));
+
+
 
         txt.setHorizontalAlignment(JTextField.CENTER);
         //textArea_small.setToolTipText("Длиное поле"); // Установка метки
@@ -49,7 +57,7 @@ public class TimeOfBirth extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try { birthTimeWorkers = Integer.parseInt(txt.getText());}
                 catch (NumberFormatException e1) {
-                    birthTimeWorkers = 2;
+
                     JFrame frame = new JFrame("Внимание");
                     frame.setSize(200,200);
                     JTextArea textArea = new JTextArea();
@@ -62,8 +70,8 @@ public class TimeOfBirth extends JPanel {
                     frame.setVisible(true);
                     txt.setText(" ");
                 }
-                txt.setEnabled(false);
-                txt.setFocusable(false);
+                /*txt.setEnabled(false);
+                txt.setFocusable(false);*/
             }
         });
 
@@ -72,7 +80,7 @@ public class TimeOfBirth extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try { birthTimeDrones = Integer.parseInt(txt2.getText());}
                 catch (NumberFormatException e1) {
-                    birthTimeDrones = 2;
+
                     JFrame frame = new JFrame("Внимание");
                     frame.setSize(200,200);
                     JTextArea textArea = new JTextArea();
@@ -83,8 +91,8 @@ public class TimeOfBirth extends JPanel {
                     frame.setVisible(true);
                     txt2.setText(" ");
                 }
-                txt2.setEnabled(false);
-                txt2.setFocusable(false);
+                /*txt2.setEnabled(false);
+                txt2.setFocusable(false);*/
             }
         });
         panel.add(txt);

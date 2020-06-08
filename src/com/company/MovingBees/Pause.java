@@ -34,8 +34,8 @@ public class Pause extends JPanel {
         });
     }
 
-    public static void setAI(DroneAI smallAI2, WorkerAI bigAI2) { // Ссылка из AnimalTour
-        droneAI = smallAI2;
-        workerAI = bigAI2;
+    public static void setAI(DroneAI droneAI2, WorkerAI workerAI2) { // Ссылка из AnimalTour
+        droneAI = droneAI2;
+        workerAI = workerAI2;
     }
 }

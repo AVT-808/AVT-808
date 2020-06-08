@@ -4,13 +4,13 @@ package com.company.Models.Abstract;
 import com.company.Models.Behaviour.IBehaviour;
 
 import java.awt.*;
+import java.io.Serializable;
 
-public abstract class BaseBee implements IBehaviour {
-    /*protected int x;
-    protected int y;*/
+public abstract class BaseBee implements IBehaviour, Serializable {
+
     public Point place;
 
-    protected Image beeImage;
+    transient public Image beeImage;
     public Integer id;
     public Integer timeOfBirth;
     public Integer dead;
@@ -21,15 +21,7 @@ public abstract class BaseBee implements IBehaviour {
         this.place = place;
     }
 
-    /*@Override
-    public int getX() {
-        return x;
-    }
 
-    @Override
-    public int getY() {
-        return y;
-    }*/
     @Override
     public Point getPlace() {
         return place;

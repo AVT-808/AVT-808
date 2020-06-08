@@ -3,15 +3,19 @@ package com.company.MovingBees;
 import com.company.Habitat.BeesArray.Singleton;
 import com.company.Models.Abstract.BaseBee;
 import com.company.Models.Worker;
+import com.company.Serialization.DataFile;
 
 public class WorkerAI extends BaseAI {
     public static Thread thread;
     public Boolean isMoving;
 
     public WorkerAI() {
-        thread = new Thread(this, "BaseBigAI");
+        thread = new Thread(this, "BaseAI");
         isMoving = true;
+        thread.setPriority(DataFile.bufferInt[6]);
+
         thread.start();
+
     }
 
     @Override
@@ -31,7 +35,7 @@ public class WorkerAI extends BaseAI {
 
                 Singleton bees_s = Singleton.getInstance(); // Выполняется для каждого существующего объекта
                 if (!bees_s.bees.isEmpty()) {
-                    for (BaseBee bee : Singleton.getBees()) {
+                    for (BaseBee bee : Singleton.getInstance().getBees()) {
                         if (bee.getClass() == Worker.class)
                             bee.moving(); // Метод добавлен в классе Worker
                     }

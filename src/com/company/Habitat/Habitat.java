@@ -6,18 +6,24 @@ import com.company.Habitat.BeesArray.Singleton;
 import com.company.Models.Abstract.BaseBee;
 import com.company.Models.Worker;
 import com.company.Panels.*;
+import com.company.Serialization.DataFile;
 
 import javax.swing.*;
 
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Random;
 import java.util.TreeMap;
 
 public class Habitat extends JFrame {
 
     private final Singleton bees;
-    private int time;
+
+
+
+    private static int time;
     private AbstractFactory factory;
     public static DrawBee drawBee;
     private MenuPanel menuPanel;
@@ -30,17 +36,28 @@ public class Habitat extends JFrame {
 
     JButton startButton;
     JButton stopButton;
+    JButton consoleButton;
+    JButton button_save;
+    JButton button_load;
 
     public Habitat(){
 
 
-        int width = 1200;
+        int width = 1500;
         int height = 800;
         setSize(width, height);
         setResizable(false);
 
         setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                DataFile.ExitApplication();
+            }
+        });
+
         bees = Singleton.getInstance();
         this.time = 0;
 
@@ -58,6 +75,10 @@ public class Habitat extends JFrame {
 
         startButton = button.returnStart();
         stopButton = button.returnStop();
+        consoleButton = button.returnConsoleButton();
+        button_save = button.returnSbutton();
+        button_load = button.returnLbutton();
+
 
         menuButtons.add(button);
         add(drawBee);
@@ -66,6 +87,9 @@ public class Habitat extends JFrame {
         setFocusable(true);
     }
 
+    public static int getTime() {
+        return time;
+    }
     public JButton returnStart(){
         return startButton;
     }
@@ -73,6 +97,17 @@ public class Habitat extends JFrame {
     public JButton returnStop() {
         return stopButton;
     }
+    public JButton returnConsoleButton() {
+        return consoleButton;
+    }
+
+    public JButton returnSbutton() {
+        return button_save;
+    }
+    public JButton returnLbutton() {
+        return button_load;
+    }
+
 
     public void stop(){//остановить отрисовку среды
 
@@ -97,6 +132,8 @@ public class Habitat extends JFrame {
         }
     }
 
+
+
     public void Timer_show_hide(Boolean bool){
         if(!bool) menuPanel.TimerShowHide(false);
         else menuPanel.TimerShowHide(true);
@@ -107,6 +144,8 @@ public class Habitat extends JFrame {
         menuButtons.return2_bool();
         return bool;
     }
+
+
 
     void update() {//продолжить симуляцию
         time++;
@@ -137,8 +176,8 @@ public class Habitat extends JFrame {
         catch (Exception ex){
             ex.printStackTrace();
         }
-        for(BaseBee bee: Singleton.getBees()){
-            if(bee.dead==time){
+        for(BaseBee bee: Singleton.getInstance().getBees()){
+            if(bee.dead<time){
             Integer k = bee.id;
                 bees.removeHashSet(k);
                 bees.removeBees(bee);

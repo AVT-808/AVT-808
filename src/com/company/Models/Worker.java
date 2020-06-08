@@ -6,13 +6,14 @@ import com.company.Models.Abstract.BaseBee;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
+import java.io.Serializable;
 
-public class Worker extends BaseBee {
+public class Worker extends BaseBee implements Serializable {
     Point place;
 
     int x,y;
     boolean sis = true;
-    int speed = 1;
+    int speed = 2;
 
 
     public Worker(Point place, Integer id, Integer timeOfBirth,Integer life_time_Workers) throws IOException {

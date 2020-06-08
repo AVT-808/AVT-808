@@ -3,6 +3,9 @@ package com.company.Habitat.BeesArray;
 import com.company.Habitat.Habitat;
 import com.company.Habitat.HabitatTask;
 import com.company.Models.Abstract.BaseBee;
+import com.company.Models.Drone;
+import com.company.Models.Worker;
+import com.company.Panels.Console;
 import com.company.Panels.DrawBee;
 
 import javax.swing.*;
@@ -13,13 +16,15 @@ import java.util.Timer;
 public class Singleton {
 
     private static DrawBee drawBee;
-    private static Singleton instance;
+    private static  Singleton instance;
     public final List<BaseBee> bees;
     public HashSet<Integer> hashSet;
     TreeMap<Integer,Integer> treeMap;
     private Timer timer;
     private HabitatTask habitatTask;
     Boolean isStart = true;
+    public Console console;
+
 
     public Singleton() {
         bees = new ArrayList<>();
@@ -37,6 +42,10 @@ public class Singleton {
     public void clear() {
         if (!instance.bees.isEmpty())
             instance.bees.clear();
+    }
+
+    public void setBees(List<BaseBee> bee){
+        bees.addAll(bee);
     }
 
     public void destroy_hashSet() {
@@ -70,7 +79,7 @@ public class Singleton {
         instance.treeMap.put(id,dead);
     }
 
-    public static List<BaseBee> getBees(){
+    public  List<BaseBee> getBees(){
         return instance.bees;
     }
 
@@ -84,8 +93,38 @@ public class Singleton {
         drawBee.repaint();
     }
 
+    public void console(){
+        console.showConsole();
+    }
+    public void setConsole(Habitat habitat){
+        console= new Console(habitat);
+    }
+
+    public int getAllDronesBirth() {
+        int biba = 0;
+
+        if(bees.isEmpty()) return biba;
+        for (BaseBee bee : bees) {
+            if (bee instanceof Drone) {
+                biba++;
+            }
+        }
+        return biba;
+    }
+
+    public int getAllWorkersBirth() {
+        int biba = 0;
+        if(bees.isEmpty()) return biba;
+        for (BaseBee bee : bees) {
+            if (bee instanceof Worker) {
+                biba++;
+            }
+        }
+        return biba;
+    }
     
     public void Start(Habitat habitat, JButton startButton, JButton stopButton ){
+
         isStart = false;
         timer = new Timer();
         habitatTask = new HabitatTask(habitat);
@@ -103,6 +142,8 @@ public class Singleton {
         stopButton.setEnabled(true);
         startButton.setFocusable(false);
     }
+
+ 
 
     public Boolean getIsStart(){
         return isStart;

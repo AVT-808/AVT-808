@@ -1,0 +1,8 @@
+Life time of worker: 5
+Life time of Drones: 6
+Chance of Workers: 5
+Chance of Drones: 8
+Time of birth workers: 2
+Time of birth workers: 3
+Priority workers AI: 7
+Priority drones AI: 8

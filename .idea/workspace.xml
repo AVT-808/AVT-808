@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Lab_4:jar" />
+      <artifact name="Lab_5:jar" />
     </artifacts-to-build>
   </component>
   <component name="BranchesTreeState">
@@ -25,65 +25,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7161a26c-67ba-4979-9d5d-a02ecde1981d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Lab_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Lab_4_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Factory/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Factory/AbstractFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Factory/ConcreteFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Factory/ConcreteFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Factory/IdTypeOfBee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Factory/IdTypeOfBee.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Habitat/BeesArray/Singleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Habitat/BeesArray/Singleton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Habitat/Habitat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Habitat/Habitat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Habitat/HabitatTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Habitat/HabitatTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Models/Abstract/BaseBee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Models/Abstract/BaseBee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Models/Behaviour/IBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Models/Behaviour/IBehaviour.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Models/Drone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Models/Drone.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Models/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Models/Worker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/MovingBees/DroneAI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/MovingBees/DroneAI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/MovingBees/Pause.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/MovingBees/Pause.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/MovingBees/Priority.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/MovingBees/Priority.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/MovingBees/WorkerAI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/MovingBees/WorkerAI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Buttons$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Buttons$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Buttons$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Buttons$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Buttons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Buttons.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/ComboBoxProbability$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/ComboBoxProbability$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/ComboBoxProbability$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/ComboBoxProbability$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/ComboBoxProbability.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/ComboBoxProbability.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/CurObj$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/CurObj$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/CurObj.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/CurObj.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/DrawBee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/DrawBee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Information$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Information$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Information$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Information$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Information.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/Information.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/LifeTimeOfBees$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/LifeTimeOfBees$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/LifeTimeOfBees$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/LifeTimeOfBees$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/LifeTimeOfBees.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/LifeTimeOfBees.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/MenuButtons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/MenuButtons.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/MenuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/MenuPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/OnScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/OnScreen$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/OnScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/OnScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/ShowInfButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/ShowInfButton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimeOfBirth$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimeOfBirth$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimeOfBirth$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimeOfBirth$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimeOfBirth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimeOfBirth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimerShowHide$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimerShowHide$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimerShowHide$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimerShowHide$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimerShowHide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_1/com/company/Panels/TimerShowHide.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Factory/AbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Factory/AbstractFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Factory/ConcreteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Factory/ConcreteFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Factory/IdTypeOfBee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Factory/IdTypeOfBee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Habitat/BeesArray/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Habitat/BeesArray/Singleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Habitat/Habitat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Habitat/Habitat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Habitat/HabitatTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Habitat/HabitatTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Models/Abstract/BaseBee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Models/Abstract/BaseBee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Models/Behaviour/IBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Models/Behaviour/IBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Models/Drone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Models/Drone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Models/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Models/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MovingBees/DroneAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MovingBees/DroneAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MovingBees/Pause.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MovingBees/Pause.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MovingBees/Priority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MovingBees/Priority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MovingBees/WorkerAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MovingBees/WorkerAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Panels/Buttons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/Buttons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Panels/ComboBoxProbability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/ComboBoxProbability.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Panels/CurObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/CurObj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Panels/DrawBee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/DrawBee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Panels/LifeTimeOfBees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/LifeTimeOfBees.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Panels/MenuButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/MenuButtons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Panels/ShowInfButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/ShowInfButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Panels/OnScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/OnScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Panels/TimeOfBirth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/TimeOfBirth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Panels/TimerShowHide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Panels/TimerShowHide.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,10 +170,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="532" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1585995117633" />
-    <state x="883" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1591292574135">
+    <state x="883" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1591541780920">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="883" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591292574135" />
+    <state x="883" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591541780920" />
     <state x="620" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1591268775620">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -212,43 +200,59 @@
     </state>
     <state x="458" y="201" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1590754316775" />
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591261651271" />
-    <state width="1493" height="71" key="GridCell.Tab.0.bottom" timestamp="1591364891707">
+    <state width="1493" height="120" key="GridCell.Tab.0.bottom" timestamp="1591619060422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="108" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1590927176150" />
-    <state width="1493" height="71" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591364891707" />
-    <state width="1493" height="71" key="GridCell.Tab.0.center" timestamp="1591364891707">
+    <state width="1493" height="120" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591619060422" />
+    <state width="1493" height="120" key="GridCell.Tab.0.center" timestamp="1591619060422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="108" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1590927176150" />
-    <state width="1493" height="71" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591364891707" />
-    <state width="1493" height="71" key="GridCell.Tab.0.left" timestamp="1591364891707">
+    <state width="1493" height="120" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591619060422" />
+    <state width="1493" height="120" key="GridCell.Tab.0.left" timestamp="1591619060421">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="108" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1590927176150" />
-    <state width="1493" height="71" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591364891707" />
-    <state width="1493" height="71" key="GridCell.Tab.0.right" timestamp="1591364891707">
+    <state width="1493" height="120" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591619060421" />
+    <state width="1493" height="120" key="GridCell.Tab.0.right" timestamp="1591619060422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="108" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1590927176150" />
-    <state width="1493" height="71" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591364891707" />
-    <state x="304" y="0" key="SettingsEditor" timestamp="1591364640855">
+    <state width="1493" height="120" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591619060422" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1591545097468">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591545097468" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1591545097468">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1591545097468" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1591545097468">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1591545097468" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1591545097468">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1591545097468" />
+    <state x="304" y="0" key="SettingsEditor" timestamp="1591619001840">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="143" y="133" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1590755109373" />
-    <state x="304" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591364640855" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1591350489072">
+    <state x="304" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591619001840" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1591613450018">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1591350489072" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1591613450018" />
     <state x="209" y="34" key="new project wizard" timestamp="1587884347432">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1587884347432" />
-    <state x="511" y="32" key="refactoring.ChangeSignatureDialog" timestamp="1590611939202">
+    <state x="511" y="32" key="refactoring.ChangeSignatureDialog" timestamp="1591516629640">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="511" y="32" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1590611939202" />
+    <state x="511" y="32" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1591516629640" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1586869114523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

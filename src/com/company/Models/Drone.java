@@ -6,14 +6,14 @@ import com.company.Models.Abstract.BaseBee;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Random;
 
-public class Drone extends BaseBee {
-
+public class Drone extends BaseBee implements Serializable {
 
     Point place;
     int x, y;
-    int speed = 1;
+    int speed = 2;
 
     public Drone(Point place, Integer id, Integer timeOfBirth,Integer life_time_Drones) throws IOException {
         super(place);
@@ -26,8 +26,6 @@ public class Drone extends BaseBee {
 
     @Override
     public synchronized void moving() {
-
-
 
         if(place.x > x){
             place.x-=speed;

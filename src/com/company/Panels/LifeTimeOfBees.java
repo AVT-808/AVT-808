@@ -1,15 +1,17 @@
 package com.company.Panels;
 
+import com.company.Serialization.DataFile;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LifeTimeOfBees extends JPanel {
-    static Integer life_time_Drones;
+    public static Integer life_time_Drones = 7;
     JTextField life_workers;
     JTextField life_drones;
-    static Integer life_time_Workers;
+    public static Integer life_time_Workers = 9;
 
 
     public LifeTimeOfBees(){
@@ -37,8 +39,15 @@ public class LifeTimeOfBees extends JPanel {
         panel.add(text);
         panel2.add(text2);
 
+        life_time_Workers = DataFile.bufferInt[0];
+        life_time_Drones = DataFile.bufferInt[1];
         life_workers = new JTextField(9);
+        life_workers.setText(String.valueOf(life_time_Workers));
         life_drones = new JTextField(9);
+        life_drones.setText(String.valueOf(life_time_Drones));
+
+
+
 
         life_workers.setHorizontalAlignment(JTextField.CENTER);
 
@@ -49,7 +58,7 @@ public class LifeTimeOfBees extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try { life_time_Workers = Integer.parseInt(life_workers.getText());}
                 catch (NumberFormatException e1) {
-                    life_time_Workers = 7;
+
                     JFrame frame = new JFrame("Внимание");
                     frame.setSize(200,200);
                     JTextArea textArea = new JTextArea();
@@ -70,7 +79,6 @@ public class LifeTimeOfBees extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try { life_time_Drones = Integer.parseInt(life_drones.getText());}
                 catch (NumberFormatException e1) {
-                    life_time_Drones = 7;
                     JFrame frame = new JFrame("Внимание");
                     frame.setSize(200,200);
                     JTextArea textArea = new JTextArea();

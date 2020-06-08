@@ -3,6 +3,7 @@ package com.company.MovingBees;
 import com.company.Habitat.BeesArray.Singleton;
 import com.company.Models.Abstract.BaseBee;
 import com.company.Models.Drone;
+import com.company.Serialization.DataFile;
 
 public class DroneAI extends BaseAI {
     public static Thread thread;
@@ -11,8 +12,9 @@ public class DroneAI extends BaseAI {
     public DroneAI() {
         thread = new Thread(this, "SmallAI");
         isMoving = true;
+        thread.setPriority(DataFile.bufferInt[7]);
+
         thread.start();
-       
     }
 
     @Override
@@ -30,11 +32,10 @@ public class DroneAI extends BaseAI {
                     }
                 }
 
-
-
+                
                 Singleton bees_s = Singleton.getInstance();
                 if (!bees_s.bees.isEmpty()) {
-                    for (BaseBee bee : Singleton.getBees()) {
+                    for (BaseBee bee : Singleton.getInstance().getBees()) {
                         if (bee.getClass() == Drone.class){
                             if(tick%40==0){
                                 ((Drone) bee).Bugalteria();

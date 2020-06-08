@@ -1,5 +1,6 @@
 package com.company.Panels;
 
+import com.company.Habitat.BeesArray.Singleton;
 import com.company.Habitat.Habitat;
 
 import javax.swing.*;
@@ -21,8 +22,12 @@ public class OnScreen extends JDialog {
         textArea = new JTextArea();
         JScrollPane scrollPane = new JScrollPane(textArea);
         treeMap = habitat.returnTreeMap();
-        for (Map.Entry<Integer,Integer> entry: treeMap.entrySet()) {
+        /*for (Map.Entry<Integer,Integer> entry: treeMap.entrySet()) {
             String string = "Идентификатор- " + entry.getKey() + "  Время рождения- " + entry.getValue()+"\n";
+            textArea.append(string);
+        }*/
+        for(int i = 0; i< Singleton.getInstance().bees.size();i++){
+            String string = "Идентификатор- " + Singleton.getInstance().bees.get(i).id + "  Время рождения- " + Singleton.getInstance().bees.get(i).timeOfBirth+"\n";
             textArea.append(string);
         }
 
