@@ -12,6 +12,7 @@ class GUI extends JPanel
     protected JPanel timerPanel;
     protected JPanel simulation;
     protected JLabel timer;
+    protected JPanel lowPanel;
 
     //боковая панель управления
     private JButton buttonStart;
@@ -54,10 +55,16 @@ class GUI extends JPanel
     private JMenuItem menuTimerVisible;
     private JMenuItem menuInformationVisible;
 
+    //нижняя панель
+    private JButton buttonConsole;
+    private JButton buttonSave;
+    private JButton buttonLoad;
+
     public GUI(ActionListener actionListener)
     {
         menu = new JMenuBar();
         settings = new JToolBar();
+        lowPanel = new JPanel();
 
         settings.setLayout(new GridLayout(22,1));
         settings.setFocusable(false);
@@ -163,6 +170,16 @@ class GUI extends JPanel
         settings.add(labelWarriorProbability);
         settings.add(warriorProbability);
 
+        buttonConsole = new JButton("Консоль");
+        buttonConsole.addActionListener(actionListener);
+        buttonConsole.setSize(300,60);
+
+        buttonSave = new JButton("Сохранить");
+        buttonSave.addActionListener(actionListener);
+
+        buttonLoad = new JButton("Загрузить");
+        buttonLoad.addActionListener(actionListener);
+
         menu.setLayout(new GridLayout(1, 2));
         menu.setFocusable(false);
 
@@ -199,11 +216,17 @@ class GUI extends JPanel
         simulation.add(menu);
         simulation.add(timerPanel);
 
+        lowPanel.setLayout(new GridLayout(1,3));
+        lowPanel.add(buttonConsole);
+        lowPanel.add(buttonSave);
+        lowPanel.add(buttonLoad);
+
         draw = new DrawingAnts();
 
         setLayout(new BorderLayout());
         add(simulation, BorderLayout.PAGE_START);
         add(settings, BorderLayout.LINE_END);
+        add(lowPanel, BorderLayout.PAGE_END);
 
         add(draw, BorderLayout.CENTER);
     }
@@ -282,6 +305,21 @@ class GUI extends JPanel
     public JComboBox getWarriorThread()
     {
         return warriorThread;
+    }
+
+    public JButton getButtonConsole()
+    {
+        return buttonConsole;
+    }
+
+    public JButton getButtonSave()
+    {
+        return buttonSave;
+    }
+
+    public JButton getButtonLoad()
+    {
+        return buttonLoad;
     }
 
     public JMenuItem getMenuStart()

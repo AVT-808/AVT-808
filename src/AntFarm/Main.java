@@ -1,37 +1,51 @@
 package AntFarm;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.util.Timer;
 
 public class Main extends KeyAdapter implements ActionListener {
     private Habitat antFarm;
     private CurrentObjects obj;
+    private Console console;
+    private Configuration configuration;
+    private Serialization serializer;
     private WorkerAI workerAI;
     private WarriorAI warriorAI;
     protected MyTimerTask myTimerTask;
     protected Timer timer;
-    private boolean isStarted, isTimerVisible;
+    static boolean isStarted;
+    private boolean isTimerVisible;
     int workerPeriod, warriorPeriod, workerLifetime, warriorLifetime;
     double workerProbability, warriorProbability;
     int mainPriority, workerPriority, warriorPriority;
-
-    public static void main(String[] args)
-    {
-        new Main();
-    }
 
     Main() {
         antFarm = new Habitat(this);
         antFarm.setVisible(true);
         antFarm.addKeyListener(this);
+        configuration = new Configuration();
+        configuration.load(antFarm);
         workerAI = new WorkerAI();
         warriorAI = new WarriorAI();
         isStarted = false;
         isTimerVisible = true;
+        if (!antFarm.getWorkerAI().isSelected())
+            workerAI.stopAI();
+        if (!antFarm.getWarriorAI().isSelected())
+            warriorAI.stopAI();
+        serializer = new Serialization();
+        antFarm.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                configuration.save(antFarm);
+            }
+        });
+    }
+
+    public static void main(String[] args)
+    {
+        new Main();
     }
 
     @Override
@@ -74,6 +88,20 @@ public class Main extends KeyAdapter implements ActionListener {
         {
             obj = new CurrentObjects(Singleton.getBirthTime());
             obj.setVisible(true);
+        }
+        if (action == antFarm.getButtonConsole()) {
+            console = new Console(antFarm);
+            console.setVisible(true);
+            console.ConsoleOperation(this);
+        }
+        if (action == antFarm.getButtonSave()) {
+            serializer.serialize();
+        }
+        if (action == antFarm.getButtonLoad()) {
+            if (isStarted)
+                stopSimulation();
+            serializer.deserialize(antFarm);
+            antFarm.repaint();
         }
         if (action == antFarm.getInformationVisibility()) {
             antFarm.informationShowing();
@@ -165,6 +193,14 @@ public class Main extends KeyAdapter implements ActionListener {
         Thread.currentThread().setPriority(mainPriority);
         workerAI.setPriority(workerPriority);
         warriorAI.setPriority(warriorPriority);
+        if (!workerAI.isMoving && antFarm.getWorkerAI().isSelected())
+            workerAI.startAI();
+        if (!warriorAI.isMoving && antFarm.getWarriorAI().isSelected())
+            warriorAI.startAI();
+        if (!antFarm.getWorkerAI().isSelected())
+            workerAI.stopAI();
+        if (!antFarm.getWarriorAI().isSelected())
+            warriorAI.stopAI();
         isStarted = true;
         timer = new Timer();
         myTimerTask = new MyTimerTask(antFarm);
@@ -204,7 +240,12 @@ public class Main extends KeyAdapter implements ActionListener {
             myTimerTask.cancel();
             isStarted = false;
         }
-        else { workerAI.startAI(); warriorAI.startAI(); }
+        else {
+            if (antFarm.getWorkerAI().isSelected())
+                workerAI.startAI();
+            if (antFarm.getWarriorAI().isSelected())
+                warriorAI.startAI();
+        }
     }
 
     public boolean checkParameters() {

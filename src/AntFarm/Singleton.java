@@ -1,8 +1,10 @@
 package AntFarm;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Singleton {
+public class Singleton implements Serializable
+{
     private static Singleton singleton;
     private Vector<Ant> ants;
     private HashSet<Integer> ids;
@@ -14,8 +16,8 @@ public class Singleton {
         birthTimes = new TreeMap<>();
     }
 
-    public int getArraySize() {
-        return ants.size();
+    public static int getArraySize() {
+        return singleton.ants.size();
     }
 
     public static synchronized Singleton getSingleton() {
@@ -28,6 +30,16 @@ public class Singleton {
     public static void addAnt(Ant ant, int id, int birthTime) {
         singleton.ants.add(ant);
         singleton.ids.add(id);
+        singleton.birthTimes.put(id, birthTime);
+    }
+
+    public static void addIds(int id)
+    {
+        singleton.ids.add(id);
+    }
+
+    public static void addBirthTime(int id, int birthTime)
+    {
         singleton.birthTimes.put(id, birthTime);
     }
 
@@ -53,7 +65,8 @@ public class Singleton {
         return singleton.birthTimes;
     }
 
-    public static HashSet<Integer> getIds() {
-        return singleton.ids;
+    public static void setAnts(Vector<Ant> ants)
+    {
+        singleton.ants = ants;
     }
 }

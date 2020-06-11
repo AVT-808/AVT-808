@@ -6,18 +6,21 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff80edab-c339-4291-a95f-791baf2270a2" name="Default Changelist" comment="LR3">
+    <list default="true" id="ff80edab-c339-4291-a95f-791baf2270a2" name="Default Changelist" comment="LR4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/t4_lab_jar/t4.lab.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/t4_lab_jar/t4.lab.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Ant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Ant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AntWarrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AntWarrior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AntWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/AntWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/DrawingAnts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/DrawingAnts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/GUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Habitat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Habitat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/IBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/IBehaviour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Singleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t4.lab/AntFarm/Singleton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Ant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AntFarm/AntWarrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/AntWarrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AntFarm/AntWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/AntWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AntFarm/DrawingAnts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/DrawingAnts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AntFarm/BaseAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/BaseAI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/Habitat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Habitat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AntFarm/IBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/IBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AntFarm/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AntFarm/Singleton.java" afterDir="false" />
     </list>
@@ -49,9 +52,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/LR4" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -109,7 +112,13 @@
       <workItem from="1591194786737" duration="1862000" />
       <workItem from="1591199981356" duration="124000" />
       <workItem from="1591200247383" duration="3128000" />
-      <workItem from="1591251564220" duration="31673000" />
+      <workItem from="1591251564220" duration="32522000" />
+      <workItem from="1591338701086" duration="829000" />
+      <workItem from="1591418839196" duration="6788000" />
+      <workItem from="1591683775545" duration="2063000" />
+      <workItem from="1591698657184" duration="22692000" />
+      <workItem from="1591790083549" duration="10100000" />
+      <workItem from="1591880187889" duration="8740000" />
     </task>
     <task id="LOCAL-00001" summary="LR3">
       <created>1590871151887</created>
@@ -118,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590871151887</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="LR4">
+      <created>1591289577993</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591289577993</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,13 +155,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="LR3" />
-    <option name="LAST_COMMIT_MESSAGE" value="LR3" />
+    <MESSAGE value="LR4" />
+    <option name="LAST_COMMIT_MESSAGE" value="LR4" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1587741228124">
+    <state x="275" y="22" key="#Project_Structure" timestamp="1591707826125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1587741228124" />
+    <state x="275" y="22" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1591707826125" />
+    <state x="439" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591896183074">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="439" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1591896183074" />
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1591720197120">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1591720197120" />
     <state x="521" y="135" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587536123705">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -154,10 +179,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1591288363865" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1590871118783">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1591289570593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590871118783" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1591289570593" />
     <state x="129" y="55" width="1092" height="610" key="DiffContextDialog" timestamp="1590736955775">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -166,22 +191,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591274621044" />
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom" timestamp="1591289104155">
+    <state width="1323" height="71" key="GridCell.Tab.0.bottom" timestamp="1591898146416">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591289104155" />
-    <state width="1323" height="169" key="GridCell.Tab.0.center" timestamp="1591289104155">
+    <state width="1323" height="71" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591898146416" />
+    <state width="1323" height="71" key="GridCell.Tab.0.center" timestamp="1591898146416">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591289104155" />
-    <state width="1323" height="169" key="GridCell.Tab.0.left" timestamp="1591289104155">
+    <state width="1323" height="71" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591898146416" />
+    <state width="1323" height="71" key="GridCell.Tab.0.left" timestamp="1591898146416">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591289104155" />
-    <state width="1323" height="169" key="GridCell.Tab.0.right" timestamp="1591289104155">
+    <state width="1323" height="71" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591898146416" />
+    <state width="1323" height="71" key="GridCell.Tab.0.right" timestamp="1591898146416">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591289104155" />
+    <state width="1323" height="71" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591898146416" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1591804092084">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591804092084" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1591804092083">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1591804092083" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1591804092083">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1591804092083" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1591804092084">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1591804092084" />
     <state x="481" y="86" key="RollbackChangesDialog" timestamp="1590736650643">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -194,10 +235,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="ShowDiffWithBranchDialog/0.0.1366.728@0.0.1366.728" timestamp="1587846597928" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1591289482843">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1591289624278">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591289482843" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591289624278" />
     <state x="401" y="98" key="VcsDiffUtil.ChangesDialog" timestamp="1590736977151">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -210,10 +251,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="464" y="77" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.728@0.0.1366.728" timestamp="1590737313084" />
-    <state x="65" y="0" key="new project wizard" timestamp="1591201169499">
+    <state x="65" y="0" key="new project wizard" timestamp="1591896050550">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1591201169499" />
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1591896050550" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590911951405">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

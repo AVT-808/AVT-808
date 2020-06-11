@@ -18,6 +18,7 @@ public class Habitat extends JFrame {
         super("Муравьиная ферма");
         int width = 1100, height = 700;
         setSize(width, height);
+        setResizable(false);
         setFocusable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -29,7 +30,6 @@ public class Habitat extends JFrame {
         time = 0;
         isInformationShowing = true;
         isOver = true; isPaused = false;
-
         gui = new GUI(actionListener);
         add(gui);
     }
@@ -125,6 +125,26 @@ public class Habitat extends JFrame {
         return true;
     }
 
+    public int getTime()
+    {
+        return time;
+    }
+
+    public void setAntsAmount(int antsAmount)
+    {
+        this.antsAmount = antsAmount;
+    }
+
+    public void setWorkersAmount(int workersAmount)
+    {
+        this.workersAmount = workersAmount;
+    }
+
+    public void setWarriorsAmount(int warriorsAmount)
+    {
+        this.warriorsAmount = warriorsAmount;
+    }
+
     public JButton getButtonStart()
     {
         return gui.getButtonStart();
@@ -194,6 +214,21 @@ public class Habitat extends JFrame {
     public JComboBox getWorkerThread() {return gui.getWorkerThread();}
 
     public JComboBox getWarriorThread() {return gui.getWarriorThread();}
+
+    public JButton getButtonConsole()
+    {
+        return gui.getButtonConsole();
+    }
+
+    public JButton getButtonSave()
+    {
+        return gui.getButtonSave();
+    }
+
+    public JButton getButtonLoad()
+    {
+        return gui.getButtonLoad();
+    }
 
     public JMenuItem getMenuStart()
     {

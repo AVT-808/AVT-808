@@ -1,11 +1,12 @@
 package AntFarm;
 
 import java.awt.*;
+import java.io.Serializable;
 
-public abstract class Ant implements IBehaviour
+public abstract class Ant implements IBehaviour, Serializable
 {
     private int x, y;
-    private Image image;
+    transient private Image image;
     protected int id, birthTime, deathTime;
 
     protected Ant(int x, int y)
