@@ -36,7 +36,7 @@ public class Console extends JDialog
         commandLine.requestFocus();
     }
 
-    public void ConsoleOperation(Main m){
+    public void ConsoleOperation(Control c){
         commandLine.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -52,22 +52,22 @@ public class Console extends JDialog
                     {
                         if (getTextString.equals("/Старт"))
                         {
-                            if (Main.isStarted)
+                            if (Control.isStarted)
                                 string += "\nОшибка! Симуляция уже запущена!\n";
                             else
                             {
                                 string += "\nСимуляция запущена.\n";
-                                m.startSimulation();
+                                c.startSimulation();
                             }
                         }
                         else
                         {
                             if(getTextString.equals("/Стоп"))
                             {
-                                if (Main.isStarted)
+                                if (Control.isStarted)
                                 {
                                     string += "\nСимуляция остановлена\n";
-                                    m.stopSimulation();
+                                    c.stopSimulation();
                                 }
                                 else
                                     string+="\nОшибка! Симуляция еще не запущена\n";

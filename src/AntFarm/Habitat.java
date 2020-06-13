@@ -145,6 +145,10 @@ public class Habitat extends JFrame {
         this.warriorsAmount = warriorsAmount;
     }
 
+    public int getWorkersAmount() { return workersAmount;}
+
+    public int getWarriorsAmount() { return warriorsAmount; }
+
     public JButton getButtonStart()
     {
         return gui.getButtonStart();
@@ -229,6 +233,8 @@ public class Habitat extends JFrame {
     {
         return gui.getButtonLoad();
     }
+
+    public JButton getButtonServer() { return gui.getButtonServer();}
 
     public JMenuItem getMenuStart()
     {

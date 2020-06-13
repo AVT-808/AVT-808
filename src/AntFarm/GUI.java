@@ -59,6 +59,7 @@ class GUI extends JPanel
     private JButton buttonConsole;
     private JButton buttonSave;
     private JButton buttonLoad;
+    private JButton buttonServer;
 
     public GUI(ActionListener actionListener)
     {
@@ -180,6 +181,9 @@ class GUI extends JPanel
         buttonLoad = new JButton("Загрузить");
         buttonLoad.addActionListener(actionListener);
 
+        buttonServer = new JButton("Сервер");
+        buttonServer.addActionListener(actionListener);
+
         menu.setLayout(new GridLayout(1, 2));
         menu.setFocusable(false);
 
@@ -216,10 +220,11 @@ class GUI extends JPanel
         simulation.add(menu);
         simulation.add(timerPanel);
 
-        lowPanel.setLayout(new GridLayout(1,3));
+        lowPanel.setLayout(new GridLayout(1,4));
         lowPanel.add(buttonConsole);
         lowPanel.add(buttonSave);
         lowPanel.add(buttonLoad);
+        lowPanel.add(buttonServer);
 
         draw = new DrawingAnts();
 
@@ -321,6 +326,8 @@ class GUI extends JPanel
     {
         return buttonLoad;
     }
+
+    public JButton getButtonServer() { return buttonServer; }
 
     public JMenuItem getMenuStart()
     {
