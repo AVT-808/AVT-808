@@ -3,6 +3,7 @@ package com.company.Panels;
 import com.company.Habitat.BeesArray.Singleton;
 import com.company.Habitat.Habitat;
 import com.company.Serialization.Seria;
+import com.company.Server.Client;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,7 @@ public class Buttons extends JPanel {
     private final JButton consoleButton;
     private static final JButton button_save =  new JButton("Сохранить");
     private static final JButton button_load = new JButton("Загрузить");
+    private static final JButton sendBees = new JButton("Отпраивть");
 
   Singleton st;
 
@@ -46,6 +48,10 @@ public class Buttons extends JPanel {
         button_load.setFocusable(false);
 
 
+        sendBees.setEnabled(true);
+        sendBees.setFocusable(false);
+
+
         add(startButton);
         startButton.setVisible(true);
         add(button_save);
@@ -54,9 +60,10 @@ public class Buttons extends JPanel {
         consoleButton.setVisible(true);
         add(stopButton);
         stopButton.setVisible(true);
-
         add(button_load);
         button_load.setVisible(true);
+        add(sendBees);
+        sendBees.setVisible(true);
 
 
 
@@ -100,6 +107,13 @@ public class Buttons extends JPanel {
             }
         });
 
+        sendBees.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Client.sendObj(Singleton.getInstance().bees);
+            }
+        });
+
         stopButton.setFocusable(false);
         startButton.setFocusable(false);
         setFocusable(false);
@@ -119,4 +133,6 @@ public class Buttons extends JPanel {
     public static JButton returnSbutton() { return button_save; } // Для доступа к этим же кнопкам в Keyboard
 
     public static JButton returnLbutton() { return button_load; }
+
+    public static JButton returnSendBees(){return sendBees;}
 }

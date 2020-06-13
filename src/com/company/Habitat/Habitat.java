@@ -7,6 +7,7 @@ import com.company.Models.Abstract.BaseBee;
 import com.company.Models.Worker;
 import com.company.Panels.*;
 import com.company.Serialization.DataFile;
+import com.company.Server.Client;
 
 import javax.swing.*;
 
@@ -39,6 +40,7 @@ public class Habitat extends JFrame {
     JButton consoleButton;
     JButton button_save;
     JButton button_load;
+    JButton sendBees;
 
     public Habitat(){
 
@@ -55,6 +57,7 @@ public class Habitat extends JFrame {
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
                 DataFile.ExitApplication();
+                Client.Disconnect();
             }
         });
 
@@ -76,8 +79,9 @@ public class Habitat extends JFrame {
         startButton = button.returnStart();
         stopButton = button.returnStop();
         consoleButton = button.returnConsoleButton();
-        button_save = button.returnSbutton();
-        button_load = button.returnLbutton();
+        button_save = Buttons.returnSbutton();
+        button_load = Buttons.returnLbutton();
+        sendBees = Buttons.returnSendBees();
 
 
         menuButtons.add(button);
@@ -96,16 +100,6 @@ public class Habitat extends JFrame {
 
     public JButton returnStop() {
         return stopButton;
-    }
-    public JButton returnConsoleButton() {
-        return consoleButton;
-    }
-
-    public JButton returnSbutton() {
-        return button_save;
-    }
-    public JButton returnLbutton() {
-        return button_load;
     }
 
 
@@ -148,6 +142,8 @@ public class Habitat extends JFrame {
 
 
     void update() {//продолжить симуляцию
+
+            Client.Download();
         time++;
         menuPanel.setTimer(time);
         Random coordinatesRandom = new Random();

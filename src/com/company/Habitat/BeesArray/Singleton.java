@@ -17,7 +17,7 @@ public class Singleton {
 
     private static DrawBee drawBee;
     private static  Singleton instance;
-    public final List<BaseBee> bees;
+    public ArrayList<BaseBee> bees = new ArrayList<>();
     public HashSet<Integer> hashSet;
     TreeMap<Integer,Integer> treeMap;
     private Timer timer;
@@ -27,7 +27,7 @@ public class Singleton {
 
 
     public Singleton() {
-        bees = new ArrayList<>();
+
         hashSet = new HashSet<>();
         treeMap = new TreeMap<>();
     }
@@ -44,9 +44,15 @@ public class Singleton {
             instance.bees.clear();
     }
 
-    public void setBees(List<BaseBee> bee){
+    public void setBees(ArrayList<BaseBee> bee){
         bees.addAll(bee);
     }
+
+    public void setBeees(ArrayList<BaseBee> bee){
+        if(bee!=null)
+        bees = bee;
+    }
+
 
     public void destroy_hashSet() {
         instance.hashSet.clear();

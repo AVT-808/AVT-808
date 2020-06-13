@@ -14,7 +14,7 @@ public class DataFile {
     private  static File file = new File("Config.txt");
     private  static File saveFile = new File("Save.txt");
     private  static String text;
-   public static int[] bufferInt = new int[8];
+    public static int[] bufferInt = new int[8];
     private  static byte[] buffer;
     DataFile(){
 

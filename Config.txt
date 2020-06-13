@@ -1,6 +1,6 @@
-Life time of worker: 5
-Life time of Drones: 6
-Chance of Workers: 5
+Life time of worker: 6
+Life time of Drones: 7
+Chance of Workers: 10
 Chance of Drones: 8
 Time of birth workers: 2
 Time of birth workers: 3

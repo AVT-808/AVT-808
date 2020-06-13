@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class Main extends KeyAdapter{
+public class Main2 extends KeyAdapter{
 
     private final Habitat habitat;
     Singleton st;
@@ -22,7 +22,7 @@ public class Main extends KeyAdapter{
     private Boolean isStarted;
 
 
-    private Main() {
+    private Main2() {
 
         habitat = new Habitat();
         habitat.setVisible(true);
@@ -41,27 +41,27 @@ public class Main extends KeyAdapter{
 
     @Override
     public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_B) {
-                isStarted = st.getIsStart();//isStarted присваиваем то, какое оно в Singleton
-                if(isStarted) { //isStarted = true
-                    st.Start(habitat, startButton, stopButton);
-                    habitat.requestFocus();
-                    startButton.setEnabled(false);
-                    stopButton.setEnabled(true);
-                    isStarted = false;//кнопка на клавиатуре нажата и если нажмем еще раз, она работать не будет
-                }
+        if (e.getKeyCode() == KeyEvent.VK_B) {
+            isStarted = st.getIsStart();//isStarted присваиваем то, какое оно в Singleton
+            if(isStarted) { //isStarted = true
+                st.Start(habitat, startButton, stopButton);
+                habitat.requestFocus();
+                startButton.setEnabled(false);
+                stopButton.setEnabled(true);
+                isStarted = false;//кнопка на клавиатуре нажата и если нажмем еще раз, она работать не будет
             }
+        }
 
-         if (e.getKeyCode() == KeyEvent.VK_E ){
-             isStarted = st.getIsStart();//isStarted присваиваем true через метод getIsStart который возвращает isStart
-             if(!isStarted) {//isStarted = false
-                 st.Stop(habitat, startButton, stopButton);
-                 habitat.requestFocus();
-                 stopButton.setEnabled(false);
-                 startButton.setEnabled(true);
-                 isStarted = true;
-             }
-         }
+        if (e.getKeyCode() == KeyEvent.VK_E ){
+            isStarted = st.getIsStart();//isStarted присваиваем true через метод getIsStart который возвращает isStart
+            if(!isStarted) {//isStarted = false
+                st.Stop(habitat, startButton, stopButton);
+                habitat.requestFocus();
+                stopButton.setEnabled(false);
+                startButton.setEnabled(true);
+                isStarted = true;
+            }
+        }
         if(e.getKeyCode() == KeyEvent.VK_T) {
             bool = habitat.return_bool();
             bool=!bool;
@@ -71,7 +71,7 @@ public class Main extends KeyAdapter{
 
     public static void main(String[] args) {
         DataFile.RunApplication();
-        new Main();
+        new Main2();
     }
 
 }
