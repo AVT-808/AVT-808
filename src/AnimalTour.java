@@ -7,14 +7,14 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import Conf.*;
-import Serial.Serializ;
+import Serv.Client;
 
 
 public class AnimalTour  {
 
     private AnimalTour() throws IOException {
         Keyboard keyboard = new Keyboard();
-
+        Client.Connection();
         SmallAI smallAI = new SmallAI();
         BigAI bigAI = new BigAI();
         Pause.setAI(smallAI,bigAI);

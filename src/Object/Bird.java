@@ -30,4 +30,8 @@ public abstract class Bird implements IBehaviour, Serializable {
         return who;
     }
 
+    public double getTime_luntik(){
+        return time_luntik;
+    }
+
 }

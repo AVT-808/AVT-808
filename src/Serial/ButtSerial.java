@@ -4,8 +4,6 @@ import Habit.Habitat;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ButtSerial extends JPanel {
 
@@ -32,10 +30,6 @@ public class ButtSerial extends JPanel {
         add(button_load);
 
     }
-
-    public static JButton Return_start() { return button_save; } // Для доступа к этим же кнопкам в Keyboard
-
-    public static JButton Return_stop() { return button_load; }
 
 }
 

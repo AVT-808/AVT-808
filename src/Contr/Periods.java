@@ -9,8 +9,8 @@ public class Periods extends JPanel {
 
     public static JTextField textArea_big;
     public static JTextField textArea_small;
-    static Integer time_birth_big=3; // Con
-    static Integer time_birth_small=5; // Con
+    static Integer time_birth_big=5; // Con
+    static Integer time_birth_small=3; // Con
 
     public Periods() {
 

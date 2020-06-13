@@ -7,6 +7,7 @@ import Array.Singleton;
 import DrawPanel.DepictBird;
 import Fact.*;
 import Object.*;
+import Serv.Client;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +15,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Habitat {
@@ -29,7 +31,6 @@ public class Habitat {
     private final Line line;
 
     private final Men men;
-    private final LowerMenu lowerMenu;
 
     Integer identifier;
     public JFrame jFrame;
@@ -39,7 +40,6 @@ public class Habitat {
     //*********************************//
 
     public Habitat() throws IOException {
-
         jFrame = new JFrame("Field");
         int width = 1250;
         int height = 650;
@@ -50,6 +50,18 @@ public class Habitat {
 
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Чтобы при закрытии окна закрывалась и программа, иначе она останется висеть в процессах
 
+        jFrame.setLayout(new BoxLayout(jFrame.getContentPane(),BoxLayout.Y_AXIS));
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                //DataFile.ExitApplication();
+                Client.Disconnect();
+            }
+        });
+
+
         this.time = 0;
         Bird_s = Singleton.getM();
         factory = new ConcreteFactory();
@@ -57,7 +69,7 @@ public class Habitat {
         men = new Men(this);
         men.setMaximumSize(new Dimension(width, 50));
 
-        lowerMenu = new LowerMenu(this);
+        LowerMenu lowerMenu = new LowerMenu(this);
         lowerMenu.setMaximumSize(new Dimension(width, 25));
 
         depict_a_bird = new DepictBird();
@@ -75,6 +87,8 @@ public class Habitat {
 
         console = new Console(jFrame);
         console.ConsoleOperation();
+
+
 
     }
 
@@ -115,9 +129,61 @@ public class Habitat {
 
     void Update() {
 
-        time++;
 
-        line.setTimer(time,factory.Return_the_Number_of_animals());
+        String sendUser = Client.Download();
+        int n = Client.DownN();
+
+        if (sendUser.equals(Client.getUser())) {
+            System.out.println("Надо передать: " + sendUser );
+            System.out.println("Число: "+n);
+
+
+        int size = Singleton.getBird_s().size();
+        int newsize = size - (Integer)size*n/100;
+        System.out.println("Старый массив "+size+"\nНовый массив: "+ newsize);
+            LinkedList<Bird> newBird = new LinkedList<>();
+            for (Bird bird : Singleton.getBird_s()) {
+                newBird.add(bird);
+            }
+
+            for(int i = newsize; i<Singleton.getBird_s().size();i++){
+                newBird.remove(newsize);
+            }
+
+            //Bird_s.Destruction_Bird_s();
+            factory.Total_destruction();
+
+            number_of_Small = 0;
+            number_of_Big = 0;
+            Bird_s.Destruction_Bird_s();
+            Bird_s.Destruction_hashMap();
+            Bird_s.Destruction_treeSet();
+
+
+            for (Bird bird : newBird) {
+
+                if (bird.getClass() == Big.class) { number_of_Big++; } // Изменить счетчик
+                else { number_of_Small++; }
+
+                Bird_s.Add_Bird_s(bird); // Добавить объект
+
+                while (Bird_s.treeSet.contains(identifier)) { //  Если элемент найден, он возвращает true, в противном случае false
+                    Random coord = new Random(); // Расположение птицы
+                    identifier = coord.nextInt(100); // Делаем для того, чтобы номера не повторились
+                }
+
+                Bird_s.Add_identifier(identifier); // Добавить ключ
+                Bird_s.Put_hashMap(identifier,(int)bird.getTime_luntik()); // Добавить в таблицу
+
+                depict_a_bird.repaint();
+            }
+
+            Fact.IdentifyType.setNumber_of_birds(newsize);
+            depict_a_bird.repaint();
+            Serv.Client.sendUsNull();
+        }
+
+        time++;
 
         Random coord = new Random(); // Расположение птицы
         int x_Coord = coord.nextInt(depict_a_bird.getWidth()-100);
@@ -134,6 +200,7 @@ public class Habitat {
             line.setTimer(time,factory.Return_the_Number_of_animals());
 
             if(bird != null) {
+
 
                 if (bird.getClass() == Big.class) { number_of_Big++; } // Изменить счетчик
                 else { number_of_Small++; }
@@ -177,7 +244,6 @@ public class Habitat {
             }
         }
 
-
     }
 
     ////////////////////////////////
@@ -194,5 +260,7 @@ public class Habitat {
     public static int getTime(){
         return time;
     }
+
+
 }
 

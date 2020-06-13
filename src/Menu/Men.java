@@ -1,6 +1,5 @@
 package Menu;
 
-import Cons.ButtConsole;
 import Contr.*;
 import Habit.Habitat;
 import Existence.*;

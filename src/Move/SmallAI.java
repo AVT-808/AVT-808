@@ -22,7 +22,7 @@ public class SmallAI extends BaseAI {
 
                 while (!isMoving){
                     try {
-                        System.out.printf("%s Ждет... \n", Thread.currentThread().getName());
+                       // System.out.printf("%s Ждет... \n", Thread.currentThread().getName());
                         wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();

@@ -1,15 +1,11 @@
 package Menu;
 
 import Cons.ButtConsole;
-import Contr.*;
 import Habit.Habitat;
-import Existence.*;
-import Move.Pause;
-import Move.Prior;
 import Serial.ButtSerial;
+import Serv.ButtServ;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class LowerMenu extends JPanel {
 
@@ -25,7 +21,9 @@ public class LowerMenu extends JPanel {
         ButtSerial buttSerial = new ButtSerial(habitat);
         add(buttSerial);
         ////////
-
+        ButtServ buttServ = new ButtServ();
+        add(buttServ);
+        ////////
 
         setVisible(true);
         setFocusable(false);

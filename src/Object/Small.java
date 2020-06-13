@@ -44,5 +44,4 @@ public class Small extends Bird {
 
     public static void setY_Coord(int y) { y_Coord=y; }
 
-
 }

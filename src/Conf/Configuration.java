@@ -1,6 +1,5 @@
 package Conf;
 
-//import Contr.*;
 
 import javax.swing.*;
 import java.io.*;
@@ -60,7 +59,7 @@ public class Configuration {
         }
 
         setOptions();
-        config.forEach((k, v) -> System.out.println(k + ": " + v));
+        //config.forEach((k, v) -> System.out.println(k + ": " + v));
     }
 
     public void saveInformation(){

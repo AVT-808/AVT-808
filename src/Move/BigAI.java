@@ -21,7 +21,7 @@ public class BigAI extends BaseAI {
 
                 while (!isMoving) { // Засыпание/пробуждение потока BaseBigAI
                     try {
-                        System.out.printf("%s Ждет... \n", Thread.currentThread().getName());
+                        //System.out.printf("%s Ждет... \n", Thread.currentThread().getName());
                         wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();

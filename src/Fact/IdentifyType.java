@@ -14,12 +14,13 @@ public class IdentifyType {
 static int proverka =3;
 
 
-    private Integer number_of_birds, number_of_Big, number_of_Small;
+    private Integer number_of_Big, number_of_Small;
 
     Integer time_birth_small, time_birth_big;
     Float chance_birth_big;
      float percent;
      static Boolean c = false;
+     public static int number_of_birds;
 
     public IdentifyType() {
         number_of_birds = 0;
@@ -88,5 +89,10 @@ public static void setC(int p) {
     c=true;
     proverka = p;
 }
+
+public static void setNumber_of_birds(int r) {
+        number_of_birds = r;
+}
+
 }
 
